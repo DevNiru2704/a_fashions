@@ -18,8 +18,8 @@ export default function Header() {
             rightVideo.style.transform = `translateX(${progress * 100}%)`;
 
             // Optional fade-out
-            leftVideo.style.opacity = `${1 - progress}`;
-            rightVideo.style.opacity = `${1 - progress}`;
+            // leftVideo.style.opacity = `${1 - progress}`;
+            // rightVideo.style.opacity = `${1 - progress}`;
         };
 
         window.addEventListener("scroll", handleScroll);

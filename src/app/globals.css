@@ -11,3 +11,18 @@ body {
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: 'SimHei';
+  src:
+    url('/assets/fonts/SimHei Regular.woff2') format('woff2'),
+    url('/assets/fonts/SimHei Regular.woff') format('woff'),
+    url('/assets/fonts/SimHei Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-simhei {
+  font-family: 'SimHei', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
