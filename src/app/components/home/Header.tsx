@@ -5,9 +5,30 @@ import Link from "next/link";
 export default function Header() {
     const [hoveringNav, setHoveringNav] = useState(false);
     const [scale, setScale] = useState(1);
+    const [scrollUp, setScrollUp] = useState(true); // new state for scroll direction
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // mobile menu state
     const cursorRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLElement>(null);
     const hoveringRef = useRef(false);
+    const lastScrollY = useRef(0);
+
+    // --- Track scroll direction for hiding/showing navbar ---
+    useEffect(() => {
+        const handleScrollDirection = () => {
+            const currentScroll = window.scrollY;
+            // If scrolling down
+            if (currentScroll > lastScrollY.current && currentScroll > 100) {
+                setScrollUp(false);
+                setMobileMenuOpen(false); // Close mobile menu when scrolling down
+            } else {
+                setScrollUp(true);
+            }
+            lastScrollY.current = currentScroll;
+        };
+
+        window.addEventListener("scroll", handleScrollDirection);
+        return () => window.removeEventListener("scroll", handleScrollDirection);
+    }, []);
 
     // --- Update hoveringRef whenever hoveringNav changes ---
     useEffect(() => {
@@ -91,7 +112,8 @@ export default function Header() {
             {/* Navbar */}
             <nav
                 ref={navRef}
-                className="fixed top-0 left-0 w-full h-16 flex items-center justify-center backdrop-blur-md bg-white/5 text-black font-medium z-50"
+                className={`fixed top-0 left-0 w-full h-16 flex items-center justify-center backdrop-blur-md bg-white/5 text-black font-medium z-50 transition-transform duration-500 ease-in-out ${scrollUp ? "translate-y-0" : "-translate-y-full"
+                    }`}
             >
                 {/* Left-aligned logo */}
                 <div className="absolute left-8">
@@ -100,8 +122,8 @@ export default function Header() {
                     </Link>
                 </div>
 
-                {/* Center-aligned menu items */}
-                <div className="flex space-x-8">
+                {/* Desktop menu items - hidden on mobile */}
+                <div className="hidden min-[811px]:flex space-x-8">
                     <Link
                         href="/our-story"
                         className="transition-transform duration-300 ease-out hover:-translate-y-1 cursor-pointer"
@@ -121,7 +143,53 @@ export default function Header() {
                         Lets Connect
                     </Link>
                 </div>
+
+                {/* Hamburger button - visible only on mobile */}
+                <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="absolute right-8 min-[811px]:hidden w-8 h-6 flex flex-col justify-center items-center gap-[6px] cursor-pointer"
+                    aria-label="Toggle menu"
+                >
+                    <span
+                        className={`w-full h-[2px] bg-black transition-all duration-300 ease-in-out ${mobileMenuOpen ? "rotate-45 translate-y-[4px]" : ""
+                            }`}
+                    />
+                    <span
+                        className={`w-full h-[2px] bg-black transition-all duration-300 ease-in-out ${mobileMenuOpen ? "-rotate-45 -translate-y-[4px]" : ""
+                            }`}
+                    />
+                </button>
             </nav>
+
+            {/* Mobile menu - slides down/up */}
+            <div
+                className={`fixed left-0 w-full backdrop-blur-md bg-white/5 z-40 min-[811px]:hidden transition-all duration-500 ease-in-out ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+                    } ${scrollUp ? "top-16" : "-top-full"}`}
+            >
+                <div className="flex flex-col items-center space-y-6 py-8 text-black font-medium">
+                    <Link
+                        href="/our-story"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-lg tracking-wide cursor-pointer"
+                    >
+                        OUR STORY
+                    </Link>
+                    <Link
+                        href="/catalogue"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-lg tracking-wide cursor-pointer"
+                    >
+                        CATALOGUE
+                    </Link>
+                    <Link
+                        href="/lets-connect"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-lg tracking-wide cursor-pointer"
+                    >
+                        LETS CONNECT
+                    </Link>
+                </div>
+            </div>
 
             {/* Curtain Container */}
             <section className="relative h-screen w-screen">
@@ -154,7 +222,6 @@ export default function Header() {
                 </div>
             </section>
 
-
             {/* Revealed Section */}
             <section className="absolute -z-10 top-[100vh] left-0 h-[100vh] w-full bg-black text-white flex items-center justify-center">
                 <h1 className="text-5xl font-bold">Revealed Section</h1>
@@ -163,7 +230,7 @@ export default function Header() {
             {/* Floating Cursor */}
             <div
                 ref={cursorRef}
-                className="fixed pointer-events-none z-[100] mix-blend-difference"
+                className="fixed pointer-events-none z-[100] mix-blend-difference hidden min-[811px]:block"
                 style={{
                     transform: `translate(-50%, -50%) scale(${scale})`,
                     transition: "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)",
