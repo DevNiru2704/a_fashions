@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-simhei"
+      <body className="font-simhei bg-[#E8E8E8]"
       >
         {children}
       </body>

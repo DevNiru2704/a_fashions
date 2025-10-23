@@ -117,7 +117,7 @@ export default function Header() {
             >
                 {/* Left-aligned logo */}
                 <div className="absolute left-8">
-                    <Link href="/" className="tracking-widest text-xl cursor-pointer">
+                    <Link href="/" className="tracking-widest text-xl cursor-pointer transition-transform duration-300 ease-out hover:-translate-y-1">
                         A FASHION
                     </Link>
                 </div>
@@ -223,8 +223,20 @@ export default function Header() {
             </section>
 
             {/* Revealed Section */}
-            <section className="absolute -z-10 top-[100vh] left-0 h-[100vh] w-full bg-black text-white flex items-center justify-center">
-                <h1 className="text-5xl font-bold">Revealed Section</h1>
+            <section className="absolute -z-10 top-[100vh] left-0 h-[100vh] w-full flex flex-col items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
+                <div className="flex flex-col items-center justify-center gap-12">
+                    {/* Logo */}
+                    <img
+                        src="/assets/images/afashions_logo.svg"
+                        alt="A Fashions Logo"
+                        className="w-[80vw] h-auto"
+                    />
+
+                    {/* Tagline */}
+                    <p className="text-black text-sm md:text-base lg:text-xl font-light text-center px-4">
+                        DESIGNING AND MANUFACTURING FINEST LEATHER GOODS
+                    </p>
+                </div>
             </section>
 
             {/* Floating Cursor */}
