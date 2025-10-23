@@ -25,43 +25,48 @@ export default function Header() {
     }, []);
 
     return (
-        <main className="relative min-h-[300vh] w-screen overflow-hidden">
+        <>
             {/* Navbar */}
             <Navbar navRef={navRef} />
 
-            {/* Curtain Container */}
-            <section className="relative h-screen w-screen">
-                <div className="fixed top-0 left-0 h-screen w-screen overflow-hidden">
-                    <div className="flex flex-col md:flex-row h-full w-full">
-                        <video
-                            id="left-video"
-                            className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="auto"
-                        >
-                            <source src="/assets/videos/left_video.mp4" type="video/mp4" />
-                        </video>
+            <main className="relative w-screen">
+                {/* Curtain Container */}
+                <section className="relative h-screen w-screen">
+                    <div className="fixed top-0 left-0 h-screen w-screen overflow-hidden z-0">
+                        <div className="flex flex-col md:flex-row h-full w-full">
+                            <video
+                                id="left-video"
+                                className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="auto"
+                            >
+                                <source src="/assets/videos/left_video.mp4" type="video/mp4" />
+                            </video>
 
-                        <video
-                            id="right-video"
-                            className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="auto"
-                        >
-                            <source src="/assets/videos/right_video.mp4" type="video/mp4" />
-                        </video>
+                            <video
+                                id="right-video"
+                                className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="auto"
+                            >
+                                <source src="/assets/videos/right_video.mp4" type="video/mp4" />
+                            </video>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Landing Section */}
-            <LandingSection />
-        </main>
+                {/* Spacer to create scroll height for video section */}
+                <div className="h-[100vh]"></div>
+
+                {/* Landing Section */}
+                <LandingSection />
+            </main>
+        </>
     );
 }

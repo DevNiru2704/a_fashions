@@ -6,9 +6,16 @@ export default function ScrollToTop() {
     const pathname = usePathname();
 
     useEffect(() => {
-        // Scroll to top on page load/refresh
-        window.scrollTo(0, 0);
+        // Force instant scroll to top on mount and route change
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, [pathname]);
+
+    // Also reset scroll position on initial load
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, []);
 
     return null;
 }
