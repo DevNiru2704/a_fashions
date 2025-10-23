@@ -29,9 +29,9 @@ export default function Header() {
             {/* Navbar */}
             <Navbar navRef={navRef} />
 
-            <main className="relative w-screen">
+            <main className="relative w-full">
                 {/* Curtain Container */}
-                <section className="relative h-screen w-screen">
+                <section className="relative h-screen w-full z-20">
                     <div className="fixed top-0 left-0 h-screen w-screen overflow-hidden z-0">
                         <div className="flex flex-col md:flex-row h-full w-full">
                             <video

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import ProcessSection from "./ProcessSection";
+import WhatWeMake from "./WhatWeMake";
 
 export default function LandingSection() {
     const [visibleWords, setVisibleWords] = useState<number[]>([]);
@@ -56,7 +56,7 @@ export default function LandingSection() {
     return (
         <>
             {/* First Section - Logo and Tagline */}
-            <section className="relative h-[100vh] w-full flex flex-col items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
+            <section className="relative h-[100vh] z-10 w-full flex flex-col items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
                 <div className="flex flex-col items-center justify-center gap-12">
                     {/* Logo */}
                     <img
@@ -75,7 +75,7 @@ export default function LandingSection() {
             {/* Second Section - Animated Text */}
             <section
                 ref={sectionRef}
-                className="relative h-[100vh] w-full flex items-center justify-start px-8 md:px-12 lg:px-16"
+                className="relative h-[100vh] w-full flex items-center justify-start px-8 md:px-12 lg:px-16 z-10"
                 style={{ backgroundColor: '#E8E8E8' }}
             >
                 {/* Desktop Layout - Hidden on mobile/tablet */}
@@ -135,8 +135,8 @@ export default function LandingSection() {
                 </div>
             </section>
 
-            {/* Third Section - Process Section */}
-            <ProcessSection />
+            {/* Third Section - What We Make */}
+            <WhatWeMake />
         </>
     );
 }
