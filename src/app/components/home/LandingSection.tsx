@@ -34,24 +34,25 @@ export default function LandingSection() {
                         allWords.forEach((_, index) => {
                             setTimeout(() => {
                                 setVisibleWords((prev) => [...prev, index]);
-                            }, index * 20); // 400ms delay between each word
+                            }, index * 20);
                         });
                     }
                 });
             },
-            { threshold: 0.5 } // Trigger when 50% of section is visible
+            { threshold: 0.5 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        const currentSection = sectionRef.current;
+        if (currentSection) {
+            observer.observe(currentSection);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (currentSection) {
+                observer.unobserve(currentSection);
             }
         };
-    }, []);
+    }, [allWords]);
 
     return (
         <>
@@ -59,6 +60,7 @@ export default function LandingSection() {
             <section className="relative h-[100vh] z-10 w-full flex flex-col items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
                 <div className="flex flex-col items-center justify-center gap-12">
                     {/* Logo */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="/assets/images/afashions_logo.svg"
                         alt="A Fashions Logo"

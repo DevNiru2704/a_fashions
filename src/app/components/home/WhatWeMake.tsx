@@ -123,6 +123,7 @@ export default function WhatWeMake() {
                         {/* Image */}
                         <div className="w-full md:w-1/2">
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={product.image}
                                     alt={product.title}
@@ -158,6 +159,7 @@ export default function WhatWeMake() {
                         <div key={product.id} className="flex flex-col space-y-6">
                             {/* Image */}
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={product.image}
                                     alt={product.title}
