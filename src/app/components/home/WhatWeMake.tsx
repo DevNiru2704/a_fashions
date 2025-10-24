@@ -75,7 +75,7 @@ export default function WhatWeMake() {
                 const parallaxStartPoint = windowHeight * 3;
 
                 if (scrollPosition >= parallaxStartPoint) {
-                    const parallaxSpeed = 1.3;
+                    const parallaxSpeed = 1.5;
                     const offset = (scrollPosition - parallaxStartPoint) * (parallaxSpeed - 1);
                     setTranslateY(-offset);
                 } else {

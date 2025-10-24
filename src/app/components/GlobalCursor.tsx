@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 export default function GlobalCursor() {
     const [hoveringNav, setHoveringNav] = useState(false);
     const [scale, setScale] = useState(1);
+    const [isClicking, setIsClicking] = useState(false);
     const [isHomePage, setIsHomePage] = useState(true);
     const cursorRef = useRef<HTMLDivElement>(null);
     const hoveringRef = useRef(false);
@@ -66,8 +67,18 @@ export default function GlobalCursor() {
             if (!isHomePage) return;
         };
 
+        const handleMouseDown = () => {
+            setIsClicking(true);
+        };
+
+        const handleMouseUp = () => {
+            setIsClicking(false);
+        };
+
         window.addEventListener("mousemove", handleMove);
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener("mousedown", handleMouseDown);
+        window.addEventListener("mouseup", handleMouseUp);
 
         const follow = () => {
             const delayFactor = 0.08; // Lower = smoother delay
@@ -109,6 +120,8 @@ export default function GlobalCursor() {
         return () => {
             window.removeEventListener("mousemove", handleMove);
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("mousedown", handleMouseDown);
+            window.removeEventListener("mouseup", handleMouseUp);
         };
     }, [isHomePage]);
 
@@ -153,16 +166,16 @@ export default function GlobalCursor() {
         >
             <div
                 className={`transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${hoveringNav || cursorSection === 'animated'
-                        ? "w-3 h-3 rounded-full bg-white"
-                        : "px-3 py-1 rounded-md text-xs font-medium text-white bg-transparent border border-white"
+                    ? "w-3 h-3 rounded-full bg-white"
+                    : "px-3 py-1 rounded-md text-xs font-medium text-white bg-transparent border border-white"
                     }`}
                 style={{
                     transform: (hoveringNav || cursorSection === 'animated')
-                        ? "translate(0px, 0px) scale(1)"
+                        ? `translate(0px, 0px) scale(${isClicking ? 0.5 : 1})`
                         : "translate(40px, 40px) scale(1.6)",
                     transformOrigin: "center",
                     transition:
-                        "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), all 0.3s ease-in-out",
+                        "transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), all 0.3s ease-in-out",
                 }}
             >
                 {!hoveringNav && cursorSection !== 'animated' && "HELLO"}

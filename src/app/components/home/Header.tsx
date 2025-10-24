@@ -41,7 +41,8 @@ export default function Header() {
                                 loop
                                 muted
                                 playsInline
-                                preload="auto"
+                                preload="metadata"
+                                poster="/assets/images/video-poster-left.jpg"
                             >
                                 <source src="/assets/videos/left_video.mp4" type="video/mp4" />
                             </video>
@@ -53,7 +54,8 @@ export default function Header() {
                                 loop
                                 muted
                                 playsInline
-                                preload="auto"
+                                preload="metadata"
+                                poster="/assets/images/video-poster-right.jpg"
                             >
                                 <source src="/assets/videos/right_video.mp4" type="video/mp4" />
                             </video>
