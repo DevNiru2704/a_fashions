@@ -1,58 +1,8 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import WhatWeMake from "./WhatWeMake";
+import BlurFadeText from "../animations/BlurFadeText";
 
 export default function LandingSection() {
-    const [visibleWords, setVisibleWords] = useState<number[]>([]);
-    const sectionRef = useRef<HTMLElement>(null);
-    const hasAnimated = useRef(false);
-
-    // Desktop layout: 3 lines
-    const desktopLines = [
-        ["DESIGNED", "WITH"],
-        ["ORIGINALITY", "AND"],
-        ["PURPOSE"]
-    ];
-
-    // Mobile/Tablet layout: 3 lines
-    const mobileLines = [
-        ["DESIGNED", "WITH"],
-        ["ORIGINALITY"],
-        ["AND", "PURPOSE"]
-    ];
-
-    // Flatten for sequential animation (use desktop as reference)
-    const allWords = desktopLines.flat();
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && !hasAnimated.current) {
-                        hasAnimated.current = true;
-                        // Animate words one by one
-                        allWords.forEach((_, index) => {
-                            setTimeout(() => {
-                                setVisibleWords((prev) => [...prev, index]);
-                            }, index * 20);
-                        });
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        const currentSection = sectionRef.current;
-        if (currentSection) {
-            observer.observe(currentSection);
-        }
-
-        return () => {
-            if (currentSection) {
-                observer.unobserve(currentSection);
-            }
-        };
-    }, [allWords]);
 
     return (
         <>
@@ -76,64 +26,26 @@ export default function LandingSection() {
 
             {/* Second Section - Animated Text */}
             <section
-                ref={sectionRef}
-                className="relative h-[100vh] w-full flex items-center justify-start px-8 md:px-12 lg:px-16 z-10"
-                style={{ backgroundColor: '#E8E8E8' }}
+                className="relative h-[100vh] w-full flex items-center justify-start px-8 md:px-12 lg:px-16 z-10 bg-[#E8E8E8]"
             >
                 {/* Desktop Layout - Hidden on mobile/tablet */}
-                <div className="hidden lg:flex flex-col gap-8 w-full">
-                    {desktopLines.map((line, lineIndex) => {
-                        const startIndex = desktopLines.slice(0, lineIndex).flat().length;
-                        return (
-                            <div key={lineIndex} className="flex gap-12">
-                                {line.map((word, wordIndex) => {
-                                    const globalIndex = startIndex + wordIndex;
-                                    return (
-                                        <div
-                                            key={wordIndex}
-                                            className={`text-[12vw] leading-none font-bold text-black tracking-wide transition-all duration-1000 ${visibleWords.includes(globalIndex)
-                                                ? "opacity-100 blur-0 translate-y-0"
-                                                : "opacity-0 blur-md translate-y-8"
-                                                }`}
-                                            style={{
-                                                transitionDelay: `${globalIndex * 100}ms`,
-                                            }}
-                                        >
-                                            {word}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        );
-                    })}
+                <div className="hidden lg:block w-full">
+                    <BlurFadeText
+                        text="DESIGNED WITH ORIGINALITY AND PURPOSE"
+                        className="text-[12vw] leading-none font-bold text-black tracking-wide"
+                        delayBetweenWords={100}
+                        threshold={0.5}
+                    />
                 </div>
 
                 {/* Mobile/Tablet Layout - Hidden on desktop */}
-                <div className="flex lg:hidden flex-col gap-6 w-full">
-                    {mobileLines.map((line, lineIndex) => {
-                        const startIndex = mobileLines.slice(0, lineIndex).flat().length;
-                        return (
-                            <div key={lineIndex} className="flex gap-4 md:gap-8">
-                                {line.map((word, wordIndex) => {
-                                    const globalIndex = startIndex + wordIndex;
-                                    return (
-                                        <div
-                                            key={wordIndex}
-                                            className={`text-[10vw] md:text-[9vw] leading-none font-bold text-black tracking-wide transition-all duration-1000 ${visibleWords.includes(globalIndex)
-                                                ? "opacity-100 blur-0 translate-y-0"
-                                                : "opacity-0 blur-md translate-y-8"
-                                                }`}
-                                            style={{
-                                                transitionDelay: `${globalIndex * 100}ms`,
-                                            }}
-                                        >
-                                            {word}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        );
-                    })}
+                <div className="block lg:hidden w-full">
+                    <BlurFadeText
+                        text="DESIGNED WITH ORIGINALITY AND PURPOSE"
+                        className="text-[10vw] md:text-[9vw] leading-none font-bold text-black tracking-wide"
+                        delayBetweenWords={500}
+                        threshold={0.5}
+                    />
                 </div>
             </section>
 

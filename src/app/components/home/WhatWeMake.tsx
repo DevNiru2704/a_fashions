@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import BlurFadeText from "../animations/BlurFadeText";
 
 interface Product {
     id: number;
@@ -107,9 +108,12 @@ export default function WhatWeMake() {
         >
             {/* Header */}
             <div className="mb-20">
-                <h1 className="text-black text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                    WHAT WE MAKE
-                </h1>
+                <BlurFadeText
+                    text="WHAT WE MAKE"
+                    className="text-black text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                    delayBetweenWords={150}
+                    threshold={0.3}
+                />
             </div>
 
             {/* Products Grid */}
