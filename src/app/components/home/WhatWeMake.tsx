@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import BlurFadeText from "../animations/BlurFadeText";
+import SlideIn from "../animations/SlideIn";
+import ExploreButton from "../ExploreButton";
 
 interface Product {
     id: number;
@@ -70,13 +72,18 @@ export default function WhatWeMake() {
                 if (!sectionRef.current) return;
 
                 const windowHeight = window.innerHeight;
+                const windowWidth = window.innerWidth;
                 const scrollPosition = window.scrollY;
 
-                // Start parallax after all 3 sections (video + logo + animated text)
-                const parallaxStartPoint = windowHeight * 3;
+                // Mobile: stronger parallax and starts earlier
+                const isMobile = windowWidth < 768;
+                const parallaxStartPoint = isMobile
+                    ? windowHeight * 2.2  // Starts much earlier on mobile (after 1.2 sections)
+                    : windowHeight * 2.2; // Desktop starts later
 
                 if (scrollPosition >= parallaxStartPoint) {
-                    const parallaxSpeed = 1.5;
+                    // Mobile: stronger effect, Desktop: current effect
+                    const parallaxSpeed = isMobile ? 1.5 : 1.5;
                     const offset = (scrollPosition - parallaxStartPoint) * (parallaxSpeed - 1);
                     setTranslateY(-offset);
                 } else {
@@ -97,102 +104,137 @@ export default function WhatWeMake() {
     }, []);
 
     return (
-        <section
-            ref={sectionRef}
-            className="relative w-full z-20 py-20 px-8 md:px-12 lg:px-16"
-            style={{
-                backgroundColor: "#E8E8E8",
-                transform: `translate3d(0, ${translateY}px, 0)`,
-                willChange: "transform"
-            }}
-        >
-            {/* Header */}
-            <div className="mb-20">
-                <BlurFadeText
-                    text="WHAT WE MAKE"
-                    className="text-black text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-                    delayBetweenWords={10}
-                    threshold={0.3}
-                />
-            </div>
+        <div className="relative" style={{ marginTop: `${translateY}px` }}>
+            <section
+                ref={sectionRef}
+                className="relative w-full z-20 py-20 px-8 md:px-12 lg:px-16 bg-[#E8E8E8]"
+            >
+                {/* Header */}
+                <div className="mb-20">
+                    <BlurFadeText
+                        text="WHAT WE MAKE"
+                        className="text-black text-5xl md:text-6xl lg:text-7xl tracking-tight"
+                        delayBetweenWords={10}
+                        threshold={0.3}
+                    />
+                </div>
 
-            {/* Products Grid */}
-            <div className="space-y-32">
-                {/* First 3 products - full width alternating layout */}
-                {products.map((product) => (
-                    <div
-                        key={product.id}
-                        className={`flex flex-col ${product.imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row"} gap-12 md:gap-16 items-center`}
-                    >
-                        {/* Image */}
-                        <div className="w-full md:w-1/2">
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="w-full md:w-1/2 space-y-6">
-                            <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                {product.badge}
-                            </span>
-
-                            <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                                {product.title}
-                            </h2>
-
-                            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                                {product.description}
-                            </p>
-
-                            <button className="text-black text-base md:text-lg font-medium hover:text-orange-500 transition-colors flex items-center gap-2">
-                                Explore more →
-                            </button>
-                        </div>
-                    </div>
-                ))}
-
-                {/* Last row - Belts and Hard Goods side by side */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                    {lastRowProducts.map((product) => (
-                        <div key={product.id} className="flex flex-col space-y-6">
+                {/* Products Grid */}
+                <div className="space-y-32">
+                    {/* First 3 products - full width alternating layout */}
+                    {products.map((product) => (
+                        <div
+                            key={product.id}
+                            className={`flex flex-col ${product.imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row"} gap-12 md:gap-16 items-center`}
+                        >
                             {/* Image */}
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
+                            <SlideIn
+                                direction={product.imagePosition === "right" ? "right" : "left"}
+                                className="w-full md:w-1/2"
+                            >
+                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={product.image}
+                                        alt={product.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </SlideIn>
 
                             {/* Content */}
-                            <div className="space-y-4">
-                                <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                    {product.badge}
-                                </span>
+                            <SlideIn
+                                direction={product.imagePosition === "right" ? "left" : "right"}
+                                delay={100}
+                                className="w-full md:w-1/2"
+                            >
+                                <div className="space-y-6">
+                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                        {product.badge}
+                                    </span>
 
-                                <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                                    {product.title}
-                                </h2>
+                                    <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                                        {product.title}
+                                    </h2>
 
-                                <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                                    {product.description}
-                                </p>
+                                    <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                                        {product.description}
+                                    </p>
 
-                                <button className="text-black text-base md:text-lg font-medium hover:text-orange-500 transition-colors flex items-center gap-2">
-                                    Explore more →
-                                </button>
-                            </div>
+                                    <ExploreButton />
+                                </div>
+                            </SlideIn>
                         </div>
                     ))}
+
+                    {/* Last row - Belts and Hard Goods side by side */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                        {/* Belts - Text Left, Image Right */}
+                        <div className="flex flex-col md:flex-row gap-6 items-center">
+                            <SlideIn direction="left" className="w-full md:w-3/5">
+                                <div className="space-y-4">
+                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                        {lastRowProducts[0].badge}
+                                    </span>
+
+                                    <h2 className="text-black text-3xl md:text-4xl font-bold tracking-tight">
+                                        {lastRowProducts[0].title}
+                                    </h2>
+
+                                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                        {lastRowProducts[0].description}
+                                    </p>
+
+                                    <ExploreButton />
+                                </div>
+                            </SlideIn>
+
+                            <SlideIn direction="right" delay={100} className="w-full md:w-2/5">
+                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={lastRowProducts[0].image}
+                                        alt={lastRowProducts[0].title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </SlideIn>
+                        </div>
+
+                        {/* Hard Goods - Image Left, Text Right */}
+                        <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
+                            <SlideIn direction="right" className="w-full md:w-3/5">
+                                <div className="space-y-4">
+                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                        {lastRowProducts[1].badge}
+                                    </span>
+
+                                    <h2 className="text-black text-3xl md:text-4xl font-bold tracking-tight">
+                                        {lastRowProducts[1].title}
+                                    </h2>
+
+                                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                        {lastRowProducts[1].description}
+                                    </p>
+
+                                    <ExploreButton />
+                                </div>
+                            </SlideIn>
+
+                            <SlideIn direction="left" delay={100} className="w-full md:w-2/5">
+                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={lastRowProducts[1].image}
+                                        alt={lastRowProducts[1].title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </SlideIn>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

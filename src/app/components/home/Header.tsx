@@ -64,7 +64,7 @@ export default function Header() {
                 </section>
 
                 {/* Spacer to create scroll height for video section */}
-                <div className="h-[100vh]"></div>
+                <div className="lg:h-[50vh] hidden"></div>
 
                 {/* Landing Section */}
                 <LandingSection />
