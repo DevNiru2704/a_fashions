@@ -66,7 +66,7 @@ export default function BlurFadeText({
                         : "opacity-0 blur-md translate-y-8"
                         } ${className}`}
                     style={{
-                        transitionDelay: `${index * 100}ms`,
+                        transitionDelay: `${index * delayBetweenWords}ms`,
                     }}
                 >
                     {word}

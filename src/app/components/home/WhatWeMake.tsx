@@ -111,7 +111,7 @@ export default function WhatWeMake() {
                 <BlurFadeText
                     text="WHAT WE MAKE"
                     className="text-black text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-                    delayBetweenWords={150}
+                    delayBetweenWords={10}
                     threshold={0.3}
                 />
             </div>
