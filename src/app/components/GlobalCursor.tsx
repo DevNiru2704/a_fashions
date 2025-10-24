@@ -1,14 +1,17 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function GlobalCursor() {
     const [hoveringNav, setHoveringNav] = useState(false);
+    const [hoveringCard, setHoveringCard] = useState(false);
     const [scale, setScale] = useState(1);
     const [isClicking, setIsClicking] = useState(false);
     const [isHomePage, setIsHomePage] = useState(true);
     const cursorRef = useRef<HTMLDivElement>(null);
     const hoveringRef = useRef(false);
+    const hoveringCardRef = useRef(false);
     const pathname = usePathname();
 
     // Track if we're on the homepage to determine cursor section
@@ -20,6 +23,11 @@ export default function GlobalCursor() {
     useEffect(() => {
         hoveringRef.current = hoveringNav;
     }, [hoveringNav]);
+
+    // --- Update hoveringCardRef whenever hoveringCard changes ---
+    useEffect(() => {
+        hoveringCardRef.current = hoveringCard;
+    }, [hoveringCard]);
 
     // --- Smooth following using requestAnimationFrame ---
     useEffect(() => {
@@ -59,6 +67,27 @@ export default function GlobalCursor() {
             if (isOverNav !== hoveringRef.current) {
                 setHoveringNav(isOverNav);
                 hoveringRef.current = isOverNav;
+            }
+
+            // Check if mouse is within KeyFigures card bounds
+            const cardElements = document.querySelectorAll('[data-cursor-hover="card"]');
+            let isOverCard = false;
+
+            cardElements.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                if (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                ) {
+                    isOverCard = true;
+                }
+            });
+
+            if (isOverCard !== hoveringCardRef.current) {
+                setHoveringCard(isOverCard);
+                hoveringCardRef.current = isOverCard;
             }
         };
 
@@ -102,8 +131,8 @@ export default function GlobalCursor() {
                     }
                 }
 
-                // Show HELLO only in hero/logo sections on homepage, and when not hovering nav
-                const showHello = isHomePage && cursorSection !== 'animated' && !hoveringRef.current;
+                // Show HELLO only in hero/logo sections on homepage, and when not hovering nav or card
+                const showHello = isHomePage && cursorSection !== 'animated' && !hoveringRef.current && !hoveringCardRef.current;
                 const helloOffset = { x: 20, y: 10 };
                 const ballOffset = { x: 0, y: 0 };
                 const { x: offsetX, y: offsetY } = showHello ? helloOffset : ballOffset;
@@ -165,20 +194,32 @@ export default function GlobalCursor() {
             }}
         >
             <div
-                className={`transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${hoveringNav || cursorSection === 'animated'
-                    ? "w-3 h-3 rounded-full bg-white"
-                    : "px-3 py-1 rounded-md text-xs font-medium text-white bg-transparent border border-white"
+                className={`transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center ${hoveringCard
+                    ? "w-12 h-12 rounded-full bg-white"
+                    : hoveringNav || cursorSection === 'animated'
+                        ? "w-3 h-3 rounded-full bg-white"
+                        : "px-3 py-1 rounded-md text-xs font-medium text-white bg-transparent border border-white"
                     }`}
                 style={{
-                    transform: (hoveringNav || cursorSection === 'animated')
-                        ? `translate(0px, 0px) scale(${isClicking ? 0.5 : 1})`
-                        : "translate(40px, 40px) scale(1.6)",
+                    transform: hoveringCard
+                        ? `translate(0px, 0px) scale(${isClicking ? 0.8 : 1})`
+                        : (hoveringNav || cursorSection === 'animated')
+                            ? `translate(0px, 0px) scale(${isClicking ? 0.5 : 1})`
+                            : "translate(40px, 40px) scale(1.6)",
                     transformOrigin: "center",
                     transition:
                         "transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), all 0.3s ease-in-out",
                 }}
             >
-                {!hoveringNav && cursorSection !== 'animated' && "HELLO"}
+                {hoveringCard ? (
+                    <Image
+                        src="/assets/images/eye.svg"
+                        alt="Eye"
+                        width={40}
+                        height={32}
+                        className="w-10 h-8"
+                    />
+                ) : !hoveringNav && cursorSection !== 'animated' ? "HELLO" : null}
             </div>
         </div>
     );
