@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import BlurFadeText from "../animations/BlurFadeText";
 import SlideIn from "../animations/SlideIn";
-import ExploreButton from "../ExploreButton";
+import ExploreButton from "../common/ExploreButton";
 
 interface Product {
     id: number;

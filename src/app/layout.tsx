@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GlobalCursor from "./components/GlobalCursor";
-import ScrollToTop from "./components/ScrollToTop";
-import SmoothScroll from "./components/SmoothScroll";
+import GlobalCursor from "./components/common/GlobalCursor";
+import ScrollToTop from "./components/common/ScrollToTop";
+import SmoothScroll from "./components/common/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "A Fashions",
