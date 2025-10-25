@@ -92,8 +92,26 @@ export default function GlobalCursor() {
         };
 
         const handleScroll = () => {
-            // Only handle scroll-based cursor changes on homepage
-            if (!isHomePage) return;
+            // Recheck card hover state on scroll
+            const cardElements = document.querySelectorAll('[data-cursor-hover="card"]');
+            let isOverCard = false;
+
+            cardElements.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                if (
+                    mouse.x >= rect.left &&
+                    mouse.x <= rect.right &&
+                    mouse.y >= rect.top &&
+                    mouse.y <= rect.bottom
+                ) {
+                    isOverCard = true;
+                }
+            });
+
+            if (isOverCard !== hoveringCardRef.current) {
+                setHoveringCard(isOverCard);
+                hoveringCardRef.current = isOverCard;
+            }
         };
 
         const handleMouseDown = () => {
@@ -195,20 +213,20 @@ export default function GlobalCursor() {
         >
             <div
                 className={`transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] flex items-center justify-center ${hoveringCard
-                    ? "w-12 h-12 rounded-full bg-white"
+                    ? "w-12 h-12"
                     : hoveringNav || cursorSection === 'animated'
                         ? "w-3 h-3 rounded-full bg-white"
                         : "px-3 py-1 rounded-md text-xs font-medium text-white bg-transparent border border-white"
                     }`}
                 style={{
                     transform: hoveringCard
-                        ? `translate(0px, 0px) scale(${isClicking ? 0.8 : 1})`
+                        ? "translate(0px, 0px) scale(1)"
                         : (hoveringNav || cursorSection === 'animated')
                             ? `translate(0px, 0px) scale(${isClicking ? 0.5 : 1})`
                             : "translate(40px, 40px) scale(1.6)",
                     transformOrigin: "center",
                     transition:
-                        "transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), all 0.3s ease-in-out",
+                        "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), width 0.3s ease-in-out, height 0.3s ease-in-out, all 0.3s ease-in-out",
                 }}
             >
                 {hoveringCard ? (
@@ -217,7 +235,8 @@ export default function GlobalCursor() {
                         alt="Eye"
                         width={40}
                         height={32}
-                        className="w-10 h-8"
+                        className="w-12 h-12 invert transition-opacity duration-300"
+                        style={{ opacity: hoveringCard ? 1 : 0 }}
                     />
                 ) : !hoveringNav && cursorSection !== 'animated' ? "HELLO" : null}
             </div>
