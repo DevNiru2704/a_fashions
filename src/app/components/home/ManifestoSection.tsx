@@ -7,19 +7,19 @@ export default function ManifestoSection() {
             <div className="hidden lg:flex flex-col gap-4 w-full">
                 <BlurFadeText
                     text="DESIGNED    WITH"
-                    className="text-[12vw] leading-none text-black tracking-wide"
+                    className="text-[12vw] leading-none text-black tracking-tight"
                     delayBetweenWords={10}
                     threshold={0.5}
                 />
                 <BlurFadeText
                     text="ORIGINALITY    AND"
-                    className="text-[12vw] leading-none text-black tracking-wide"
+                    className="text-[12vw] leading-none text-black tracking-tight"
                     delayBetweenWords={10}
                     threshold={0.5}
                 />
                 <BlurFadeText
                     text="PURPOSE"
-                    className="text-[12vw] leading-none text-black tracking-wide"
+                    className="text-[12vw] leading-none text-black tracking-tight"
                     delayBetweenWords={10}
                     threshold={0.5}
                 />

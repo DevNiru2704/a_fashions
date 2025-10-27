@@ -6,6 +6,7 @@ import LogoSection from "./components/home/LogoSection";
 import ManifestoSection from "./components/home/ManifestoSection";
 import WhatWeMake from "./components/home/WhatWeMake";
 import KeyFigures from "./components/home/KeyFigures";
+import WhoWeAre from "./components/home/WhoWeAre";
 
 export default function Home() {
   const navRef = useRef<HTMLElement>(null);
@@ -19,6 +20,7 @@ export default function Home() {
         <ManifestoSection />
         <WhatWeMake />
         <KeyFigures />
+        <WhoWeAre />
       </main>
     </>
   );
