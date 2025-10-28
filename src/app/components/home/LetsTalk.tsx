@@ -38,7 +38,7 @@ export default function LetsTalk() {
                 <motion.div
                     className="flex gap-6"
                     animate={{
-                        x: [0, -2000]
+                        x: [-2000, 0]
                     }}
                     transition={{
                         x: {
@@ -53,7 +53,7 @@ export default function LetsTalk() {
                     {[...galleryImages, ...galleryImages].map((image, index) => (
                         <div
                             key={index}
-                            className="relative flex-shrink-0 w-[300px] h-[400px] rounded-lg overflow-hidden"
+                            className="relative flex-shrink-0 w-[300px] h-[200px] rounded-lg overflow-hidden"
                         >
                             <Image
                                 src={image}
@@ -66,8 +66,8 @@ export default function LetsTalk() {
                 </motion.div>
             </div>
 
-            {/* Horizontal line at the bottom */}
-            <div className="w-full h-px bg-white/20 mt-20" />
+            {/* Extra space at the bottom */}
+            <div className="w-full h-[30vh]" />
         </section>
     );
 }
