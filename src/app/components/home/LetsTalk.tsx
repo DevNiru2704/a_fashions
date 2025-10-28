@@ -34,23 +34,38 @@ export default function LetsTalk() {
             </div>
 
             {/* Moving Gallery */}
-            <div className="relative w-full">
+            <div className="relative w-full mt-32">
+                {/* Left gradient overlay */}
+                {/* <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" /> */}
+
+                {/* Right gradient overlay */}
+                {/* <div className="absolute right-0 top-0 bottom-0 w-[200px] bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" /> */}
+
                 <motion.div
-                    className="flex gap-6"
+                    className="flex gap-2"
+                    style={{ rotate: '-5deg' }}
+                    initial={{ x: 0, y: 0 }}
                     animate={{
-                        x: [-2000, 0]
+                        x: [-3060, 0],
+                        y: [267, 0]
                     }}
                     transition={{
                         x: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: 30,
+                            duration: 40,
+                            ease: "linear"
+                        },
+                        y: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 40,
                             ease: "linear"
                         }
                     }}
                 >
-                    {/* Render images twice for seamless loop */}
-                    {[...galleryImages, ...galleryImages].map((image, index) => (
+                    {/* Render images three times for seamless loop */}
+                    {[...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
                         <div
                             key={index}
                             className="relative flex-shrink-0 w-[300px] h-[200px] rounded-lg overflow-hidden"
