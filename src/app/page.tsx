@@ -10,6 +10,7 @@ import WhoWeAre from "./components/home/WhoWeAre";
 import TestSection from "./components/common/TestSection";
 import ProgressSection from './components/who_we_are/ProcessSection'
 import LetsTalk from "./components/home/LetsTalk";
+import Footer from "./components/common/Footer";
 
 export default function Home() {
   const navRef = useRef<HTMLElement>(null);
@@ -25,8 +26,8 @@ export default function Home() {
         <KeyFigures />
         <WhoWeAre />
         <LetsTalk />
-
       </main>
+      <Footer />
     </>
   );
 }
