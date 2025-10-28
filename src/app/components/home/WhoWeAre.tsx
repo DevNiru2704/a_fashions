@@ -35,10 +35,6 @@ export default function WhoWeAre() {
     const IMAGE_SLIDE_RANGE = [0.35, 0.65]; // Slide up as text scrolls down
     const IMAGE_SLIDE_DISTANCE = [400, 0]; // Start 300px below, slide to normal position
 
-    // IMAGE HORIZONTAL SLIDE: Images slide to edges when fully zoomed
-    const IMAGE_HORIZONTAL_RANGE = [0.70, 0.85]; // Slide to edges after zoom completes
-    const IMAGE_EDGE_DISTANCE = 100; // How far to slide toward edges (in pixels)
-
     // IMAGE SPACING: Control gaps between images
     const IMAGE_GAP_MOBILE = 20; // Vertical gap mobile (20 = -80px overlap)
     const IMAGE_GAP_DESKTOP = 32; // Vertical gap desktop (32 = -128px overlap)
@@ -49,12 +45,13 @@ export default function WhoWeAre() {
     const SECTION_MIN_HEIGHT = 350; // Minimum section height (in vh)
 
     // TEXT CONTENT SPACING: Control gap between title and paragraph
-    const TEXT_CONTENT_GAP = 16; // Gap between "WHO WE ARE" and paragraph (in tailwind units, 16 = 64px)
+    const TEXT_CONTENT_GAP = 12; // Gap between "WHO WE ARE" and paragraph (in tailwind units, 16 = 64px)
 
     // IMAGE DIMENSIONS: Control image width and height
     const IMAGE_WIDTH_DESKTOP = 45; // Image width as percentage (45 = 45% width)
     const IMAGE_HEIGHT_MOBILE = 800; // Mobile image height in pixels
     const IMAGE_HEIGHT_DESKTOP = 700; // Desktop image height in pixels
+    const IMAGE_EDGE_PUSH = 100; // Push images toward edges (in pixels, negative margin)
 
     // CONTAINER WIDTH: Control horizontal gap by adjusting container width
     const CONTAINER_MAX_WIDTH = 1480; // Max width in pixels (smaller = more gap, larger = less gap)
@@ -73,9 +70,6 @@ export default function WhoWeAre() {
     const imagesScale = useTransform(scrollYProgress, IMAGE_ZOOM_RANGE, IMAGE_ZOOM_AMOUNT);
     const imagesY = useTransform(scrollYProgress, IMAGE_SLIDE_RANGE, IMAGE_SLIDE_DISTANCE);
 
-    // Images slide horizontally to touch edges when fully zoomed
-    const imagesXLeft = useTransform(scrollYProgress, IMAGE_HORIZONTAL_RANGE, [0, -IMAGE_EDGE_DISTANCE]); // Left images slide left
-    const imagesXRight = useTransform(scrollYProgress, IMAGE_HORIZONTAL_RANGE, [0, IMAGE_EDGE_DISTANCE]); // Right images slide right
 
     // Text slides up to appear, then slides down with scroll
     const titleY = useTransform(scrollYProgress, TEXT_MOVE_RANGE, TEXT_MOVE_DISTANCE);
@@ -148,9 +142,9 @@ export default function WhoWeAre() {
                         style={{
                             scale: imagesScale,
                             y: imagesY,
-                            x: imagesXLeft,
                             width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
                         }}
                         className="relative overflow-hidden"
                     >
@@ -167,9 +161,9 @@ export default function WhoWeAre() {
                         style={{
                             scale: imagesScale,
                             y: imagesY,
-                            x: imagesXRight,
                             width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginRight: `-${IMAGE_EDGE_PUSH}px`
                         }}
                         className="relative overflow-hidden md:ml-auto z-10"
                     >
@@ -186,9 +180,9 @@ export default function WhoWeAre() {
                         style={{
                             scale: imagesScale,
                             y: imagesY,
-                            x: imagesXLeft,
                             width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
                         }}
                         className="relative overflow-hidden"
                     >
@@ -206,7 +200,8 @@ export default function WhoWeAre() {
             <motion.div
                 style={{
                     scale: textScale,
-                    y: titleY
+                    y: titleY,
+                    willChange: 'transform'
                 }}
                 className="absolute top-[50vh] left-0 w-full z-50 pointer-events-none mix-blend-difference"
             >
