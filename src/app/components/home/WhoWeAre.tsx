@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import MorphButton from "../animations/MorphButton";
 
 export default function WhoWeAre() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -233,27 +233,9 @@ export default function WhoWeAre() {
                                 to life with a refined artistic touch.
                             </p>
 
-                            <Link
-                                href="/our-story"
-                                className="group text-white text-lg md:text-lg font-medium px-8 py-3 self-start inline-flex items-center gap-3 transition-all duration-300 hover:bg-white"
-                                style={{
-                                    borderRadius: '16px',
-                                    transition: 'all 0.3s ease-in-out'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.borderRadius = '0px';
-                                    e.currentTarget.style.webkitTextStroke = '1px black';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.borderRadius = '16px';
-                                    e.currentTarget.style.webkitTextStroke = '0px';
-                                }}
-                            >
+                            <MorphButton href="/our-story" className="self-start">
                                 KNOW MORE
-                                <span className="text-2xl opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                                    →
-                                </span>
-                            </Link>
+                            </MorphButton>
                         </div>
                     </div>
                 </div>
