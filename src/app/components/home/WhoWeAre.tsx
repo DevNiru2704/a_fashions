@@ -23,24 +23,29 @@ export default function WhoWeAre() {
 
     // TEXT ZOOM: Zooms in gradually throughout the scroll, reaches full size when settling
     const TEXT_ZOOM_RANGE = [0, 0.85]; // Zoom in gradually throughout most of the section
-    const TEXT_ZOOM_AMOUNT = [0.7, 1]; // Very small -> Full size
+    const TEXT_ZOOM_AMOUNT = [0.75, 1]; // Very small -> Full size
 
-    // IMAGE ZOOM SPEED: Adjust the range [start, end] - smaller range = faster zoom
-    const IMAGE_ZOOM_RANGE = [0.3, 0.5]; // Current: moderate speed
+    // IMAGE ANIMATIONS: Start appearing when text starts scrolling down
+    const IMAGE_APPEAR_RANGE = [0.30, 0.50]; // Appear when text starts scrolling down
     const IMAGE_ZOOM_AMOUNT = [0.8, 1, 1.05]; // Start scale, Mid scale, End scale
+
+    // IMAGE SLIDE UP: Images slide up from below as they appear
+    const IMAGE_SLIDE_RANGE = [0.35, 0.65]; // Slide up as text scrolls down
+    const IMAGE_SLIDE_DISTANCE = [300, 0]; // Start 300px below, slide to normal position
 
     // TEXT MOVEMENT: Starts below, slides up smoothly, pauses briefly, then slides down gradually
     const TEXT_MOVE_RANGE = [0, 0.25, 0.35, 0.75]; // Slide up -> pause -> slide down
-    const TEXT_MOVE_DISTANCE = [500, 400, 400, 1300]; // Start 500px -> slide to 400px -> hold -> slide to 1300px
+    const TEXT_MOVE_DISTANCE = [500, 400, 600, 1700]; // Start 500px -> slide to 400px -> hold -> slide to 1300px
 
     // ========================================
 
     // Text content animations - always visible, no opacity
     const textScale = useTransform(scrollYProgress, TEXT_ZOOM_RANGE, TEXT_ZOOM_AMOUNT);
 
-    // All images zoom in together
-    const imagesOpacity = useTransform(scrollYProgress, IMAGE_ZOOM_RANGE, [0, 1]);
-    const imagesScale = useTransform(scrollYProgress, [...IMAGE_ZOOM_RANGE, 0.8], IMAGE_ZOOM_AMOUNT);
+    // Images appear and slide up from below when text starts scrolling down
+    const imagesOpacity = useTransform(scrollYProgress, IMAGE_APPEAR_RANGE, [0, 1]);
+    const imagesScale = useTransform(scrollYProgress, [IMAGE_APPEAR_RANGE[0], IMAGE_APPEAR_RANGE[1], 0.8], IMAGE_ZOOM_AMOUNT);
+    const imagesY = useTransform(scrollYProgress, IMAGE_SLIDE_RANGE, IMAGE_SLIDE_DISTANCE);
 
     // Text slides up to appear, then slides down with scroll
     const titleY = useTransform(scrollYProgress, TEXT_MOVE_RANGE, TEXT_MOVE_DISTANCE);
@@ -50,12 +55,15 @@ export default function WhoWeAre() {
             {/* Extra space at the top for scroll effect */}
             <div className="h-[50vh] md:h-[50vh]" />
 
+            {/* Push images down so they start below the text */}
+            <div className="h-[60vh]" />
+
             <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
                 {/* Images - Staggered Layout */}
                 <div className="flex flex-col -space-y-20 md:-space-y-32">
                     {/* First image - Left aligned */}
                     <motion.div
-                        style={{ opacity: imagesOpacity, scale: imagesScale }}
+                        style={{ opacity: imagesOpacity, scale: imagesScale, y: imagesY }}
                         className="relative w-full md:w-[45%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden"
                     >
                         <Image
@@ -68,7 +76,7 @@ export default function WhoWeAre() {
 
                     {/* Second image - Right aligned */}
                     <motion.div
-                        style={{ opacity: imagesOpacity, scale: imagesScale }}
+                        style={{ opacity: imagesOpacity, scale: imagesScale, y: imagesY }}
                         className="relative w-full md:w-[35%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden md:ml-auto z-10"
                     >
                         <Image
@@ -81,12 +89,12 @@ export default function WhoWeAre() {
 
                     {/* Third image - Left aligned */}
                     <motion.div
-                        style={{ opacity: imagesOpacity, scale: imagesScale }}
-                        className="relative w-full md:w-[35%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden z-20"
+                        style={{ opacity: imagesOpacity, scale: imagesScale, y: imagesY }}
+                        className="relative w-full md:w-[45%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden"
                     >
                         <Image
                             src={images[2]}
-                            alt="Who we are 3"
+                            alt="Who we are 1"
                             fill
                             className="object-cover"
                         />
