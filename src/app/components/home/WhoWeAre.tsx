@@ -21,35 +21,34 @@ export default function WhoWeAre() {
 
     // ========== ANIMATION CONTROLS ==========
 
-    // TEXT ZOOM SPEED: Adjust the range [start, end] - smaller range = faster zoom
-    const TEXT_ZOOM_RANGE = [0.1, 0.4]; // Current: moderate speed
-    const TEXT_ZOOM_AMOUNT = [0.8, 1]; // Start scale, End scale
+    // TEXT ZOOM: Zooms in gradually throughout the scroll, reaches full size when settling
+    const TEXT_ZOOM_RANGE = [0, 0.85]; // Zoom in gradually throughout most of the section
+    const TEXT_ZOOM_AMOUNT = [0.8, 1]; // Very small -> Full size
 
     // IMAGE ZOOM SPEED: Adjust the range [start, end] - smaller range = faster zoom
     const IMAGE_ZOOM_RANGE = [0.3, 0.5]; // Current: moderate speed
     const IMAGE_ZOOM_AMOUNT = [0.8, 1, 1.05]; // Start scale, Mid scale, End scale
 
-    // TEXT MOVEMENT: How far down the text moves
-    const TEXT_MOVE_RANGE = [0.30, 1]; // When it starts and stops moving
-    const TEXT_MOVE_DISTANCE = 1400; // How many pixels it moves down
+    // TEXT MOVEMENT: Starts below, slides up but stays lower to avoid going off-screen
+    const TEXT_MOVE_RANGE = [0, 0.3, 0.85]; // Slide up gradually, then slide down
+    const TEXT_MOVE_DISTANCE = [500, 50, 1400]; // Start 500px below -> slide to 50px -> slide to 1800px down
 
     // ========================================
 
-    // Text content animations - fade in and zoom, stays visible
-    const textOpacity = useTransform(scrollYProgress, TEXT_ZOOM_RANGE, [0, 1]);
+    // Text content animations - always visible, no opacity
     const textScale = useTransform(scrollYProgress, TEXT_ZOOM_RANGE, TEXT_ZOOM_AMOUNT);
 
     // All images zoom in together
     const imagesOpacity = useTransform(scrollYProgress, IMAGE_ZOOM_RANGE, [0, 1]);
     const imagesScale = useTransform(scrollYProgress, [...IMAGE_ZOOM_RANGE, 0.8], IMAGE_ZOOM_AMOUNT);
 
-    // Title position - moves down and settles before horizontal line
-    const titleY = useTransform(scrollYProgress, TEXT_MOVE_RANGE, [0, TEXT_MOVE_DISTANCE]);
+    // Text slides up to appear, then slides down with scroll
+    const titleY = useTransform(scrollYProgress, TEXT_MOVE_RANGE, TEXT_MOVE_DISTANCE);
 
     return (
-        <section ref={sectionRef} className="relative z-20 w-full bg-black ">
+        <section ref={sectionRef} className="relative z-20 w-full bg-black min-h-[350vh]">
             {/* Extra space at the top for scroll effect */}
-            <div className="h-[50vh] md:h-[60vh]" />
+            <div className="h-[50vh] md:h-[50vh]" />
 
             <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
                 {/* Images - Staggered Layout */}
@@ -57,7 +56,7 @@ export default function WhoWeAre() {
                     {/* First image - Left aligned */}
                     <motion.div
                         style={{ opacity: imagesOpacity, scale: imagesScale }}
-                        className="relative w-full md:w-[35%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden"
+                        className="relative w-full md:w-[45%] h-[500px] md:h-[600px] rounded-2xl overflow-hidden"
                     >
                         <Image
                             src={images[0]}
@@ -98,7 +97,6 @@ export default function WhoWeAre() {
             {/* Sticky Content Block - Title, Paragraph, and Button all move together */}
             <motion.div
                 style={{
-                    opacity: textOpacity,
                     scale: textScale,
                     y: titleY
                 }}
