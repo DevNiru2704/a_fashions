@@ -19,6 +19,12 @@ export default function LetsTalk() {
 
     return (
         <section className="relative z-20 w-full bg-black py-20 overflow-hidden">
+            {/* Left gradient overlay - full section height */}
+            <div className="absolute left-0 top-0 bottom-0 w-[300px] bg-gradient-to-r from-black via-black/95 to-transparent z-30 pointer-events-none" />
+
+            {/* Right gradient overlay - full section height */}
+            <div className="absolute right-0 top-0 bottom-0 w-[300px] bg-gradient-to-l from-black via-black/95 to-transparent z-30 pointer-events-none" />
+
             <div className="w-full max-w-7xl mx-auto px-6 md:px-12 text-center mb-16">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                     TURNING IMAGINATION
@@ -35,12 +41,6 @@ export default function LetsTalk() {
 
             {/* Moving Gallery */}
             <div className="relative w-full mt-32">
-                {/* Left gradient overlay */}
-                {/* <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" /> */}
-
-                {/* Right gradient overlay */}
-                {/* <div className="absolute right-0 top-0 bottom-0 w-[200px] bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" /> */}
-
                 <motion.div
                     className="flex gap-2"
                     style={{ rotate: '-5deg' }}
