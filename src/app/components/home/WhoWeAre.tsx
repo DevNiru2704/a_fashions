@@ -31,7 +31,7 @@ export default function WhoWeAre() {
 
     // TEXT MOVEMENT: Starts below, slides up but stays lower to avoid going off-screen
     const TEXT_MOVE_RANGE = [0, 0.3, 0.85]; // Slide up gradually, then slide down
-    const TEXT_MOVE_DISTANCE = [500, 50, 1400]; // Start 500px below -> slide to 50px -> slide to 1800px down
+    const TEXT_MOVE_DISTANCE = [500, 300, 2000]; // Start 500px below -> slide to 50px -> slide to 1800px down
 
     // ========================================
 
