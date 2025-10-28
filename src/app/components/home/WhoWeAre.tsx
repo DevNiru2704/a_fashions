@@ -61,8 +61,8 @@ export default function WhoWeAre() {
     // Default is 1280px (max-w-7xl). Try 1024px (max-w-5xl) for more gap, 1536px (max-w-7xl) for less
 
     // TEXT MOVEMENT: Starts below, slides up smoothly, pauses briefly, then slides down gradually
-    const TEXT_MOVE_RANGE = [0, 0.25, 0.35, 0.75]; // Slide up -> pause -> slide down
-    const TEXT_MOVE_DISTANCE = [500, 400, 600, 2400]; // Start 500px -> slide to 400px -> hold -> slide to 1300px
+    const TEXT_MOVE_RANGE = [0, 0.25, 0.35, 0.95]; // Slide up -> pause -> slide down slower
+    const TEXT_MOVE_DISTANCE = [500, 400, 600, 2400]; // Start 500px -> slide to 400px -> hold -> settle at 1600px
 
     // ========================================
 
