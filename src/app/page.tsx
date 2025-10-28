@@ -7,6 +7,7 @@ import ManifestoSection from "./components/home/ManifestoSection";
 import WhatWeMake from "./components/home/WhatWeMake";
 import KeyFigures from "./components/home/KeyFigures";
 import WhoWeAre from "./components/home/WhoWeAre";
+import TestSection from "./components/common/TestSection";
 
 export default function Home() {
   const navRef = useRef<HTMLElement>(null);
@@ -21,6 +22,7 @@ export default function Home() {
         <WhatWeMake />
         <KeyFigures />
         <WhoWeAre />
+        <TestSection bgColor="bg-black" />
       </main>
     </>
   );
