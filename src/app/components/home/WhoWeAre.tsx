@@ -23,15 +23,15 @@ export default function WhoWeAre() {
 
     // TEXT ZOOM: Zooms in gradually throughout the scroll, reaches full size when settling
     const TEXT_ZOOM_RANGE = [0, 0.85]; // Zoom in gradually throughout most of the section
-    const TEXT_ZOOM_AMOUNT = [0.8, 1]; // Very small -> Full size
+    const TEXT_ZOOM_AMOUNT = [0.7, 1]; // Very small -> Full size
 
     // IMAGE ZOOM SPEED: Adjust the range [start, end] - smaller range = faster zoom
     const IMAGE_ZOOM_RANGE = [0.3, 0.5]; // Current: moderate speed
     const IMAGE_ZOOM_AMOUNT = [0.8, 1, 1.05]; // Start scale, Mid scale, End scale
 
-    // TEXT MOVEMENT: Starts below, slides up but stays lower to avoid going off-screen
-    const TEXT_MOVE_RANGE = [0, 0.3, 0.85]; // Slide up gradually, then slide down
-    const TEXT_MOVE_DISTANCE = [500, 300, 2000]; // Start 500px below -> slide to 50px -> slide to 1800px down
+    // TEXT MOVEMENT: Starts below, slides up smoothly, pauses briefly, then slides down gradually
+    const TEXT_MOVE_RANGE = [0, 0.25, 0.35, 0.75]; // Slide up -> pause -> slide down
+    const TEXT_MOVE_DISTANCE = [500, 400, 400, 1300]; // Start 500px -> slide to 400px -> hold -> slide to 1300px
 
     // ========================================
 
