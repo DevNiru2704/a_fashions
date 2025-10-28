@@ -201,9 +201,14 @@ export default function WhoWeAre() {
                 style={{
                     scale: textScale,
                     y: titleY,
-                    willChange: 'transform'
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    perspective: 1000,
+                    WebkitPerspective: 1000
                 }}
                 className="absolute top-[50vh] left-0 w-full z-50 pointer-events-none mix-blend-difference"
+                transition={{ type: "tween", ease: "linear" }}
             >
                 <div
                     className="w-full mx-auto px-6 md:px-12"
