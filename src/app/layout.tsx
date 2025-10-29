@@ -17,14 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-simhei bg-[#E8E8E8]">
-        {/* <SmoothScroll>
+        <SmoothScroll> //with smooth scroll
           <ScrollToTop />
           <GlobalCursor />
           {children}
-        </SmoothScroll> */}
-        <ScrollToTop />
-        <GlobalCursor />
-        {children}
+        </SmoothScroll>
+        {/* <ScrollToTop /> //without smooth scroll
+        <GlobalCursor /> */}
+        {/* {children} */}
       </body>
     </html>
   );
