@@ -7,10 +7,10 @@ interface ProcessStep {
 }
 
 const processSteps: ProcessStep[] = [
-    { title: "Design & Development", icon: "/assets/images/design-icon.svg" },
-    { title: "Merchandising Team", icon: "/assets/images/merchandising-icon.svg" },
-    { title: "Production Team", icon: "/assets/images/production-icon.svg" },
-    { title: "Quality Assurance", icon: "/assets/images/quality-icon.svg" },
+    { title: "Design & Development", icon: "/assets/images/design_and_development.svg" },
+    { title: "Merchandising Team", icon: "/assets/images/merchandising_team.svg" },
+    { title: "Production Team", icon: "/assets/images/production_team.svg" },
+    { title: "Quality Assurance", icon: "/assets/images/quality_assurance.svg" },
 ];
 
 export default function ProcessSectionStandalone() {
@@ -102,9 +102,7 @@ export default function ProcessSectionStandalone() {
 
                                 <div className={`w-full pl-20 md:pl-0 md:w-[45%] ${isRight ? "md:ml-auto md:pl-16" : "md:mr-auto md:pr-16"}`}>
                                     <div className={`bg-black rounded-2xl p-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: `${index * 100}ms` }}>
-                                        <div className="w-16 h-16 mb-6 rounded-full border-2 border-white flex items-center justify-center">
-                                            <div className="w-8 h-8 bg-white rounded-full" />
-                                        </div>
+                                        <img src={step.icon} alt={step.title} className="w-24 h-24 md:w-28 md:h-28 mb-6" />
                                         <h3 className="text-white text-xl md:text-2xl font-semibold">{step.title}</h3>
                                     </div>
                                 </div>

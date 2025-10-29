@@ -2,7 +2,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import MorphButton from "../animations/MorphButton";
 
 export default function WhoWeAre2() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -21,28 +20,13 @@ export default function WhoWeAre2() {
 
     // ========== ANIMATION CONTROLS ==========
 
-    // TEXT ZOOM: Zooms in gradually throughout the scroll, reaches full size when settling
-    const TEXT_ZOOM_RANGE = [0, 0.85]; // Zoom in gradually throughout most of the section
-    const TEXT_ZOOM_AMOUNT = [0.60, 1]; // Very small -> Full size
-
-    // IMAGE ANIMATIONS: Zoom in gradually throughout the section - always visible
-    const IMAGE_ZOOM_RANGE = [0.30, 0.85]; // When zoom happens (start to end)
-    const IMAGE_ZOOM_START = 0.4; // Starting zoom size (0.2 = 20%, 0.5 = 50%, etc.)
-    const IMAGE_ZOOM_END = 1; // Ending zoom size (1 = 100%, 1.2 = 120%, etc.)
-    const IMAGE_ZOOM_AMOUNT = [IMAGE_ZOOM_START, IMAGE_ZOOM_END]; // Zoom from start to end
-
-    // IMAGE SLIDE UP: Images slide up from below as they appear
-    const IMAGE_SLIDE_RANGE = [0.35, 0.65]; // Slide up as text scrolls down
-    const IMAGE_SLIDE_DISTANCE = [400, 0]; // Start 300px below, slide to normal position
-
     // IMAGE SPACING: Control gaps between images
     const IMAGE_GAP_MOBILE = 20; // Vertical gap mobile (20 = -80px overlap)
     const IMAGE_GAP_DESKTOP = 32; // Vertical gap desktop (32 = -128px overlap)
 
     // SECTION SPACING: Control spacing around content
-    const TOP_SPACER_HEIGHT = 50; // Space at top before images (in vh)
-    const IMAGE_START_OFFSET = 60; // Push images down below text (in vh)
-    const SECTION_MIN_HEIGHT = 350; // Minimum section height (in vh)
+    const SECTION_MIN_HEIGHT = 280; // Minimum section height (in vh)
+    const IMAGE_TOP_SPACING = 50; // Space at top before images start (in vh)
 
     // TEXT CONTENT SPACING: Control gap between title and paragraph
     const TEXT_CONTENT_GAP = 12; // Gap between "WHO WE ARE" and paragraph (in tailwind units, 16 = 64px)
@@ -55,151 +39,21 @@ export default function WhoWeAre2() {
 
     // CONTAINER WIDTH: Control horizontal gap by adjusting container width
     const CONTAINER_MAX_WIDTH = 1480; // Max width in pixels (smaller = more gap, larger = less gap)
-    // Default is 1280px (max-w-7xl). Try 1024px (max-w-5xl) for more gap, 1536px (max-w-7xl) for less
 
-    // TEXT MOVEMENT: Starts below, slides up smoothly, pauses briefly, then slides down gradually
-    const TEXT_MOVE_RANGE = [0, 0.25, 0.35, 0.95]; // Slide up -> pause -> slide down slower
-    const TEXT_MOVE_DISTANCE = [500, 400, 600, 2400]; // Start 500px -> slide to 400px -> hold -> settle at 1600px
+    // TEXT MOVEMENT: Starts at top, stays for a while, then slides down with scroll
+    const TEXT_MOVE_RANGE = [0, 0.3, 0.4, 0.95]; // Stay -> pause -> slide down
+    const TEXT_MOVE_DISTANCE = [0, 300, 600, 2000]; // Stay at 0 -> stay at 0 -> start sliding -> end far down
 
     // ========================================
 
-    // Text content animations - always visible, no opacity
-    const textScale = useTransform(scrollYProgress, TEXT_ZOOM_RANGE, TEXT_ZOOM_AMOUNT);
-
-    // Images zoom in/out and slide up - always visible, no opacity fade
-    const imagesScale = useTransform(scrollYProgress, IMAGE_ZOOM_RANGE, IMAGE_ZOOM_AMOUNT);
-    const imagesY = useTransform(scrollYProgress, IMAGE_SLIDE_RANGE, IMAGE_SLIDE_DISTANCE);
-
-
-    // Text slides up to appear, then slides down with scroll
+    // Text moves along with scroll
     const titleY = useTransform(scrollYProgress, TEXT_MOVE_RANGE, TEXT_MOVE_DISTANCE);
 
     return (
-        <section ref={sectionRef} className="relative z-20 w-full bg-black" style={{ minHeight: `${SECTION_MIN_HEIGHT}vh` }}>
-            {/* Extra space at the top for scroll effect */}
-            <div style={{ height: `${TOP_SPACER_HEIGHT}vh` }} />
-
-            {/* Push images down so they start below the text */}
-            <div style={{ height: `${IMAGE_START_OFFSET}vh` }} />
-
-            <div
-                className="w-full mx-auto"
-                style={{ maxWidth: `${CONTAINER_MAX_WIDTH}px` }}
-            >
-                {/* Images - Staggered Layout */}
-                <div
-                    className="flex flex-col md:hidden"
-                    style={{ gap: `${IMAGE_GAP_MOBILE * -4}px` }}
-                >
-                    {/* Mobile images */}
-                    {/* First image - Left aligned */}
-                    <motion.div
-                        style={{ scale: imagesScale, y: imagesY, height: `${IMAGE_HEIGHT_MOBILE}px` }}
-                        className="relative w-full overflow-hidden"
-                    >
-                        <Image
-                            src={images[0]}
-                            alt="Who we are 1"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-
-                    {/* Second image - Right aligned */}
-                    <motion.div
-                        style={{ scale: imagesScale, y: imagesY, height: `${IMAGE_HEIGHT_MOBILE}px` }}
-                        className="relative w-full overflow-hidden"
-                    >
-                        <Image
-                            src={images[1]}
-                            alt="Who we are 2"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-
-                    {/* Third image - Left aligned */}
-                    <motion.div
-                        style={{ scale: imagesScale, y: imagesY, height: `${IMAGE_HEIGHT_MOBILE}px` }}
-                        className="relative w-full overflow-hidden"
-                    >
-                        <Image
-                            src={images[2]}
-                            alt="Who we are 3"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-                </div>
-
-                {/* Desktop images */}
-                <div
-                    className="hidden md:flex flex-col"
-                    style={{ gap: `${IMAGE_GAP_DESKTOP * -4}px` }}
-                >
-                    {/* First image - Left aligned */}
-                    <motion.div
-                        style={{
-                            scale: imagesScale,
-                            y: imagesY,
-                            width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
-                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
-                        }}
-                        className="relative overflow-hidden"
-                    >
-                        <Image
-                            src={images[0]}
-                            alt="Who we are 1"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-
-                    {/* Second image - Right aligned */}
-                    <motion.div
-                        style={{
-                            scale: imagesScale,
-                            y: imagesY,
-                            width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
-                            marginRight: `-${IMAGE_EDGE_PUSH}px`
-                        }}
-                        className="relative overflow-hidden md:ml-auto z-10"
-                    >
-                        <Image
-                            src={images[1]}
-                            alt="Who we are 2"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-
-                    {/* Third image - Left aligned */}
-                    <motion.div
-                        style={{
-                            scale: imagesScale,
-                            y: imagesY,
-                            width: `${IMAGE_WIDTH_DESKTOP}%`,
-                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
-                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
-                        }}
-                        className="relative overflow-hidden"
-                    >
-                        <Image
-                            src={images[2]}
-                            alt="Who we are 1"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Sticky Content Block - Title, Paragraph, and Button all move together */}
+        <section ref={sectionRef} className="relative z-10 w-full bg-black" style={{ minHeight: `${SECTION_MIN_HEIGHT}vh` }}>
+            {/* Text Content Block - Positioned absolutely, moves with scroll */}
             <motion.div
                 style={{
-                    scale: textScale,
                     y: titleY,
                     willChange: 'transform',
                     backfaceVisibility: 'hidden',
@@ -207,7 +61,7 @@ export default function WhoWeAre2() {
                     perspective: 1000,
                     WebkitPerspective: 1000
                 }}
-                className="absolute top-[50vh] left-0 w-full z-50 pointer-events-none mix-blend-difference"
+                className="absolute top-20 md:top-32 left-0 w-full z-50 pointer-events-none mix-blend-difference"
                 transition={{ type: "tween", ease: "linear" }}
             >
                 <div
@@ -237,8 +91,116 @@ export default function WhoWeAre2() {
                 </div>
             </motion.div>
 
-            {/* Horizontal line at the bottom */}
-            <div className="w-full h-px bg-white/20 mt-20 md:mt-32" />
+            {/* Space at top for text content */}
+            <div style={{ height: `${IMAGE_TOP_SPACING}vh` }} />
+
+            <div
+                className="w-full mx-auto"
+                style={{ maxWidth: `${CONTAINER_MAX_WIDTH}px` }}
+            >
+                {/* Images - Staggered Layout */}
+                <div
+                    className="flex flex-col md:hidden"
+                    style={{ gap: `${IMAGE_GAP_MOBILE * -4}px` }}
+                >
+                    {/* Mobile images */}
+                    {/* First image - Left aligned */}
+                    <div
+                        style={{ height: `${IMAGE_HEIGHT_MOBILE}px` }}
+                        className="relative w-full overflow-hidden"
+                    >
+                        <Image
+                            src={images[0]}
+                            alt="Who we are 1"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+
+                    {/* Second image - Right aligned */}
+                    <div
+                        style={{ height: `${IMAGE_HEIGHT_MOBILE}px` }}
+                        className="relative w-full overflow-hidden"
+                    >
+                        <Image
+                            src={images[1]}
+                            alt="Who we are 2"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+
+                    {/* Third image - Left aligned */}
+                    <div
+                        style={{ height: `${IMAGE_HEIGHT_MOBILE}px` }}
+                        className="relative w-full overflow-hidden"
+                    >
+                        <Image
+                            src={images[2]}
+                            alt="Who we are 3"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
+
+                {/* Desktop images */}
+                <div
+                    className="hidden md:flex flex-col"
+                    style={{ gap: `${IMAGE_GAP_DESKTOP * -4}px` }}
+                >
+                    {/* First image - Left aligned */}
+                    <div
+                        style={{
+                            width: `${IMAGE_WIDTH_DESKTOP}%`,
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
+                        }}
+                        className="relative overflow-hidden"
+                    >
+                        <Image
+                            src={images[0]}
+                            alt="Who we are 1"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+
+                    {/* Second image - Right aligned */}
+                    <div
+                        style={{
+                            width: `${IMAGE_WIDTH_DESKTOP}%`,
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginRight: `-${IMAGE_EDGE_PUSH}px`
+                        }}
+                        className="relative overflow-hidden md:ml-auto z-10"
+                    >
+                        <Image
+                            src={images[1]}
+                            alt="Who we are 2"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+
+                    {/* Third image - Left aligned */}
+                    <div
+                        style={{
+                            width: `${IMAGE_WIDTH_DESKTOP}%`,
+                            height: `${IMAGE_HEIGHT_DESKTOP}px`,
+                            marginLeft: `-${IMAGE_EDGE_PUSH}px`
+                        }}
+                        className="relative overflow-hidden"
+                    >
+                        <Image
+                            src={images[2]}
+                            alt="Who we are 1"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }
