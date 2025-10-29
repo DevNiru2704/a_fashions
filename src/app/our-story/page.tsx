@@ -1,19 +1,22 @@
+"use client";
+import { useRef } from "react";
 import Navbar from "../components/common/Navbar";
+import WhoWeAre2 from "../components/who_we_are/WhoWeAre2";
+import ProcessSection from "../components/who_we_are/ProcessSection";
+import LetsTalk2 from "../components/who_we_are/LetsTalk2";
+import Footer from "../components/common/Footer";
 
 export default function OurStory() {
+    const navRef = useRef<HTMLElement>(null);
     return (
         <>
-            <Navbar />
-            <main className="min-h-screen w-screen flex items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
-                <div className="flex flex-col items-center justify-center gap-8 px-4">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-wide">
-                        OUR STORY
-                    </h1>
-                    <p className="text-base md:text-lg text-black text-center max-w-2xl font-light">
-                        Coming soon...
-                    </p>
-                </div>
+            <Navbar navRef={navRef} />
+            <main className="relative w-full">
+                <WhoWeAre2 />
+                <ProcessSection />
+                <LetsTalk2 />
             </main>
+            <Footer />
         </>
     );
 }
