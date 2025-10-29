@@ -4,13 +4,30 @@ import { useEffect, useRef, useState } from "react";
 interface ProcessStep {
     title: string;
     icon: string;
+    description: string;
 }
 
 const processSteps: ProcessStep[] = [
-    { title: "Design & Development", icon: "/assets/images/design_and_development.svg" },
-    { title: "Merchandising Team", icon: "/assets/images/merchandising_team.svg" },
-    { title: "Production Team", icon: "/assets/images/production_team.svg" },
-    { title: "Quality Assurance", icon: "/assets/images/quality_assurance.svg" },
+    {
+        title: "Design & Development",
+        icon: "/assets/images/design_and_development.svg",
+        description: "Our in-house Design & Development team, which blends creativity, craftsmanship, and technical expertise. The team constantly studies global fashion trends and materials to create seasonal design collections that are both functional and refined."
+    },
+    {
+        title: "Merchandising Team",
+        icon: "/assets/images/merchandising_team.svg",
+        description: "Our Merchandising team serves as the vital link between our clients and every department within the company. They ensure that each order — from sampling to final shipment — runs smoothly, efficiently, and as per the client's expectations."
+    },
+    {
+        title: "Production Team",
+        icon: "/assets/images/production_team.svg",
+        description: "The Production team oversees the manufacturing process, ensuring high-quality construction and adherence to design specifications. From pattern-making and stitching to finishing and packing, they maintain strict quality standards while optimizing workflow to meet delivery schedules."
+    },
+    {
+        title: "Quality Assurance",
+        icon: "/assets/images/quality_assurance.svg",
+        description: "Our Quality Assurance team ensures that every product meets both buyer expectations and international quality standards. They conduct inspections at every stage — from incoming materials to final shipment — monitoring craftsmanship, functionality, and compliance to deliver perfect products."
+    },
 ];
 
 export default function ProcessSectionStandalone() {
@@ -102,8 +119,9 @@ export default function ProcessSectionStandalone() {
 
                                 <div className={`w-full pl-20 md:pl-0 md:w-[45%] ${isRight ? "md:ml-auto md:pl-16" : "md:mr-auto md:pr-16"}`}>
                                     <div className={`bg-black rounded-2xl p-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: `${index * 100}ms` }}>
-                                        <img src={step.icon} alt={step.title} className="w-24 h-24 md:w-28 md:h-28 mb-6" />
-                                        <h3 className="text-white text-xl md:text-2xl font-semibold">{step.title}</h3>
+                                        <img src={step.icon} alt={step.title} className="w-32 h-32 md:w-36 md:h-36" />
+                                        <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">{step.title}</h3>
+                                        <p className="text-white/80 text-sm md:text-base leading-relaxed">{step.description}</p>
                                     </div>
                                 </div>
                             </div>
