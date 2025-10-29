@@ -1,25 +1,62 @@
-import Link from "next/link";
+"use client";
+import { motion } from "framer-motion";
+import BlurFadeText from "./components/animations/BlurFadeText";
+import MorphButton from "./components/animations/MorphButton";
+import Footer from "./components/common/Footer";
 
 export default function NotFound() {
     return (
-        <main className="min-h-screen w-screen flex items-center justify-center" style={{ backgroundColor: '#E8E8E8' }}>
-            <div className="flex flex-col items-center justify-center gap-8 px-4">
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black tracking-wide">
-                    404
-                </h1>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-black tracking-wide">
-                    PAGE NOT FOUND
-                </h2>
-                <p className="text-base md:text-lg text-black text-center max-w-2xl font-light">
-                    The page you are looking for doesn&rsquo;t exist or has been moved.
-                </p>
-                <Link
-                    href="/"
-                    className="mt-4 px-8 py-3 border-2 border-black text-black font-medium tracking-wide hover:bg-black hover:text-white transition-all duration-300"
-                >
-                    RETURN HOME
-                </Link>
-            </div>
-        </main>
+        <div className="min-h-screen w-full bg-black flex flex-col">
+            <main className="flex-1 flex items-center justify-center px-4 py-20">
+                <div className="flex flex-col items-center justify-center gap-8">
+                    {/* 404 with BlurFadeText animation */}
+                    <div className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-wide">
+                        <BlurFadeText
+                            text="404"
+                            className="text-6xl md:text-8xl lg:text-9xl font-bold text-white"
+                            delayBetweenWords={150}
+                        />
+                    </div>
+
+                    {/* Page Not Found with slower BlurFadeText animation */}
+                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-white tracking-wide">
+                        <BlurFadeText
+                            text="PAGE NOT FOUND"
+                            className="text-xl md:text-2xl lg:text-3xl font-medium text-white"
+                            delayBetweenWords={200}
+                        />
+                    </div>
+
+                    {/* Back to Home button with appear and slide up animation */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 1.2,
+                            ease: "easeOut"
+                        }}
+                        className="mt-8"
+                    >
+                        <MorphButton href="/">
+                            BACK TO HOME
+                        </MorphButton>
+                    </motion.div>
+                </div>
+            </main>
+
+            {/* Footer with appear and slide up animation */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    duration: 0.8,
+                    delay: 1.5,
+                    ease: "easeOut"
+                }}
+            >
+                <Footer />
+            </motion.div>
+        </div>
     );
 }
