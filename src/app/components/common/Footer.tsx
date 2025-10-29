@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative z-50 w-full bg-black text-white py-12 px-6 md:px-12">
+        <footer className="relative z-20 w-full bg-black text-white py-12 px-6 md:px-12">
             <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 {/* About Section */}
                 <div>
