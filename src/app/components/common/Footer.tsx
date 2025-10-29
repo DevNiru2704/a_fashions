@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative z-20 w-full bg-black text-white py-12 px-6 md:px-12">
-            <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <footer className="relative z-20 w-full bg-black text-white px-20 md:px-40 lg:px-48 py-12 md:py-16">
+            <div className="w-full flex flex-col md:flex-row gap-12 md:gap-48">
                 {/* About Section */}
-                <div>
-                    <h3 className="text-sm font-light mb-4 text-gray-400">ABOUT</h3>
-                    <ul className="space-y-2">
+                <div className="flex-shrink-0">
+                    <h3 className="text-sm font-light mb-4 text-gray-500 tracking-wider">ABOUT</h3>
+                    <ul className="space-y-1">
                         <li>
                             <Link
                                 href="/catalog"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 CATALOG
                             </Link>
@@ -20,15 +20,15 @@ export default function Footer() {
                         <li>
                             <Link
                                 href="/our-story"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 OUR STORY
                             </Link>
                         </li>
                         <li>
                             <Link
-                                href="/lets-connect"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                href="/contact"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 CONTACT
                             </Link>
@@ -37,9 +37,9 @@ export default function Footer() {
                 </div>
 
                 {/* Location Section */}
-                <div>
-                    <h3 className="text-sm font-light mb-4 text-gray-400">LOCATION</h3>
-                    <address className="text-sm not-italic leading-relaxed">
+                <div className="flex-shrink-0">
+                    <h3 className="text-sm font-light mb-6 text-gray-500 tracking-wider">LOCATION</h3>
+                    <address className="text-sm not-italic leading-relaxed tracking-wide">
                         62, MATHEWATALA ROAD, TANGRA
                         <br />
                         KOLKATA, WEST BENGAL 700046
@@ -49,15 +49,15 @@ export default function Footer() {
                 </div>
 
                 {/* Socials Section */}
-                <div>
-                    <h3 className="text-sm font-light mb-4 text-gray-400">SOCIALS</h3>
-                    <ul className="space-y-2">
+                <div className="flex-shrink-0">
+                    <h3 className="text-sm font-light mb-4 text-gray-500 tracking-wider">SOCIALS</h3>
+                    <ul className="space-y-1">
                         <li>
                             <a
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 INSTAGRAM
                             </a>
@@ -67,7 +67,7 @@ export default function Footer() {
                                 href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 TWITTER
                             </a>
@@ -77,18 +77,18 @@ export default function Footer() {
                                 href="https://behance.net"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-sm hover:-translate-y-1 transition-transform duration-300"
+                                className="inline-block text-sm tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
                                 BEHANCE
                             </a>
                         </li>
                     </ul>
                 </div>
-            </div>
 
-            {/* Copyright */}
-            <div className="w-full max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-right">
-                <p className="text-sm text-gray-500">2025 © AFASHION</p>
+                {/* Copyright - aligned to the right */}
+                <div className="flex-shrink-0 ml-auto self-end">
+                    <p className="text-sm text-gray-600 tracking-wider">2025 © AFASHION</p>
+                </div>
             </div>
         </footer>
     );

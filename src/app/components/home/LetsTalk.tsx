@@ -43,11 +43,11 @@ export default function LetsTalk() {
             <div className="relative w-full mt-32">
                 <motion.div
                     className="flex gap-2"
-                    style={{ rotate: '-5deg' }}
+                    style={{ rotate: '-3deg' }}
                     initial={{ x: 0, y: 0 }}
                     animate={{
                         x: [-3060, 0],
-                        y: [267, 0]
+                        y: [167, 0]
                     }}
                     transition={{
                         x: {
@@ -82,7 +82,7 @@ export default function LetsTalk() {
             </div>
 
             {/* Extra space at the bottom */}
-            <div className="w-full h-[30vh]" />
+            <div className="w-full h-[10vh]" />
         </section>
     );
 }

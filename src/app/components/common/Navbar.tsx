@@ -7,7 +7,7 @@ interface NavbarProps {
     navRef?: React.RefObject<HTMLElement | null>;
 }
 
-export default function Navbar({ onNavHover, navRef: externalNavRef }: NavbarProps) {
+export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
     const [scrollUp, setScrollUp] = useState(true);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const internalNavRef = useRef<HTMLElement>(null);
@@ -36,14 +36,18 @@ export default function Navbar({ onNavHover, navRef: externalNavRef }: NavbarPro
             {/* Navbar */}
             <nav
                 ref={navRef}
-                className={`fixed top-0 left-0 w-full h-16 flex items-center justify-center backdrop-blur-md bg-white/5 text-black font-medium z-50 transition-transform duration-500 ease-in-out mix-blend-difference ${scrollUp ? "translate-y-0" : "-translate-y-full"
+                className={`fixed top-0 left-0 w-full h-16 flex items-center justify-center backdrop-blur-md bg-black/20 text-black font-medium z-50 transition-transform duration-500 ease-in-out mix-blend-difference ${scrollUp ? "translate-y-0" : "-translate-y-full"
                     }`}
+                style={{
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                }}
             >
                 {/* Left-aligned logo */}
                 <div className="absolute left-8">
                     <Link
                         href="/"
-                        className="transition-transform duration-300 ease-out hover:-translate-y-1 tracking-widest text-xl cursor-pointer text-white"
+                        className="inline-block transition-transform duration-300 ease-out hover:-translate-y-1 tracking-widest text-xl cursor-pointer text-white"
                     >
                         A FASHION
                     </Link>
@@ -90,8 +94,12 @@ export default function Navbar({ onNavHover, navRef: externalNavRef }: NavbarPro
 
             {/* Mobile menu - slides down/up */}
             <div
-                className={`fixed left-0 w-full backdrop-blur-md bg-white/5 z-40 min-[811px]:hidden transition-all duration-500 ease-in-out mix-blend-difference ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+                className={`fixed left-0 w-full backdrop-blur-md bg-black/20 z-40 min-[811px]:hidden transition-all duration-500 ease-in-out mix-blend-difference ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
                     } ${scrollUp ? "top-16" : "-top-full"}`}
+                style={{
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                }}
             >
                 <div className="flex flex-col items-center space-y-6 py-8 text-white font-medium">
                     <Link
