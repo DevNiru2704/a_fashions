@@ -23,7 +23,7 @@ export default function NotFound() {
                         <BlurFadeText
                             text="PAGE NOT FOUND"
                             className="text-xl md:text-2xl lg:text-3xl font-medium text-white"
-                            delayBetweenWords={200}
+                            delayBetweenCharacters={100}
                         />
                     </div>
 
