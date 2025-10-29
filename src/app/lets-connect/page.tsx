@@ -77,7 +77,7 @@ export default function LetsConnect() {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="Jane Smith"
+                                        placeholder="Enter name"
                                         className="w-full bg-zinc-900 text-white px-4 py-3 rounded focus:outline-none placeholder-gray-600"
                                         required
                                     />
@@ -94,7 +94,7 @@ export default function LetsConnect() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        placeholder="jane@framer.com"
+                                        placeholder="Enter email"
                                         className="w-full bg-zinc-900 text-white px-4 py-3 rounded focus:outline-none placeholder-gray-600"
                                         required
                                     />
