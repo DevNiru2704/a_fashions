@@ -169,9 +169,21 @@ export default function WhatWeMake() {
 
                     {/* Last row - Belts and Hard Goods side by side */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                        {/* Belts - Text Left, Image Right */}
+                        {/* Belts - Image above text on mobile, Text Left Image Right on desktop */}
                         <div className="flex flex-col md:flex-row gap-6 items-center">
-                            <SlideIn direction="left" className="w-full md:w-3/5">
+                            {/* Image - appears first on mobile */}
+                            <SlideIn direction="right" delay={100} className="w-full md:w-2/5 md:order-2">
+                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={lastRowProducts[0].image}
+                                        alt={lastRowProducts[0].title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </SlideIn>
+                            {/* Text - appears second on mobile */}
+                            <SlideIn direction="left" className="w-full md:w-3/5 md:order-1">
                                 <div className="space-y-4">
                                     <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
                                         {lastRowProducts[0].badge}
@@ -188,22 +200,24 @@ export default function WhatWeMake() {
                                     <ExploreButton />
                                 </div>
                             </SlideIn>
+                        </div>
 
-                            <SlideIn direction="right" delay={100} className="w-full md:w-2/5">
+                        {/* Hard Goods - Image above text on mobile, Image Left Text Right on desktop */}
+                        <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
+                            {/* Image - appears first on mobile */}
+                            <SlideIn direction="left" delay={100} className="w-full md:w-2/5 md:order-1">
                                 <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src={lastRowProducts[0].image}
-                                        alt={lastRowProducts[0].title}
+                                        src={lastRowProducts[1].image}
+                                        alt={lastRowProducts[1].title}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                             </SlideIn>
-                        </div>
 
-                        {/* Hard Goods - Image Left, Text Right */}
-                        <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
-                            <SlideIn direction="right" className="w-full md:w-3/5">
+                            {/* Text - appears second on mobile */}
+                            <SlideIn direction="right" className="w-full md:w-3/5 md:order-2">
                                 <div className="space-y-4">
                                     <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
                                         {lastRowProducts[1].badge}
@@ -218,17 +232,6 @@ export default function WhatWeMake() {
                                     </p>
 
                                     <ExploreButton />
-                                </div>
-                            </SlideIn>
-
-                            <SlideIn direction="left" delay={100} className="w-full md:w-2/5">
-                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={lastRowProducts[1].image}
-                                        alt={lastRowProducts[1].title}
-                                        className="w-full h-full object-cover"
-                                    />
                                 </div>
                             </SlideIn>
                         </div>
