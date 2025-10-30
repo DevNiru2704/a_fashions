@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
@@ -9,6 +10,9 @@ export default function LetsConnect() {
         email: "",
         message: ""
     });
+
+    const footerRef = useRef(null);
+    const isFooterInView = useInView(footerRef, { once: true, amount: 0.2 });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -26,32 +30,48 @@ export default function LetsConnect() {
     return (
         <div className="min-h-screen w-full bg-black flex flex-col">
             <Navbar />
-
-            <main className="flex-1 flex items-center justify-center px-6 md:px-12 py-16 md:py-24">
+            <main className="flex items-center justify-center px-6 md:px-12 py-32 md:py-48 min-h-screen">
                 <div className="w-full max-w-6xl">
-                    {/* Contact Us Heading */}
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-12 md:mb-20">
+                    {/* Contact Us Heading - Slide up animation */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-12 md:mb-20"
+                    >
                         CONTACT US
-                    </h1>
+                    </motion.h1>
 
                     {/* Content Grid - Mobile: Stack, Desktop: Side by Side */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
                         {/* Left Column - Contact Info */}
                         <div className="space-y-8 md:space-y-12">
-                            {/* Email */}
-                            <div>
+                            {/* Email - Slide up animation */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                            >
                                 <p className="text-xs md:text-sm text-gray-400 mb-2">Send an email</p>
                                 <p className="text-base md:text-lg text-white">INFO@AFASHIONS.NET</p>
-                            </div>
+                            </motion.div>
 
-                            {/* Phone */}
-                            <div>
+                            {/* Phone - Slide up animation */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                            >
                                 <p className="text-xs md:text-sm text-gray-400 mb-2">Phone</p>
                                 <p className="text-base md:text-lg text-white">+91 9163327474</p>
-                            </div>
+                            </motion.div>
 
-                            {/* Location */}
-                            <div>
+                            {/* Location - Slide up animation */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                            >
                                 <p className="text-xs md:text-sm text-gray-400 mb-2">Location</p>
                                 <address className="text-base md:text-lg text-white not-italic leading-relaxed">
                                     62, MATHEWARTALA ROAD, TANGRA,
@@ -60,11 +80,15 @@ export default function LetsConnect() {
                                     <br />
                                     INDIA
                                 </address>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Right Column - Contact Form */}
-                        <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                        >
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 {/* Name Input */}
                                 <div>
@@ -127,12 +151,20 @@ export default function LetsConnect() {
                                     </button>
                                 </div>
                             </form>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </main>
 
-            <Footer />
+            {/* Footer with fade-in animation when in viewport */}
+            <motion.div
+                ref={footerRef}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isFooterInView ? 1 : 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <Footer />
+            </motion.div>
         </div>
     );
 }
