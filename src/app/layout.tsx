@@ -3,6 +3,7 @@ import "./globals.css";
 import GlobalCursor from "./components/common/GlobalCursor";
 import ScrollToTop from "./components/common/ScrollToTop";
 import SmoothScroll from "./components/common/SmoothScroll";
+import ContentProtection from "./components/common/ContentProtection";
 
 export const metadata: Metadata = {
   title: "A Fashions",
@@ -17,16 +18,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-simhei bg-[#E8E8E8]">
-        {/* with smooth scroll */}
-        {/* <SmoothScroll> 
+        <ContentProtection>
+          {/* with smooth scroll */}
+          {/* <SmoothScroll> 
+            <ScrollToTop />
+            <GlobalCursor />
+            {children}
+          </SmoothScroll> */}
+          {/* //without smooth scroll. uncomment this only for testing */}
           <ScrollToTop />
           <GlobalCursor />
           {children}
-        </SmoothScroll> */}
-        {/* //without smooth scroll. uncomment this only for testing */}
-        <ScrollToTop />
-        <GlobalCursor />
-        {children}
+        </ContentProtection>
       </body>
     </html>
   );
