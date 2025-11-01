@@ -1,6 +1,8 @@
 "use client";
 import { useRef } from "react";
 import Navbar from "../components/common/Navbar";
+import AboutAFashion from "../components/who_we_are/AboutAFashion";
+import ImageGrid from "../components/who_we_are/ImageGrid";
 import WhoWeAre2 from "../components/who_we_are/WhoWeAre2";
 import ProcessSection from "../components/who_we_are/ProcessSection";
 import LetsTalk2 from "../components/who_we_are/LetsTalk2";
@@ -12,7 +14,8 @@ export default function OurStory() {
         <>
             <Navbar navRef={navRef} />
             <main className="relative w-full">
-                <WhoWeAre2 />
+                <AboutAFashion />
+                <ImageGrid />
                 <ProcessSection />
                 <LetsTalk2 />
             </main>
