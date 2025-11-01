@@ -10,14 +10,56 @@ export default function LetsConnect() {
         email: "",
         message: ""
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: 'success' | 'error' | null;
+        message: string;
+    }>({ type: null, message: '' });
 
     const footerRef = useRef(null);
     const isFooterInView = useInView(footerRef, { once: true, amount: 0.2 });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log("Form submitted:", formData);
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitStatus({
+                    type: 'success',
+                    message: 'Thank you! Your message has been sent successfully.',
+                });
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    message: '',
+                });
+            } else {
+                setSubmitStatus({
+                    type: 'error',
+                    message: data.error || 'Failed to send message. Please try again.',
+                });
+            }
+        } catch (error) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Network error. Please check your connection and try again.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -89,6 +131,20 @@ export default function LetsConnect() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                         >
+                            {/* Status Message */}
+                            {submitStatus.type && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className={`mb-6 p-4 rounded ${submitStatus.type === 'success'
+                                            ? 'bg-green-900/50 text-green-200 border border-green-700'
+                                            : 'bg-red-900/50 text-red-200 border border-red-700'
+                                        }`}
+                                >
+                                    {submitStatus.message}
+                                </motion.div>
+                            )}
+
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 {/* Name Input */}
                                 <div>
@@ -145,9 +201,10 @@ export default function LetsConnect() {
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        className="bg-white text-black px-8 py-3 rounded font-medium hover:bg-gray-200 transition-colors duration-300"
+                                        disabled={isSubmitting}
+                                        className="bg-white text-black px-8 py-3 rounded font-medium hover:bg-gray-200 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        Submit
+                                        {isSubmitting ? 'Sending...' : 'Submit'}
                                     </button>
                                 </div>
                             </form>
