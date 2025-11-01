@@ -18,18 +18,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-simhei bg-[#E8E8E8]">
-        <ContentProtection>
-          {/* with smooth scroll. uncomment this only for testing. only uncomment one thing at a time. */}
-          {/* <SmoothScroll> 
+        {/* <ContentProtection> */}
+        {/* with smooth scroll. uncomment this only for testing. only uncomment one thing at a time. */}
+        {/* <SmoothScroll> 
             <ScrollToTop />
             <GlobalCursor />
             {children}
           </SmoothScroll> */}
-          {/* //without smooth scroll. uncomment this only for testing */}
-          {/* <ScrollToTop /> */}
-          <GlobalCursor />
-          {children}
-        </ContentProtection>
+        {/* //without smooth scroll. uncomment this only for testing */}
+        <ScrollToTop />
+        <GlobalCursor />
+        {children}
+        {/* </ContentProtection> */}
       </body>
     </html>
   );
