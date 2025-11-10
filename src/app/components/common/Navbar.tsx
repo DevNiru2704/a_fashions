@@ -110,7 +110,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                         OUR STORY
                     </Link>
                     <Link
-                        href="/catalogue"
+                        href="/catalog"
                         onClick={() => setMobileMenuOpen(false)}
                         className="text-lg tracking-wide cursor-pointer"
                     >
