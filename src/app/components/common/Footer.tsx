@@ -28,10 +28,10 @@ export default function Footer() {
                         </li>
                         <li>
                             <Link
-                                href="/contact"
+                                href="/lets-connect"
                                 className="inline-block text-base md:text-sm text-gray-300 tracking-wide hover:-translate-y-1 transition-transform duration-300"
                             >
-                                Contact
+                                LETS CONNECT
                             </Link>
                         </li>
                     </ul>

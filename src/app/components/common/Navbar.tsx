@@ -62,7 +62,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                         Our Story
                     </Link>
                     <Link
-                        href="/catalogue"
+                        href="/catalog"
                         className="transition-transform duration-300 ease-out hover:-translate-y-1 cursor-pointer text-white"
                     >
                         Catalogue
