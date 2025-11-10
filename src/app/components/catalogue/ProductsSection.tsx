@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Product {
     id: string;
@@ -55,9 +56,10 @@ export default function ProductsSection() {
         <section className="w-full bg-black text-white pt-8 pb-20 px-6 md:px-12 lg:px-16">
             <div className="max-w-[1400px] mx-auto space-y-16">
                 {products.map((product) => (
-                    <div
+                    <Link
                         key={product.id}
-                        className="relative group bg-black cursor-pointer"
+                        href={`/catalog/${product.id}`}
+                        className="relative group bg-black cursor-pointer block"
                         data-cursor-hover="card"
                         onMouseEnter={() => setHoveredProduct(product.id)}
                         onMouseLeave={() => setHoveredProduct(null)}
@@ -98,7 +100,7 @@ export default function ProductsSection() {
                                 {product.subtitle}
                             </p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </section>
