@@ -94,14 +94,14 @@ const PRODUCTS_DATA: Product[] = [
         }
     },
     {
-        slug: "demiverde",
-        title: "DemiVerde",
+        slug: "dermaverde",
+        title: "DermaVerde",
         subtitle: "LEATHER",
         category: "Bags",
-        description: "Signature DemiVerde collection piece. A statement bag that combines luxury with everyday practicality.",
-        fullDescription: "The DemiVerde is our signature piece, representing the pinnacle of our craftsmanship. This exclusive design features unique detailing and premium materials, making it a true investment piece. Perfect for those who appreciate fine leather goods.",
+        description: "Signature DermaVerde collection piece. A statement bag that combines luxury with everyday practicality.",
+        fullDescription: "The DermaVerde is our signature piece, representing the pinnacle of our craftsmanship. This exclusive design features unique detailing and premium materials, making it a true investment piece. Perfect for those who appreciate fine leather goods.",
         features: [
-            "Signature DemiVerde design",
+            "Signature DermaVerde design",
             "Premium Italian leather",
             "Hand-stitched construction",
             "Multiple compartments",
@@ -574,6 +574,442 @@ const PRODUCTS_DATA: Product[] = [
             ]
         }
     },
+    // Men's Wallet Models
+    {
+        slug: "mw-01",
+        title: "MW-01",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Slim men's leather wallet with classic bifold design. Perfect for everyday carry.",
+        fullDescription: "The MW-01 is a timeless bifold wallet crafted from premium leather. Its slim profile fits comfortably in your pocket while providing ample space for cards and cash. The leather develops a beautiful patina over time.",
+        features: [
+            "Bifold design",
+            "Premium full-grain leather",
+            "Multiple card slots",
+            "Bill compartment",
+            "Slim profile",
+            "Ages beautifully"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "None",
+            dimensions: "11cm x 9cm x 2cm",
+            weight: "80g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-02",
+        title: "MW-02",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Minimalist cardholder for the modern man. Compact and functional.",
+        fullDescription: "The MW-02 cardholder is designed for those who prefer to carry less. Its minimalist design holds your essential cards while maintaining an ultra-slim profile.",
+        features: [
+            "Minimalist design",
+            "Premium leather",
+            "4-6 card capacity",
+            "Ultra-slim profile",
+            "RFID protection",
+            "Durable construction"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "None",
+            dimensions: "10cm x 7cm x 0.5cm",
+            weight: "40g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-03",
+        title: "MW-03",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Trifold wallet with coin pocket. Maximum organization in compact form.",
+        fullDescription: "The MW-03 offers exceptional organization with its trifold design. Features a dedicated coin pocket and multiple card slots.",
+        features: [
+            "Trifold design",
+            "Coin pocket",
+            "Multiple card slots",
+            "Bill compartment",
+            "ID window",
+            "Compact when folded"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "Snap closure",
+            dimensions: "12cm x 10cm x 3cm",
+            weight: "120g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-04",
+        title: "MW-04",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Money clip wallet for minimalists. Sleek and sophisticated.",
+        fullDescription: "The MW-04 combines a money clip with card slots for the ultimate minimalist wallet. Perfect for those who carry cash.",
+        features: [
+            "Money clip design",
+            "Card slots",
+            "Slim profile",
+            "Premium leather",
+            "Stainless steel clip",
+            "Minimalist aesthetic"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "Stainless steel clip",
+            dimensions: "11cm x 8cm x 1cm",
+            weight: "60g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-05",
+        title: "MW-05",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Long wallet with zipper closure. Spacious and secure.",
+        fullDescription: "The MW-05 long wallet offers maximum capacity with secure zipper closure. Ideal for those who need to carry more.",
+        features: [
+            "Long wallet design",
+            "Zipper closure",
+            "Multiple compartments",
+            "Coin pocket",
+            "Card slots",
+            "Spacious interior"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "YKK zipper",
+            dimensions: "19cm x 10cm x 2.5cm",
+            weight: "150g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-06",
+        title: "MW-06",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Vertical wallet with unique design. Stand out from the crowd.",
+        fullDescription: "The MW-06 features a unique vertical orientation that sets it apart. Functional and stylish.",
+        features: [
+            "Vertical design",
+            "Premium leather",
+            "Card slots",
+            "Bill compartment",
+            "Unique orientation",
+            "Conversation starter"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "None",
+            dimensions: "9cm x 12cm x 2cm",
+            weight: "90g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "mw-07",
+        title: "MW-07",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Travel wallet with passport holder. Perfect for globetrotters.",
+        fullDescription: "The MW-07 is designed for travelers. Features dedicated passport slot and multiple compartments for travel documents.",
+        features: [
+            "Travel wallet design",
+            "Passport holder",
+            "Multiple compartments",
+            "Card slots",
+            "Pen holder",
+            "Boarding pass pocket"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "None",
+            dimensions: "24cm x 13cm x 2cm",
+            weight: "180g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    // Women's Wallet Models
+    {
+        slug: "ww-01",
+        title: "WW-01",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Elegant women's wallet with multiple compartments. Style meets functionality.",
+        fullDescription: "The WW-01 is designed for the modern woman who values both style and organization. Features multiple card slots and compartments.",
+        features: [
+            "Elegant design",
+            "Multiple compartments",
+            "Card slots",
+            "Coin pocket",
+            "Bill compartment",
+            "Premium leather"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "Snap closure",
+            dimensions: "19cm x 10cm x 3cm",
+            weight: "140g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-02",
+        title: "WW-02",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Compact clutch wallet for evenings. Sophisticated and chic.",
+        fullDescription: "The WW-02 doubles as a clutch for evening events. Compact yet spacious enough for essentials.",
+        features: [
+            "Clutch design",
+            "Detachable wrist strap",
+            "Card slots",
+            "Phone pocket",
+            "Elegant finish",
+            "Versatile use"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Satin",
+            hardware: "Gold-tone snap",
+            dimensions: "20cm x 11cm x 2cm",
+            weight: "160g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-03",
+        title: "WW-03",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Zipper wallet with wrist strap. Secure and convenient.",
+        fullDescription: "The WW-03 features full zipper closure for maximum security. Includes convenient wrist strap for easy carrying.",
+        features: [
+            "Zipper closure",
+            "Wrist strap",
+            "Multiple compartments",
+            "Card slots",
+            "Coin pocket",
+            "Secure design"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "YKK zipper",
+            dimensions: "20cm x 11cm x 3cm",
+            weight: "170g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-04",
+        title: "WW-04",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Slim cardholder for minimalists. Elegant simplicity.",
+        fullDescription: "The WW-04 is perfect for those who prefer to carry less. Slim design with essential card slots.",
+        features: [
+            "Slim cardholder",
+            "Premium leather",
+            "4-6 card capacity",
+            "Minimalist design",
+            "RFID protection",
+            "Elegant finish"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "None",
+            dimensions: "10cm x 7cm x 0.5cm",
+            weight: "35g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-05",
+        title: "WW-05",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Trifold wallet with photo slots. Keep memories close.",
+        fullDescription: "The WW-05 features photo slots alongside card compartments. Perfect for keeping loved ones close.",
+        features: [
+            "Trifold design",
+            "Photo slots",
+            "Card compartments",
+            "Coin pocket",
+            "Bill compartment",
+            "Sentimental design"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "Snap closure",
+            dimensions: "13cm x 10cm x 3cm",
+            weight: "130g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-06",
+        title: "WW-06",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Envelope wallet with flap closure. Timeless elegance.",
+        fullDescription: "The WW-06 features a classic envelope design with magnetic flap closure. Timeless and sophisticated.",
+        features: [
+            "Envelope design",
+            "Magnetic flap",
+            "Card slots",
+            "Bill compartment",
+            "Slim profile",
+            "Timeless style"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Leather",
+            hardware: "Magnetic closure",
+            dimensions: "19cm x 9cm x 1.5cm",
+            weight: "110g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            ]
+        }
+    },
+    {
+        slug: "ww-07",
+        title: "WW-07",
+        subtitle: "LEATHER",
+        category: "Wallets",
+        description: "Crossbody wallet phone case. Hands-free convenience.",
+        fullDescription: "The WW-07 combines wallet and phone case with crossbody strap. Perfect for hands-free days.",
+        features: [
+            "Phone case wallet",
+            "Crossbody strap",
+            "Card slots",
+            "Adjustable strap",
+            "Hands-free design",
+            "Multi-functional"
+        ],
+        specifications: {
+            material: "Full-grain leather",
+            lining: "Microfiber",
+            hardware: "Adjustable strap",
+            dimensions: "18cm x 10cm x 2cm",
+            weight: "120g"
+        },
+        images: {
+            thumbnail: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+            hover: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+            gallery: [
+                "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            ]
+        }
+    },
     {
         slug: "wallet",
         title: "WALLET",
@@ -687,9 +1123,10 @@ export default function ProductPage({ params }: PageProps) {
 
     // Category slug to product slug mapping
     const CATEGORY_PRODUCTS: Record<string, string[]> = {
-        "womens-bag": ["af-01", "af-02", "demiverde", "af-03", "af-04", "af-05", "af-06", "af-07"],
+        "womens-bag": ["af-01", "af-02", "dermaverde", "af-03", "af-04", "af-05", "af-06", "af-07"],
         "mens-bag": ["mb-01", "mb-02", "mb-03", "mb-04", "mb-05", "mb-06", "mb-07"],
-        "wallet": ["wl-01", "wl-02", "wl-03", "wl-04", "wl-05", "wl-06", "wl-07"],
+        "mens-wallet": ["mw-01", "mw-02", "mw-03", "mw-04", "mw-05", "mw-06", "mw-07"],
+        "womens-wallet": ["ww-01", "ww-02", "ww-03", "ww-04", "ww-05", "ww-06", "ww-07"],
         "belt": ["bl-01", "bl-02", "bl-03", "bl-04", "bl-05", "bl-06", "bl-07"],
         "other-hard-goods": ["hg-01", "hg-02", "hg-03", "hg-04", "hg-05", "hg-06", "hg-07"]
     };

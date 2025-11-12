@@ -27,11 +27,18 @@ const products: Product[] = [
         hoverImage: "https://images.unsplash.com/photo-1761275389856-3c4f7d61b623?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
     },
     {
-        id: "wallet",
-        title: "WALLET",
+        id: "mens-wallet",
+        title: "MEN'S WALLET",
         subtitle: "LEATHER",
         image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
         hoverImage: "https://images.unsplash.com/photo-1614330316567-11d8e572db16?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169"
+    },
+    {
+        id: "womens-wallet",
+        title: "WOMEN'S WALLET",
+        subtitle: "LEATHER",
+        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+        hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
     },
     {
         id: "belt",

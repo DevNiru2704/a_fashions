@@ -19,7 +19,7 @@ const PRODUCT_MODELS: ProductModel[] = [
     // Women's Bag Models
     { id: "af-01", name: "AF-01", category: "womens-bag", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80" },
     { id: "af-02", name: "AF-02", category: "womens-bag", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
-    { id: "demiverde", name: "DermaVerde", category: "womens-bag", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80" },
+    { id: "dermaverde", name: "DermaVerde", category: "womens-bag", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80" },
     { id: "af-03", name: "AF-03", category: "womens-bag", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" },
     { id: "af-04", name: "AF-04", category: "womens-bag", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80" },
     { id: "af-05", name: "AF-05", category: "womens-bag", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
@@ -35,14 +35,23 @@ const PRODUCT_MODELS: ProductModel[] = [
     { id: "mb-06", name: "MB-06", category: "mens-bag", image: "https://images.unsplash.com/photo-1617886322207-baac2c5a3b5d?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=800&q=80" },
     { id: "mb-07", name: "MB-07", category: "mens-bag", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1617886322207-baac2c5a3b5d?w=800&q=80" },
 
-    // Wallet Models
-    { id: "wl-01", name: "WL-01", category: "wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
-    { id: "wl-02", name: "WL-02", category: "wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
-    { id: "wl-03", name: "WL-03", category: "wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
-    { id: "wl-04", name: "WL-04", category: "wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
-    { id: "wl-05", name: "WL-05", category: "wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
-    { id: "wl-06", name: "WL-06", category: "wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
-    { id: "wl-07", name: "WL-07", category: "wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    // Men's Wallet Models
+    { id: "mw-01", name: "MW-01", category: "mens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "mw-02", name: "MW-02", category: "mens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "mw-03", name: "MW-03", category: "mens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "mw-04", name: "MW-04", category: "mens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "mw-05", name: "MW-05", category: "mens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "mw-06", name: "MW-06", category: "mens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "mw-07", name: "MW-07", category: "mens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+
+    // Women's Wallet Models
+    { id: "ww-01", name: "WW-01", category: "womens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "ww-02", name: "WW-02", category: "womens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "ww-03", name: "WW-03", category: "womens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "ww-04", name: "WW-04", category: "womens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "ww-05", name: "WW-05", category: "womens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
+    { id: "ww-06", name: "WW-06", category: "womens-wallet", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80" },
+    { id: "ww-07", name: "WW-07", category: "womens-wallet", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" },
 
     // Belt Models
     { id: "bl-01", name: "BL-01", category: "belt", image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?w=800&q=80", hoverImage: "https://images.unsplash.com/photo-1624222247344-550fb60583c2?w=1200&q=80" },
@@ -66,7 +75,8 @@ const PRODUCT_MODELS: ProductModel[] = [
 const CATEGORY_NAMES: Record<string, string> = {
     "womens-bag": "WOMEN'S BAG",
     "mens-bag": "MEN'S BAG",
-    "wallet": "WALLET",
+    "mens-wallet": "MEN'S WALLET",
+    "womens-wallet": "WOMEN'S WALLET",
     "belt": "BELT",
     "other-hard-goods": "OTHER HARD GOODS"
 };

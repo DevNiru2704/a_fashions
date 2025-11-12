@@ -11,6 +11,7 @@ interface ProductItem {
     description: string;
     image: string;
     imagePosition?: "left" | "right";
+    category: string; // catalog route slug
 }
 
 interface ProductRow {
@@ -31,7 +32,8 @@ const PRODUCT_ROWS: ProductRow[] = [
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
-                imagePosition: "left"
+                imagePosition: "left",
+                category: "womens-bag"
             }
         ]
     },
@@ -44,14 +46,16 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "MEN'S WALLET",
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                category: "mens-wallet"
             },
             {
                 id: 3,
                 title: "WOMEN'S WALLET",
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                category: "womens-wallet"
             }
         ]
     },
@@ -64,7 +68,8 @@ const PRODUCT_ROWS: ProductRow[] = [
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-                imagePosition: "right"
+                imagePosition: "right",
+                category: "mens-bag"
             }
         ]
     },
@@ -77,14 +82,16 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "BELTS",
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958"
+                image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958",
+                category: "belt"
             },
             {
                 id: 6,
                 title: "HARD GOODS",
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80"
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
+                category: "other-hard-goods"
             }
         ]
     }
@@ -200,7 +207,7 @@ export default function WhatWeMake() {
                                                             {product.description}
                                                         </p>
 
-                                                        <ExploreButton />
+                                                        <ExploreButton category={product.category} />
                                                     </div>
                                                 </SlideIn>
                                             </div>
@@ -250,7 +257,7 @@ export default function WhatWeMake() {
                                                                 {product.description}
                                                             </p>
 
-                                                            <ExploreButton />
+                                                            <ExploreButton category={product.category} />
                                                         </div>
                                                     </SlideIn>
                                                 </div>
