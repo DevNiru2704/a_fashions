@@ -219,7 +219,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
 
             {/* Mobile menu - Desktop/Mobile version */}
             <div
-                className={`fixed left-0 w-full z-40 min-[811px]:hidden transition-all duration-500 ease-in-out backdrop-blur-md bg-black/20 mix-blend-difference ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+                className={`fixed left-0 top-16 w-full z-40 min-[811px]:hidden transition-all duration-500 ease-in-out backdrop-blur-md bg-black/20 mix-blend-difference ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
                     }`}
                 style={{
                     backdropFilter: 'blur(12px)',
