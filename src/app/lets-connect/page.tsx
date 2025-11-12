@@ -1,6 +1,7 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
@@ -18,6 +19,18 @@ export default function LetsConnect() {
 
     const footerRef = useRef(null);
     const isFooterInView = useInView(footerRef, { once: true, amount: 0.2 });
+
+    // Prefill message when navigated from a product with ?product=...
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const p = searchParams.get("product");
+        if (p) {
+            setFormData(prev => ({
+                ...prev,
+                message: prev.message || `I'm interested in ${p}. Please provide more details.`
+            }));
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -137,8 +150,8 @@ export default function LetsConnect() {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className={`mb-6 p-4 rounded ${submitStatus.type === 'success'
-                                            ? 'bg-green-900/50 text-green-200 border border-green-700'
-                                            : 'bg-red-900/50 text-red-200 border border-red-700'
+                                        ? 'bg-green-900/50 text-green-200 border border-green-700'
+                                        : 'bg-red-900/50 text-red-200 border border-red-700'
                                         }`}
                                 >
                                     {submitStatus.message}

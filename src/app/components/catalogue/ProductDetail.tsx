@@ -182,11 +182,14 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                 </div>
                             </div>
 
-                            {/* CTA Button */}
-                            <div className="pt-6">
-                                <MorphButton href="/lets-connect">
+                            {/* CTA Button - use same simple style as Lets Connect submit button, full width of text column, no hover animations */}
+                            <div className="pt-6 w-full">
+                                <Link
+                                    href={`/lets-connect?product=${encodeURIComponent(product.title)}`}
+                                    className="block bg-white text-black px-6 py-3 rounded font-medium w-full text-center"
+                                >
                                     INQUIRE NOW
-                                </MorphButton>
+                                </Link>
                             </div>
                         </div>
                     </div>
