@@ -40,7 +40,7 @@ export default function VideoCurtain() {
                         muted
                         playsInline
                         preload="metadata"
-                        poster="/assets/images/video-poster-left.jpg"
+                        poster="/assets/images/left_video_poster.jpg"
                     >
                         <source src="/assets/videos/left_video.mp4" type="video/mp4" />
                     </video>
@@ -53,7 +53,7 @@ export default function VideoCurtain() {
                         muted
                         playsInline
                         preload="metadata"
-                        poster="/assets/images/video-poster-right.jpg"
+                        poster="/assets/images/right_video_poster.jpg"
                     >
                         <source src="/assets/videos/right_video.mp4" type="video/mp4" />
                     </video>

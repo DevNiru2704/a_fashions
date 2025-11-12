@@ -65,7 +65,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                         href="/catalog"
                         className="transition-transform duration-300 ease-out hover:-translate-y-1 cursor-pointer text-white"
                     >
-                        Catalogue
+                        Catalog
                     </Link>
                     <Link
                         href="/lets-connect"
@@ -114,7 +114,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                         onClick={() => setMobileMenuOpen(false)}
                         className="text-lg tracking-wide cursor-pointer"
                     >
-                        CATALOGUE
+                        CATALOG
                     </Link>
                     <Link
                         href="/lets-connect"

@@ -4,56 +4,89 @@ import BlurFadeText from "../animations/BlurFadeText";
 import SlideIn from "../animations/SlideIn";
 import ExploreButton from "../common/ExploreButton";
 
-interface Product {
+interface ProductItem {
     id: number;
     title: string;
     badge: string;
     description: string;
     image: string;
-    imagePosition: "left" | "right";
+    imagePosition?: "left" | "right";
 }
 
-const products: Product[] = [
-    {
-        id: 1,
-        title: "WOMEN'S BAG",
-        badge: "Immerse yourself in sound",
-        description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
-        imagePosition: "left"
-    },
-    {
-        id: 2,
-        title: "MEN'S BAG",
-        badge: "Hear every detail",
-        description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-        imagePosition: "right"
-    },
-    {
-        id: 3,
-        title: "WALLETS",
-        badge: "Immerse yourself in sound",
-        description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-        image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
-        imagePosition: "left"
-    }
-];
+interface ProductRow {
+    type: "full" | "grid";  // full = full width, grid = side by side
+    columns?: number;  // number of items per row (for grid type)
+    items: ProductItem[];
+}
 
-const lastRowProducts = [
+// CMS-ready data structure
+// This can be easily replaced with API data from your CMS
+const PRODUCT_ROWS: ProductRow[] = [
     {
-        id: 4,
-        title: "BELTS",
-        badge: "Hear every detail",
-        description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-        image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958"
+        type: "full",
+        items: [
+            {
+                id: 1,
+                title: "WOMEN'S BAG",
+                badge: "Immerse yourself in sound",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
+                imagePosition: "left"
+            }
+        ]
     },
     {
-        id: 5,
-        title: "HARD GOODS",
-        badge: "Immerse yourself in sound",
-        description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80"
+        type: "grid",
+        columns: 2,
+        items: [
+            {
+                id: 2,
+                title: "MEN'S WALLET",
+                badge: "Immerse yourself in sound",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+            },
+            {
+                id: 3,
+                title: "WOMEN'S WALLET",
+                badge: "Hear every detail",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80"
+            }
+        ]
+    },
+    {
+        type: "full",
+        items: [
+            {
+                id: 4,
+                title: "MEN'S BAG",
+                badge: "Hear every detail",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
+                imagePosition: "right"
+            }
+        ]
+    },
+    {
+        type: "grid",
+        columns: 2,
+        items: [
+            {
+                id: 5,
+                title: "BELTS",
+                badge: "Hear every detail",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958"
+            },
+            {
+                id: 6,
+                title: "HARD GOODS",
+                badge: "Immerse yourself in sound",
+                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80"
+            }
+        ]
     }
 ];
 
@@ -75,14 +108,10 @@ export default function WhatWeMake() {
                 const windowWidth = window.innerWidth;
                 const scrollPosition = window.scrollY;
 
-                // Mobile: stronger parallax and starts earlier
                 const isMobile = windowWidth < 768;
-                const parallaxStartPoint = isMobile
-                    ? windowHeight * 2.2  // Starts much earlier on mobile (after 1.2 sections)
-                    : windowHeight * 2.2; // Desktop starts later
+                const parallaxStartPoint = isMobile ? windowHeight * 2.2 : windowHeight * 2.2;
 
                 if (scrollPosition >= parallaxStartPoint) {
-                    // Mobile: stronger effect, Desktop: current effect
                     const parallaxSpeed = isMobile ? 1.5 : 1.5;
                     const offset = (scrollPosition - parallaxStartPoint) * (parallaxSpeed - 1);
                     setTranslateY(-offset);
@@ -119,123 +148,119 @@ export default function WhatWeMake() {
                     />
                 </div>
 
-                {/* Products Grid */}
+                {/* Products Grid - CMS Ready */}
                 <div className="space-y-32">
-                    {/* First 3 products - full width alternating layout */}
-                    {products.map((product) => (
-                        <div
-                            key={product.id}
-                            className={`flex flex-col ${product.imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row"} gap-12 md:gap-16 items-center`}
-                        >
-                            {/* Image */}
-                            <SlideIn
-                                direction={product.imagePosition === "right" ? "right" : "left"}
-                                className="w-full md:w-1/2"
-                            >
-                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={product.image}
-                                        alt={product.title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </SlideIn>
+                    {PRODUCT_ROWS.map((row, rowIndex) => {
+                        // Calculate global item index for zigzag pattern
+                        let globalIndex = 0;
+                        for (let i = 0; i < rowIndex; i++) {
+                            globalIndex += PRODUCT_ROWS[i].items.length;
+                        }
 
-                            {/* Content */}
-                            <SlideIn
-                                direction={product.imagePosition === "right" ? "left" : "right"}
-                                delay={100}
-                                className="w-full md:w-1/2"
-                            >
-                                <div className="space-y-6">
-                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                        {product.badge}
-                                    </span>
+                        return (
+                            <div key={rowIndex}>
+                                {row.type === "full" ? (
+                                    /* Full Width Layout */
+                                    row.items.map((product, itemIndex) => {
+                                        const currentGlobalIndex = globalIndex + itemIndex;
+                                        return (
+                                            <div
+                                                key={product.id}
+                                                className={`flex flex-col ${product.imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row"} gap-12 md:gap-16 items-center`}
+                                            >
+                                                <SlideIn
+                                                    direction={product.imagePosition === "right" ? "right" : "left"}
+                                                    className="w-full md:w-1/2"
+                                                >
+                                                    <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+                                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                        <img
+                                                            src={product.image}
+                                                            alt={product.title}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                </SlideIn>
 
-                                    <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                                        {product.title}
-                                    </h2>
+                                                <SlideIn
+                                                    direction={product.imagePosition === "right" ? "left" : "right"}
+                                                    delay={100}
+                                                    className="w-full md:w-1/2"
+                                                >
+                                                    <div className="space-y-6">
+                                                        <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                                            {product.badge}
+                                                        </span>
 
-                                    <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                                        {product.description}
-                                    </p>
+                                                        <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                                                            {product.title}
+                                                        </h2>
 
-                                    <ExploreButton />
-                                </div>
-                            </SlideIn>
-                        </div>
-                    ))}
+                                                        <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                                                            {product.description}
+                                                        </p>
 
-                    {/* Last row - Belts and Hard Goods side by side */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                        {/* Belts - Image above text on mobile, Text Left Image Right on desktop */}
-                        <div className="flex flex-col md:flex-row gap-6 items-center">
-                            {/* Image - appears first on mobile */}
-                            <SlideIn direction="right" delay={100} className="w-full md:w-2/5 md:order-2">
-                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={lastRowProducts[0].image}
-                                        alt={lastRowProducts[0].title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </SlideIn>
-                            {/* Text - appears second on mobile */}
-                            <SlideIn direction="left" className="w-full md:w-3/5 md:order-1">
-                                <div className="space-y-4">
-                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                        {lastRowProducts[0].badge}
-                                    </span>
+                                                        <ExploreButton />
+                                                    </div>
+                                                </SlideIn>
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    /* Grid Layout - Zigzag on mobile/tablet, Grid on desktop */
+                                    <div className="space-y-32 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-16">
+                                        {row.items.map((product, itemIndex) => {
+                                            // Calculate global position for continuous zigzag
+                                            const currentGlobalIndex = globalIndex + itemIndex;
+                                            const isEven = currentGlobalIndex % 2 === 0;
+                                            return (
+                                                <div
+                                                    key={product.id}
+                                                    className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} lg:flex-row gap-6 md:gap-12 lg:gap-6 items-center`}
+                                                >
+                                                    <SlideIn
+                                                        direction={isEven ? "left" : "right"}
+                                                        className={`w-full md:w-1/2 lg:w-2/5 lg:order-2`}
+                                                    >
+                                                        <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
+                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                            <img
+                                                                src={product.image}
+                                                                alt={product.title}
+                                                                className="w-full h-full object-cover"
+                                                            />
+                                                        </div>
+                                                    </SlideIn>
 
-                                    <h2 className="text-black text-3xl md:text-4xl font-bold tracking-tight">
-                                        {lastRowProducts[0].title}
-                                    </h2>
+                                                    <SlideIn
+                                                        direction={isEven ? "right" : "left"}
+                                                        delay={100}
+                                                        className={`w-full md:w-1/2 lg:w-3/5 lg:order-1`}
+                                                    >
+                                                        <div className="space-y-4">
+                                                            <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                                                {product.badge}
+                                                            </span>
 
-                                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                                        {lastRowProducts[0].description}
-                                    </p>
+                                                            <h2 className="text-black text-3xl md:text-4xl lg:text-3xl font-bold tracking-tight">
+                                                                {product.title}
+                                                            </h2>
 
-                                    <ExploreButton />
-                                </div>
-                            </SlideIn>
-                        </div>
+                                                            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                                                {product.description}
+                                                            </p>
 
-                        {/* Hard Goods - Image above text on mobile, Image Left Text Right on desktop */}
-                        <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
-                            {/* Image - appears first on mobile */}
-                            <SlideIn direction="left" delay={100} className="w-full md:w-2/5 md:order-1">
-                                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={lastRowProducts[1].image}
-                                        alt={lastRowProducts[1].title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </SlideIn>
-
-                            {/* Text - appears second on mobile */}
-                            <SlideIn direction="right" className="w-full md:w-3/5 md:order-2">
-                                <div className="space-y-4">
-                                    <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                        {lastRowProducts[1].badge}
-                                    </span>
-
-                                    <h2 className="text-black text-3xl md:text-4xl font-bold tracking-tight">
-                                        {lastRowProducts[1].title}
-                                    </h2>
-
-                                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                                        {lastRowProducts[1].description}
-                                    </p>
-
-                                    <ExploreButton />
-                                </div>
-                            </SlideIn>
-                        </div>
-                    </div>
+                                                            <ExploreButton />
+                                                        </div>
+                                                    </SlideIn>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </div>
