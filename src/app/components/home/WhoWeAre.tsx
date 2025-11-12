@@ -4,14 +4,31 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import MorphButton from "../animations/MorphButton";
 
-export default function WhoWeAre() {
-    const sectionRef = useRef<HTMLElement>(null);
+interface WhoWeAreData {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+    images: string[];
+}
 
-    const images = [
+// CMS-ready data structure
+// This can be easily replaced with API data from your CMS
+const WHO_WE_ARE_DATA: WhoWeAreData = {
+    title: "WHO WE ARE",
+    description: "At A Fashion, we are a team of\npassionate creatives dedicated to\ncrafting striking visual narratives.\nSpecializing in photography,\nvideography, and creative direction,\nwe bring brands, stories, and concepts\nto life with a refined artistic touch.",
+    buttonText: "KNOW MORE",
+    buttonLink: "/our-story",
+    images: [
         "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&q=80",
         "https://images.unsplash.com/photo-1761216674297-6ffa4d89400c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
         "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
-    ];
+    ]
+};
+
+export default function WhoWeAre() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const { title, description, buttonText, buttonLink, images } = WHO_WE_ARE_DATA;
 
     // Scroll progress for the entire section
     const { scrollYProgress } = useScroll({
@@ -219,22 +236,16 @@ export default function WhoWeAre() {
                         style={{ gap: `${TEXT_CONTENT_GAP * 4}px` }}
                     >
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-none">
-                            WHO WE ARE
+                            {title}
                         </h2>
 
                         <div className="flex flex-col gap-6 md:max-w-md lg:max-w-lg pointer-events-auto">
-                            <p className="text-white text-base md:text-xl leading-relaxed">
-                                At A Fashion, we are a team of<br />
-                                passionate creatives dedicated to<br />
-                                crafting striking visual narratives.<br />
-                                Specializing in photography,<br />
-                                videography, and creative direction,<br />
-                                we bring brands, stories, and concepts<br />
-                                to life with a refined artistic touch.
+                            <p className="text-white text-base md:text-xl leading-relaxed whitespace-pre-line">
+                                {description}
                             </p>
 
-                            <MorphButton href="/our-story" className="self-start">
-                                KNOW MORE
+                            <MorphButton href={buttonLink} className="self-start">
+                                {buttonText}
                             </MorphButton>
                         </div>
                     </div>

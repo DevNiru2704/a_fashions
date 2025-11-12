@@ -2,8 +2,38 @@
 import Image from "next/image";
 import SlideUpCard from "../animations/SlideUpCard";
 
-export default function KeyFigures() {
-    const smallCards = [
+interface SmallCard {
+    title: string;
+    date: string;
+    image: string;
+}
+
+interface HeroCard {
+    title: string;
+    description: string;
+    image: string;
+    authorImage: string;
+    authorName: string;
+}
+
+interface KeyFiguresData {
+    sectionTitle: string;
+    heroCard: HeroCard;
+    smallCards: SmallCard[];
+}
+
+// CMS-ready data structure
+// This can be easily replaced with API data from your CMS
+const KEY_FIGURES_DATA: KeyFiguresData = {
+    sectionTitle: "KEY FIGURES",
+    heroCard: {
+        title: "INFRASTRUCTURE",
+        description: "150,000 sq ft .....",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+        authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80",
+        authorName: "A FASHION"
+    },
+    smallCards: [
         {
             title: "EXPERIENCE",
             date: "April 9, 2025",
@@ -19,14 +49,18 @@ export default function KeyFigures() {
             date: "April 10, 2024",
             image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
         }
-    ];
+    ]
+};
+
+export default function KeyFigures() {
+    const { sectionTitle, heroCard, smallCards } = KEY_FIGURES_DATA;
 
     return (
         <section className="relative z-20 w-full bg-[#E8E8E8] py-12 md:py-20">
             <div className="w-full px-6 md:px-12">
                 <SlideUpCard delay={0}>
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 tracking-tight">
-                        KEY FIGURES
+                        {sectionTitle}
                     </h2>
                 </SlideUpCard>
 
@@ -39,8 +73,8 @@ export default function KeyFigures() {
                         {/* Image Section */}
                         <div className="relative w-full md:w-[50%] h-[300px] md:h-[420px] overflow-hidden">
                             <Image
-                                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80"
-                                alt="Infrastructure"
+                                src={heroCard.image}
+                                alt={heroCard.title}
                                 fill
                                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             />
@@ -50,10 +84,10 @@ export default function KeyFigures() {
                         <div className="w-full md:w-[50%] p-8 md:p-12 flex flex-col justify-between">
                             <div>
                                 <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
-                                    INFRASTRUCTURE
+                                    {heroCard.title}
                                 </h3>
                                 <p className="text-sm md:text-base text-gray-600">
-                                    150,000 sq ft .....
+                                    {heroCard.description}
                                 </p>
                             </div>
 
@@ -61,13 +95,13 @@ export default function KeyFigures() {
                             <div className="flex items-center gap-3 mt-8">
                                 <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                                     <Image
-                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-                                        alt="Author"
+                                        src={heroCard.authorImage}
+                                        alt={heroCard.authorName}
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
-                                <p className="text-xs md:text-sm font-medium text-gray-700">A FASHION</p>
+                                <p className="text-xs md:text-sm font-medium text-gray-700">{heroCard.authorName}</p>
                             </div>
                         </div>
                     </div>
