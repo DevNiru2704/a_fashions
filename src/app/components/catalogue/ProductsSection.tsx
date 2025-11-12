@@ -16,43 +16,43 @@ const products: Product[] = [
         id: "womens-bag",
         title: "WOMEN'S BAG",
         subtitle: "LEATHER",
-        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
-        hoverImage: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80"
+        image: "/assets/images/catalog_face_cards/women_s_bag_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/women_s_bag_secondary_catalog.webp"
     },
     {
         id: "mens-bag",
         title: "MEN'S BAG",
         subtitle: "PRODUCT",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-        hoverImage: "https://images.unsplash.com/photo-1761275389856-3c4f7d61b623?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+        image: "/assets/images/catalog_face_cards/men_s_bag_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/men_s_bag_secondary_catalog.webp"
     },
     {
         id: "mens-wallet",
         title: "MEN'S WALLET",
         subtitle: "LEATHER",
-        image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
-        hoverImage: "https://images.unsplash.com/photo-1614330316567-11d8e572db16?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169"
+        image: "/assets/images/catalog_face_cards/men_s_wallet_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/men_s_wallter_secondary_catalog.webp"
     },
     {
         id: "womens-wallet",
         title: "WOMEN'S WALLET",
         subtitle: "LEATHER",
-        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
-        hoverImage: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80"
+        image: "/assets/images/catalog_face_cards/women_s_wallet_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/women_s_wallet_secondary_catalog.webp"
     },
     {
         id: "belt",
         title: "BELT",
         subtitle: "VISUAL STORYTELLING",
-        image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958",
-        hoverImage: "https://images.unsplash.com/photo-1585856331452-87ea5a04c21c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+        image: "/assets/images/catalog_face_cards/belt_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/belt_secondary_catalog.webp"
     },
     {
         id: "other-hard-goods",
         title: "OTHER HARD GOODS",
         subtitle: "COLLECTION",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-        hoverImage: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80"
+        image: "/assets/images/catalog_face_cards/other_hard_goods_catalog.webp",
+        hoverImage: "/assets/images/catalog_face_cards/other_hard_goods_secondary_catalog.webp"
     }
 ];
 

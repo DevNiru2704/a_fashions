@@ -1,11 +1,11 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
 import { motion, useInView } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
-export default function LetsConnect() {
+function ContactForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -236,5 +236,13 @@ export default function LetsConnect() {
                 <Footer />
             </motion.div>
         </div>
+    );
+}
+
+export default function LetsConnect() {
+    return (
+        <Suspense fallback={<div className="min-h-screen w-full bg-black" />}>
+            <ContactForm />
+        </Suspense>
     );
 }

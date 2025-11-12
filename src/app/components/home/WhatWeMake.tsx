@@ -31,7 +31,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "WOMEN'S BAG",
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
+                image: "/assets/images/home_page_category/women_s_bag_web.webp",
                 imagePosition: "left",
                 category: "womens-bag"
             }
@@ -46,7 +46,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "MEN'S WALLET",
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+                image: "/assets/images/home_page_category/men_s_wallet.webp",
                 category: "mens-wallet"
             },
             {
@@ -54,7 +54,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "WOMEN'S WALLET",
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&q=80",
+                image: "/assets/images/home_page_category/women_s_wallet_web.webp",
                 category: "womens-wallet"
             }
         ]
@@ -67,7 +67,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "MEN'S BAG",
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
+                image: "/assets/images/home_page_category/men_s_bag_web.webp",
                 imagePosition: "right",
                 category: "mens-bag"
             }
@@ -82,7 +82,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "BELTS",
                 badge: "Hear every detail",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1664285612706-b32633c95820?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=958",
+                image: "/assets/images/home_page_category/belt_web.webp",
                 category: "belt"
             },
             {
@@ -90,7 +90,7 @@ const PRODUCT_ROWS: ProductRow[] = [
                 title: "HARD GOODS",
                 badge: "Immerse yourself in sound",
                 description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
-                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
+                image: "/assets/images/home_page_category/hardgoods_web.webp",
                 category: "other-hard-goods"
             }
         ]
