@@ -65,3 +65,24 @@ select {
 .font-simhei {
   font-family: 'SimHei', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+/* Navbar blur effect - Safari/iPad compatible with isolation */
+.nav-blur-container {
+  position: relative;
+  isolation: isolate;
+}
+
+.nav-blur-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.nav-blend-content {
+  position: relative;
+  mix-blend-mode: difference;
+  isolation: isolate;
+}
