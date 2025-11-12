@@ -7,7 +7,12 @@ interface ProcessStep {
     description: string;
 }
 
-const processSteps: ProcessStep[] = [
+type Props = {
+    title?: string;
+    steps?: ProcessStep[];
+};
+
+const DEFAULT_STEPS: ProcessStep[] = [
     {
         title: "Design & Development",
         icon: "/assets/images/design_and_development.svg",
@@ -30,10 +35,12 @@ const processSteps: ProcessStep[] = [
     },
 ];
 
-export default function ProcessSectionStandalone() {
+export default function ProcessSectionStandalone(props: Props = {}) {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [visibleSteps, setVisibleSteps] = useState<number[]>([]);
     const sectionRef = useRef<HTMLElement>(null);
+
+    const { title = "ENSURING ABSOLUTE RESULTS", steps = DEFAULT_STEPS } = props;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -52,8 +59,8 @@ export default function ProcessSectionStandalone() {
                 setScrollProgress(progress);
 
                 const newVisibleSteps: number[] = [];
-                processSteps.forEach((_, index) => {
-                    const stepThreshold = (index + 1) / processSteps.length;
+                steps.forEach((__, index) => {
+                    const stepThreshold = (index + 1) / steps.length;
                     if (progress >= stepThreshold - 0.15) {
                         newVisibleSteps.push(index);
                     }
@@ -80,7 +87,7 @@ export default function ProcessSectionStandalone() {
                     OUR PROCESS
                 </h3>
                 <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                    ENSURING ABSOLUTE RESULTS
+                    {title}
                 </h2>
             </div>
 
@@ -105,7 +112,7 @@ export default function ProcessSectionStandalone() {
                         </div>
                     </div>
 
-                    {processSteps.map((step, index) => {
+                    {steps.map((step, index) => {
                         const isRight = index === 0 || index === 2;
                         const isVisible = visibleSteps.includes(index);
 

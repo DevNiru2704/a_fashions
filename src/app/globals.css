@@ -10,6 +10,8 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 /* Prevent text selection and image/video downloading */
@@ -79,10 +81,12 @@ select {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   pointer-events: none;
+  z-index: 0;
 }
 
 .nav-blend-content {
   position: relative;
   mix-blend-mode: difference;
   isolation: isolate;
+  z-index: 1;
 }

@@ -18,7 +18,7 @@ export default function Home() {
     <>
       {/* Navbar */}
       <Navbar navRef={navRef} />
-      <main className="relative w-full">~
+      <main className="relative w-full">
         <VideoCurtain />
         <LogoSection />
         <ManifestoSection />

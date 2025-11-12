@@ -3,19 +3,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import MorphButton from "../animations/MorphButton";
 
-export default function LetsTalk2() {
-    const galleryImages = [
+type Props = {
+    title?: string;
+    ctaText?: string;
+    ctaLink?: string;
+    galleryImages?: string[];
+};
+
+export default function LetsTalk2(props: Props = {}) {
+    const { title = "TURNING IMAGINATION INTO REALITY", ctaText = "LET'S TALK", ctaLink = "/lets-connect", galleryImages = [
         "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&q=80",
         "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
         "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80",
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
         "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80",
         "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80",
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-        "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=400&q=80",
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
-    ];
+    ] } = props;
 
     return (
         <section className="relative z-20 w-full bg-black py-20 overflow-hidden">
@@ -27,14 +30,12 @@ export default function LetsTalk2() {
 
             <div className="w-full max-w-7xl mx-auto px-6 md:px-12 text-center mb-16">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                    TURNING IMAGINATION
-                    <br />
-                    INTO REALITY
+                    {title}
                 </h2>
 
                 <div className="mt-8">
-                    <MorphButton href="/lets-connect">
-                        LET'S TALK
+                    <MorphButton href={ctaLink}>
+                        {ctaText}
                     </MorphButton>
                 </div>
             </div>

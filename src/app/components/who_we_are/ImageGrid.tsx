@@ -4,13 +4,21 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
-export default function ImageGrid() {
+type Props = {
+    images?: string[];
+};
+
+export default function ImageGrid(props: Props = {}) {
+    const { images = [
+        "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+    ] } = props;
+
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-    // Using Unsplash images
-    const image1 = "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80"; // Orange sweater portrait
-    const image2 = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"; // Dark blue portrait
+    const image1 = images[0];
+    const image2 = images[1];
 
     return (
         <section
