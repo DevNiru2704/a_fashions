@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.14.0",
+    "@types/dompurify": "^3.0.5",
     "@types/nodemailer": "^7.0.3",
     "cors": "^2.8.5",
+    "dompurify": "^3.3.0",
     "framer-motion": "^12.23.24",
-    "isomorphic-dompurify": "^2.32.0",
+    "jsdom": "^27.2.0",
     "next": "16.0.0",
     "nodemailer": "^7.0.10",
     "rate-limiter-flexible": "^8.2.1",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

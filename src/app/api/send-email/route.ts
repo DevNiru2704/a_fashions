@@ -5,7 +5,12 @@ export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
-import DOMPurify from 'isomorphic-dompurify';
+import { JSDOM } from 'jsdom';
+import DOMPurify from 'dompurify';
+
+// Initialize DOMPurify for server-side use
+const window = new JSDOM('').window;
+const purify = DOMPurify(window as any);
 
 // Enhanced rate limiter with multiple tiers
 const rateLimiterStrict = new RateLimiterMemory({
@@ -48,7 +53,7 @@ function getClientIp(request: NextRequest): string {
 // Enhanced input sanitization with DOMPurify
 function sanitizeInput(input: string, fieldName: string): string {
     // Remove any HTML/script tags using DOMPurify
-    const cleanHtml = DOMPurify.sanitize(input, {
+    const cleanHtml = purify.sanitize(input, {
         ALLOWED_TAGS: [], // No HTML tags allowed
         ALLOWED_ATTR: [], // No attributes allowed
     });
