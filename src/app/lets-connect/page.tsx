@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect, Suspense } from "react";
 import { motion, useInView } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
@@ -9,14 +10,17 @@ function ContactForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        message: ""
+        message: "",
+        honeypot: "" // Hidden field for bot detection
     });
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<{
         type: 'success' | 'error' | null;
         message: string;
     }>({ type: null, message: '' });
 
+    const captchaRef = useRef<HCaptcha>(null);
     const footerRef = useRef(null);
     const isFooterInView = useInView(footerRef, { once: true, amount: 0.2 });
 
@@ -34,6 +38,16 @@ function ContactForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Check if captcha is verified
+        if (!captchaToken) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Please complete the captcha verification.',
+            });
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitStatus({ type: null, message: '' });
 
@@ -43,7 +57,10 @@ function ContactForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    captchaToken,
+                }),
             });
 
             const data = await response.json();
@@ -58,18 +75,26 @@ function ContactForm() {
                     name: '',
                     email: '',
                     message: '',
+                    honeypot: '',
                 });
+                setCaptchaToken(null);
+                captchaRef.current?.resetCaptcha();
             } else {
                 setSubmitStatus({
                     type: 'error',
                     message: data.error || 'Failed to send message. Please try again.',
                 });
+                // Reset captcha on error
+                setCaptchaToken(null);
+                captchaRef.current?.resetCaptcha();
             }
         } catch (error) {
             setSubmitStatus({
                 type: 'error',
                 message: 'Network error. Please check your connection and try again.',
             });
+            setCaptchaToken(null);
+            captchaRef.current?.resetCaptcha();
         } finally {
             setIsSubmitting(false);
         }
@@ -80,6 +105,14 @@ function ContactForm() {
             ...formData,
             [e.target.name]: e.target.value
         });
+    };
+
+    const handleCaptchaVerify = (token: string) => {
+        setCaptchaToken(token);
+    };
+
+    const handleCaptchaExpire = () => {
+        setCaptchaToken(null);
     };
 
     return (
@@ -210,11 +243,33 @@ function ContactForm() {
                                     />
                                 </div>
 
+                                {/* Honeypot field - hidden from users */}
+                                <input
+                                    type="text"
+                                    name="honeypot"
+                                    value={formData.honeypot}
+                                    onChange={handleChange}
+                                    style={{ display: 'none' }}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+
+                                {/* hCaptcha */}
+                                <div className="flex justify-center">
+                                    <HCaptcha
+                                        ref={captchaRef}
+                                        sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || '10000000-ffff-ffff-ffff-000000000001'}
+                                        onVerify={handleCaptchaVerify}
+                                        onExpire={handleCaptchaExpire}
+                                        theme="dark"
+                                    />
+                                </div>
+
                                 {/* Submit Button - Centered */}
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting}
+                                        disabled={isSubmitting || !captchaToken}
                                         className="bg-white text-black px-8 py-3 rounded font-medium hover:bg-gray-200 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {isSubmitting ? 'Sending...' : 'Submit'}
