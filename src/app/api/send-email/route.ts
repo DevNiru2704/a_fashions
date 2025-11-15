@@ -1,3 +1,7 @@
+//added only for vercel
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
