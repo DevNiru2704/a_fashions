@@ -5,12 +5,6 @@ export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
-import { JSDOM } from 'jsdom';
-import DOMPurify from 'dompurify';
-
-// Initialize DOMPurify for server-side use
-const window = new JSDOM('').window;
-const purify = DOMPurify(window as any);
 
 // Enhanced rate limiter with multiple tiers
 const rateLimiterStrict = new RateLimiterMemory({
@@ -50,19 +44,29 @@ function getClientIp(request: NextRequest): string {
     return 'unknown';
 }
 
-// Enhanced input sanitization with DOMPurify
+// Enhanced input sanitization (Vercel-compatible - no DOMPurify needed)
 function sanitizeInput(input: string, fieldName: string): string {
-    // Remove any HTML/script tags using DOMPurify
-    const cleanHtml = purify.sanitize(input, {
-        ALLOWED_TAGS: [], // No HTML tags allowed
-        ALLOWED_ATTR: [], // No attributes allowed
-    });
-
-    // Additional sanitization
-    const sanitized = cleanHtml
-        .replace(/[<>'"]/g, '') // Remove potentially dangerous characters
-        .replace(/javascript:/gi, '') // Remove javascript: protocol
-        .replace(/on\w+\s*=/gi, '') // Remove event handlers
+    // Comprehensive regex-based sanitization
+    let sanitized = input
+        // Remove all HTML tags
+        .replace(/<[^>]*>/g, '')
+        // Remove script tags and their content
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        // Remove style tags and their content
+        .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+        // Remove event handlers (onclick, onerror, etc.)
+        .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
+        .replace(/on\w+\s*=\s*[^\s>]*/gi, '')
+        // Remove javascript: protocol
+        .replace(/javascript:/gi, '')
+        // Remove data: protocol
+        .replace(/data:text\/html/gi, '')
+        // Remove vbscript: protocol
+        .replace(/vbscript:/gi, '')
+        // Remove dangerous characters
+        .replace(/[<>'"]/g, '')
+        // Normalize whitespace
+        .replace(/\s+/g, ' ')
         .trim();
 
     // Length limits based on field
