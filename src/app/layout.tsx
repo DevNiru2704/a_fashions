@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7b8ede646bd143c49ae3673c4323e754"}'></script>
+      </head>
       <body className="font-simhei bg-[#E8E8E8]">
         {/* <ContentProtection> */}
         {/* with smooth scroll. uncomment this only for testing. only uncomment one thing at a time. */}
