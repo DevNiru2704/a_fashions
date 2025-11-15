@@ -78,7 +78,7 @@ export default function ProductsSection() {
                                 src={product.image}
                                 alt={product.title}
                                 fill
-                                className={`object-cover transition-all duration-700 ease-out ${hoveredProduct === product.id
+                                className={`object-fill transition-all duration-700 ease-out ${hoveredProduct === product.id
                                     ? "opacity-0 scale-110 rotate-3"
                                     : "opacity-100 scale-100 rotate-0"
                                     }`}
@@ -88,9 +88,9 @@ export default function ProductsSection() {
                             {/* Hover Image */}
                             <Image
                                 src={product.hoverImage}
-                                alt={`${product.title} - hover`}
+                                alt={`${product.title} hover`}
                                 fill
-                                className={`object-cover transition-all duration-700 ease-out ${hoveredProduct === product.id
+                                className={`object-fill transition-all duration-700 ease-out ${hoveredProduct === product.id
                                     ? "opacity-100 scale-110 rotate-3"
                                     : "opacity-0 scale-100 rotate-0"
                                     }`}

@@ -84,7 +84,7 @@ export default function CategoryPage({ params }: PageProps) {
                                         src={model.image}
                                         alt={model.name}
                                         fill
-                                        className={`object-cover transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-0" : "opacity-100"
+                                        className={`object-fill transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-0" : "opacity-100"
                                             }`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
@@ -94,7 +94,7 @@ export default function CategoryPage({ params }: PageProps) {
                                         src={model.hoverImage}
                                         alt={`${model.name} - hover`}
                                         fill
-                                        className={`object-cover transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-100" : "opacity-0"
+                                        className={`object-fill transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-100" : "opacity-0"
                                             }`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />

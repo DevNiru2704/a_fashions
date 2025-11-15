@@ -97,7 +97,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                     src={product.images.gallery[selectedImage]}
                                     alt={product.title}
                                     fill
-                                    className="object-cover"
+                                    className="object-fill"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </div>
@@ -118,7 +118,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={image}
                                                 alt={`${product.title} - ${index + 1}`}
                                                 fill
-                                                className="object-cover"
+                                                className="object-fill"
                                                 sizes="25vw"
                                             />
                                         </button>
@@ -211,7 +211,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={previousProduct.image}
                                                 alt={previousProduct.title}
                                                 fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="object-fill transition-transform duration-500 group-hover:scale-105"
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                             />
                                         </div>
@@ -231,7 +231,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={nextProduct.image}
                                                 alt={nextProduct.title}
                                                 fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="object-fill transition-transform duration-500 group-hover:scale-105"
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                             />
                                         </div>
