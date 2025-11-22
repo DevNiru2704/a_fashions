@@ -4,7 +4,6 @@ import SlideUpCard from "../animations/SlideUpCard";
 
 interface SmallCard {
     title: string;
-    date: string;
     image: string;
 }
 
@@ -28,26 +27,19 @@ const KEY_FIGURES_DATA: KeyFiguresData = {
     sectionTitle: "KEY FIGURES",
     heroCard: {
         title: "INFRASTRUCTURE",
-        description: "150,000 sq ft .....",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-        authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80",
+        description: "Equipped with the latest machinery and a team of skilled workers and craftsmen, we operate a fully in-house manufacturing facility for bags, wallets, belts, and SLGs.",
+        image: "/assets/images/home_page_key_figures/infrastructure.webp",
+        authorImage: "/assets/images/afashions_favicon.svg",
         authorName: "A FASHION"
     },
     smallCards: [
         {
-            title: "EXPERIENCE",
-            date: "April 9, 2025",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+            title: "BSCI & SEDEX CERTIFICATIONS",
+            image: "/assets/images/home_page_key_figures/certification.webp"
         },
         {
-            title: "CERTIFICATIONS",
-            date: "March 19, 2025",
-            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-        },
-        {
-            title: "WORKFORCE",
-            date: "April 10, 2024",
-            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+            title: "TANNERY",
+            image: "/assets/images/home_page_key_figures/tannery.webp"
         }
     ]
 };
@@ -93,12 +85,13 @@ export default function KeyFigures() {
 
                             {/* Author Section */}
                             <div className="flex items-center gap-3 mt-8">
-                                <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
+                                <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
                                     <Image
                                         src={heroCard.authorImage}
                                         alt={heroCard.authorName}
-                                        fill
-                                        className="object-cover"
+                                        width={32}
+                                        height={32}
+                                        className="object-contain"
                                     />
                                 </div>
                                 <p className="text-xs md:text-sm font-medium text-gray-700">{heroCard.authorName}</p>
@@ -107,8 +100,8 @@ export default function KeyFigures() {
                     </div>
                 </SlideUpCard>
 
-                {/* Three Small Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                {/* Two Small Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {smallCards.map((card, index) => (
                         <SlideUpCard key={`card-${index}`} delay={index * 150}>
                             <div
@@ -128,18 +121,15 @@ export default function KeyFigures() {
                                         alt={card.title}
                                         fill
                                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                     />
                                 </div>
 
                                 {/* Text below image with slide animation */}
                                 <div className="p-4 transition-transform duration-500 ease-out group-hover:translate-x-2">
-                                    <h3 className="text-base md:text-lg font-bold mb-1 tracking-wide text-black">
+                                    <h3 className="text-base md:text-lg font-bold tracking-wide text-black">
                                         {card.title}
                                     </h3>
-                                    <p className="text-xs md:text-sm text-black/60">
-                                        {card.date}
-                                    </p>
                                 </div>
                             </div>
                         </SlideUpCard>
