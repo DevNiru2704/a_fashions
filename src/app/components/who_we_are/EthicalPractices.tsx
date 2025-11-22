@@ -8,6 +8,7 @@ import SlideUpCard from "../animations/SlideUpCard";
 type Props = {
     title?: string;
     description?: string;
+    points?: string[];
     image?: string;
     author?: string;
     authorImage?: string;
@@ -18,11 +19,19 @@ export default function EthicalPractices(props: Props = {}) {
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     const {
-        title = "ETHICAL PRACTICES",
-        description = "150,000 sq ft .....",
-        image = "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+        title = "OUR SOCIAL & ETHICAL COMPLIANCES",
+        description = "Our Social & Ethical Compliances",
+        points = [
+            "Legal & Ethical Employment : Compliance with local labour laws (wages, working hours, overtime). No child labour or forced labour.",
+            "Health & Safety Standards",
+            "Fair Wages & Benefits",
+            "Anti-Discrimination & Equal Opportunity",
+            "Ethical Sourcing & Traceability : Procurement of leather and materials from LWG-rated tanneries or compliant suppliers.",
+            "Environmental Responsibility : Waste disposal, chemical handling, and effluent treatment practices. Use of restricted chemicals in line with buyer RSL/REACH."
+        ],
+        image = "/assets/images/our_story_ethical_section/ethics.webp",
         author = "A FASHION",
-        authorImage = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+        authorImage = "/assets/images/afashions_favicon.svg"
     } = props;
 
     return (
@@ -38,7 +47,7 @@ export default function EthicalPractices(props: Props = {}) {
                         className="group relative w-full bg-white rounded-2xl overflow-hidden mb-6 md:mb-8 flex flex-col md:flex-row cursor-pointer"
                     >
                         {/* Image Section */}
-                        <div className="relative w-full md:w-[50%] h-[300px] md:h-[420px] overflow-hidden">
+                        <div className="relative w-full md:w-[50%] h-[300px] md:h-auto overflow-hidden">
                             <Image
                                 src={image}
                                 alt={title}
@@ -50,22 +59,28 @@ export default function EthicalPractices(props: Props = {}) {
                         {/* Text Section */}
                         <div className="w-full md:w-[50%] p-8 md:p-12 flex flex-col justify-between">
                             <div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
                                     {title}
                                 </h3>
-                                <p className="text-sm md:text-base text-gray-600">
-                                    {description}
-                                </p>
+                                <ul className="space-y-3">
+                                    {points.map((point, index) => (
+                                        <li key={index} className="text-sm md:text-base text-gray-600 flex items-start">
+                                            <span className="mr-2 mt-1 flex-shrink-0">•</span>
+                                            <span>{point}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
 
                             {/* Author Section */}
                             <div className="flex items-center gap-3 mt-8">
-                                <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
+                                <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
                                     <Image
                                         src={authorImage}
                                         alt={author}
-                                        fill
-                                        className="object-cover"
+                                        width={32}
+                                        height={32}
+                                        className="object-contain"
                                     />
                                 </div>
                                 <p className="text-xs md:text-sm font-medium text-gray-700">{author}</p>

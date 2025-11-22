@@ -44,26 +44,19 @@ export const OUR_STORY_CONTENT = {
         ]
     },
     ethical: {
-        title: "ETHICAL PRACTICES",
-        description: "150,000 sq ft .....",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+        title: "OUR SOCIAL & ETHICAL COMPLIANCES",
+        description: "Our Social & Ethical Compliances",
+        points: [
+            "Legal & Ethical Employment : Compliance with local labour laws (wages, working hours, overtime). No child labour or forced labour.",
+            "Health & Safety Standards",
+            "Fair Wages & Benefits",
+            "Anti-Discrimination & Equal Opportunity",
+            "Ethical Sourcing & Traceability : Procurement of leather and materials from LWG-rated tanneries or compliant suppliers.",
+            "Environmental Responsibility : Waste disposal, chemical handling, and effluent treatment practices. Use of restricted chemicals in line with buyer RSL/REACH."
+        ],
+        image: "/assets/images/our_story_ethical_section/ethics.webp",
         author: "A FASHION",
-        authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-    },
-    youDream: {
-        title: "YOU DREAM, WE CREATE",
-        founders: [
-            {
-                name: "FOUNDER 1",
-                role: "CREATIVE DIRECTOR",
-                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80"
-            },
-            {
-                name: "FOUNDER 2",
-                role: "LEAD PHOTOGRAPHER",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-            }
-        ]
+        authorImage: "/assets/images/afashions_favicon.svg"
     },
     ourStory: {
         title: "OUR STORY",
