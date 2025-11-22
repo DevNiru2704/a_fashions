@@ -92,12 +92,12 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                         {/* Image Gallery */}
                         <div className="space-y-6">
                             {/* Main Image */}
-                            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-900">
+                            <div className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-gray-900">
                                 <Image
                                     src={product.images.gallery[selectedImage]}
                                     alt={product.title}
                                     fill
-                                    className="object-fill"
+                                    className="object-cover"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </div>
@@ -118,7 +118,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={image}
                                                 alt={`${product.title} - ${index + 1}`}
                                                 fill
-                                                className="object-fill"
+                                                className="object-cover"
                                                 sizes="25vw"
                                             />
                                         </button>
@@ -197,48 +197,48 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                     {/* Browse More Section */}
                     {(previousProduct || nextProduct) && (
                         <div className="mt-20">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 tracking-wide">
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 tracking-wide text-center">
                                 Browse More
                             </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="flex flex-row gap-6 justify-center items-start">
                                 {previousProduct && (
                                     <Link
                                         href={`/catalog/${categorySlug}/${previousProduct.slug}`}
-                                        className="group cursor-pointer"
+                                        className="group cursor-pointer flex-shrink-0 w-[160px] sm:w-[200px]"
                                     >
-                                        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-900 mb-4">
+                                        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-gray-900 mb-3">
                                             <Image
                                                 src={previousProduct.image}
                                                 alt={previousProduct.title}
                                                 fill
-                                                className="object-fill transition-transform duration-500 group-hover:scale-105"
-                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                sizes="200px"
                                             />
                                         </div>
-                                        <h3 className="text-xl font-medium text-white mb-1">
+                                        <h3 className="text-base font-medium text-white mb-1">
                                             {previousProduct.title}
                                         </h3>
-                                        <p className="text-gray-400 text-sm">Previous</p>
+                                        <p className="text-gray-400 text-xs">Previous</p>
                                     </Link>
                                 )}
                                 {nextProduct && (
                                     <Link
                                         href={`/catalog/${categorySlug}/${nextProduct.slug}`}
-                                        className="group cursor-pointer"
+                                        className="group cursor-pointer flex-shrink-0 w-[160px] sm:w-[200px]"
                                     >
-                                        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-900 mb-4">
+                                        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-gray-900 mb-3">
                                             <Image
                                                 src={nextProduct.image}
                                                 alt={nextProduct.title}
                                                 fill
-                                                className="object-fill transition-transform duration-500 group-hover:scale-105"
-                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                sizes="200px"
                                             />
                                         </div>
-                                        <h3 className="text-xl font-medium text-white mb-1">
+                                        <h3 className="text-base font-medium text-white mb-1">
                                             {nextProduct.title}
                                         </h3>
-                                        <p className="text-gray-400 text-sm">Next</p>
+                                        <p className="text-gray-400 text-xs">Next</p>
                                     </Link>
                                 )}
                             </div>

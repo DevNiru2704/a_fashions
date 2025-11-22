@@ -195,15 +195,11 @@ export default function WhatWeMake() {
                                                     className="w-full md:w-1/2"
                                                 >
                                                     <div className="space-y-6">
-                                                        <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                                            {product.badge}
-                                                        </span>
-
-                                                        <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                                                        <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal">
                                                             {product.title}
                                                         </h2>
 
-                                                        <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                                                        <p className="text-black text-base md:text-lg leading-relaxed">
                                                             {product.description}
                                                         </p>
 
@@ -245,15 +241,11 @@ export default function WhatWeMake() {
                                                         className={`w-full md:w-1/2 lg:w-3/5 lg:order-1`}
                                                     >
                                                         <div className="space-y-4">
-                                                            <span className="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-full">
-                                                                {product.badge}
-                                                            </span>
-
-                                                            <h2 className="text-black text-3xl md:text-4xl lg:text-3xl font-bold tracking-tight">
+                                                            <h2 className="text-black text-3xl md:text-4xl lg:text-3xl font-bold tracking-normal">
                                                                 {product.title}
                                                             </h2>
 
-                                                            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                                                            <p className="text-black text-sm md:text-base leading-relaxed">
                                                                 {product.description}
                                                             </p>
 

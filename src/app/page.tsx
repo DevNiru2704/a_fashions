@@ -7,7 +7,7 @@ import ManifestoSection from "./components/home/ManifestoSection";
 import WhatWeMake from "./components/home/WhatWeMake";
 import KeyFigures from "./components/home/KeyFigures";
 import WhoWeAre from "./components/home/WhoWeAre";
-import LetsTalk from "./components/home/LetsTalk";
+import LetsTalk from "./components/common/LetsTalk";
 import Footer from "./components/common/Footer";
 
 export default function Home() {

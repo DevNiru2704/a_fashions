@@ -78,13 +78,13 @@ export default function CategoryPage({ params }: PageProps) {
                                 onMouseEnter={() => setHoveredModel(model.id)}
                                 onMouseLeave={() => setHoveredModel(null)}
                             >
-                                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-900 mb-4">
+                                <div className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-gray-900 mb-4">
                                     {/* Default Image */}
                                     <Image
                                         src={model.image}
                                         alt={model.name}
                                         fill
-                                        className={`object-fill transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-0" : "opacity-100"
+                                        className={`object-cover transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-0" : "opacity-100"
                                             }`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
@@ -94,7 +94,7 @@ export default function CategoryPage({ params }: PageProps) {
                                         src={model.hoverImage}
                                         alt={`${model.name} - hover`}
                                         fill
-                                        className={`object-fill transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-100" : "opacity-0"
+                                        className={`object-cover transition-opacity duration-700 ease-out ${hoveredModel === model.id ? "opacity-100" : "opacity-0"
                                             }`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />

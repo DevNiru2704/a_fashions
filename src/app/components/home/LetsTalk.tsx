@@ -2,36 +2,30 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import MorphButton from "../animations/MorphButton";
+import { getRandomProductImages } from "@/utils/randomProductImages";
 
-interface LetsTalkData {
-    title: string;
-    buttonText: string;
-    buttonLink: string;
-    galleryImages: string[];
-}
+// Threshold for number of random product images to display
+const IMAGE_THRESHOLD = 10;
 
-// CMS-ready data structure
-// This can be easily replaced with API data from your CMS
-const LETS_TALK_DATA: LetsTalkData = {
-    title: "TURNING IMAGINATION\nINTO REALITY",
-    buttonText: "LET'S TALK",
-    buttonLink: "/lets-connect",
-    galleryImages: [
-        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&q=80",
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
-        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80",
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-        "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80",
-        "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80",
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-        "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=400&q=80",
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
-    ]
+type Props = {
+    title?: string;
+    ctaText?: string;
+    ctaLink?: string;
+    imageThreshold?: number;
+    imageSeed?: number;
 };
 
-export default function LetsTalk() {
-    const { title, buttonText, buttonLink, galleryImages } = LETS_TALK_DATA;
+export default function LetsTalk(props: Props = {}) {
+    const {
+        title = "TURNING IMAGINATION\nINTO REALITY",
+        ctaText = "LET'S TALK",
+        ctaLink = "/lets-connect",
+        imageThreshold = IMAGE_THRESHOLD,
+        imageSeed = 42 // Default seed for home page
+    } = props;
+
+    // Get random product images (using seeded random for consistent SSR/client rendering)
+    const galleryImages = getRandomProductImages(imageThreshold, imageSeed);
 
     return (
         <section className="relative z-20 w-full bg-black py-20 overflow-hidden">
@@ -47,8 +41,8 @@ export default function LetsTalk() {
                 </h2>
 
                 <div className="mt-8">
-                    <MorphButton href={buttonLink}>
-                        {buttonText}
+                    <MorphButton href={ctaLink}>
+                        {ctaText}
                     </MorphButton>
                 </div>
             </div>

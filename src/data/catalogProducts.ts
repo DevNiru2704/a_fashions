@@ -101,8 +101,8 @@ export const PRODUCT_MODELS: ProductModel[] = [
         category: "belt",
         categoryName: "BELT",
         image: "/assets/images/catalog_images/belts/afb-07/afb-07.webp",
-        hoverImage: "/assets/images/catalog_images/belts/afb-07/afb-07_full.webp",
-        galleryImages: ["/assets/images/catalog_images/belts/afb-07/afb-07.webp", "/assets/images/catalog_images/belts/afb-07/afb-07_full.webp"]
+        hoverImage: "/assets/images/catalog_images/belts/afb-07/afb-07_full.png",
+        galleryImages: ["/assets/images/catalog_images/belts/afb-07/afb-07.webp", "/assets/images/catalog_images/belts/afb-07/afb-07_full.png"]
     }
     ,
     {

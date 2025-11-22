@@ -7,7 +7,7 @@ import ProcessSection from "../components/who_we_are/ProcessSection";
 import EthicalPractices from "../components/who_we_are/EthicalPractices";
 import YouDreamWeCreate from "../components/who_we_are/YouDreamWeCreate";
 import OurStorySection from "../components/who_we_are/OurStorySection";
-import LetsTalk2 from "../components/who_we_are/LetsTalk2";
+import LetsTalk from "../components/common/LetsTalk";
 import Footer from "../components/common/Footer";
 import OUR_STORY_CONTENT from "../../data/ourStory";
 
@@ -23,7 +23,7 @@ export default function OurStory() {
                 <EthicalPractices title={OUR_STORY_CONTENT.ethical.title} description={OUR_STORY_CONTENT.ethical.description} image={OUR_STORY_CONTENT.ethical.image} author={OUR_STORY_CONTENT.ethical.author} authorImage={OUR_STORY_CONTENT.ethical.authorImage} />
                 <YouDreamWeCreate title={OUR_STORY_CONTENT.youDream.title} founders={OUR_STORY_CONTENT.youDream.founders} />
                 <OurStorySection title={OUR_STORY_CONTENT.ourStory.title} paragraphs={OUR_STORY_CONTENT.ourStory.paragraphs} />
-                <LetsTalk2 title={OUR_STORY_CONTENT.letsTalk.title} ctaText={OUR_STORY_CONTENT.letsTalk.ctaText} ctaLink={OUR_STORY_CONTENT.letsTalk.ctaLink} galleryImages={OUR_STORY_CONTENT.letsTalk.galleryImages} />
+                <LetsTalk imageSeed={43} />
             </main>
             <Footer />
         </>

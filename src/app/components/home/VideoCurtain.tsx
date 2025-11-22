@@ -34,7 +34,7 @@ export default function VideoCurtain() {
                 <div className="flex flex-col md:flex-row h-full w-full">
                     <video
                         id="left-video"
-                        className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
+                        className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out grayscale"
                         autoPlay
                         loop
                         muted
@@ -47,7 +47,7 @@ export default function VideoCurtain() {
 
                     <video
                         id="right-video"
-                        className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out"
+                        className="h-1/2 md:h-full md:w-1/2 object-cover will-change-transform transition-transform duration-200 ease-out grayscale"
                         autoPlay
                         loop
                         muted
