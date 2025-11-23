@@ -11,14 +11,18 @@ type Props = {
 export default function ImageGrid(props: Props = {}) {
     const { images = [
         "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+        "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80",
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
     ] } = props;
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-    const image1 = images[0];
-    const image2 = images[1];
+    const topLeft = images[0];
+    const topRight = images[1];
+    const bottomLeft = images[2];
+    const bottomRight = images[3];
 
     return (
         <section
@@ -38,8 +42,8 @@ export default function ImageGrid(props: Props = {}) {
                             className="relative aspect-square overflow-hidden rounded-full"
                         >
                             <Image
-                                src={image2}
-                                alt="Fashion portrait - dark blue background"
+                                src={topLeft}
+                                alt="Fashion portrait - top left"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
@@ -55,8 +59,8 @@ export default function ImageGrid(props: Props = {}) {
                             style={{ aspectRatio: "3/4" }}
                         >
                             <Image
-                                src={image1}
-                                alt="Fashion portrait - orange sweater"
+                                src={bottomLeft}
+                                alt="Fashion portrait - bottom left"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
@@ -74,8 +78,8 @@ export default function ImageGrid(props: Props = {}) {
                             className="relative overflow-hidden rounded-lg flex-1"
                         >
                             <Image
-                                src={image1}
-                                alt="Fashion portrait - orange sweater"
+                                src={topRight}
+                                alt="Fashion portrait - top right"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
@@ -90,8 +94,8 @@ export default function ImageGrid(props: Props = {}) {
                             className="relative aspect-square overflow-hidden rounded-lg"
                         >
                             <Image
-                                src={image2}
-                                alt="Fashion portrait - dark blue background"
+                                src={bottomRight}
+                                alt="Fashion portrait - bottom right"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"

@@ -14,8 +14,10 @@ export const OUR_STORY_CONTENT = {
     },
     imageGrid: {
         images: [
-            "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80",
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+            "/assets/images/our_story_image_grid/top_left.webp",
+            "/assets/images/our_story_image_grid/top_right.webp",
+            "/assets/images/our_story_image_grid/bottom_left.webp",
+            "/assets/images/our_story_image_grid/bottom_right.webp"
         ]
     },
     process: {
