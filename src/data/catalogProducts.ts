@@ -16,16 +16,7 @@ export interface Product {
     title: string;
     subtitle: string;
     category: string;
-    description: string;
-    fullDescription: string;
-    features: string[];
-    specifications: {
-        material: string;
-        lining: string;
-        hardware: string;
-        dimensions: string;
-        weight: string;
-    };
+    moq: string;
     images: {
         thumbnail: string;
         hover: string;
@@ -502,7 +493,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
         categoryName: "WOMEN'S BAG",
         image: "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp",
         hoverImage: "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp",
-        galleryImages: [ "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy_2.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp"]
+        galleryImages: ["/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy_2.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp"]
     }
     ,
     {
@@ -833,23 +824,7 @@ export function generateProductDetails(model: ProductModel): Product {
         title: model.name,
         subtitle: "LEATHER",
         category: model.categoryName,
-        description: `Premium ${model.categoryName.toLowerCase()} crafted with precision and care. This model combines timeless design with modern functionality.`,
-        fullDescription: `The ${model.name} represents the perfect fusion of style and practicality. Handcrafted from premium leather, this piece is designed to complement your lifestyle. Features spacious interior with multiple compartments for organization. Every stitch, every detail is carefully considered to ensure durability and aesthetic appeal.`,
-        features: [
-            "Premium full-grain leather",
-            "Hand-stitched construction",
-            "Multiple compartments for organization",
-            "Adjustable straps",
-            "Durable hardware",
-            "Available in multiple colors"
-        ],
-        specifications: {
-            material: "Full-grain leather",
-            lining: "Cotton canvas",
-            hardware: "Brass",
-            dimensions: "To be specified",
-            weight: "To be specified"
-        },
+        moq: "",
         images: {
             thumbnail: model.image,
             hover: model.hoverImage,

@@ -10,16 +10,7 @@ interface Product {
     title: string;
     subtitle: string;
     category: string;
-    description: string;
-    fullDescription: string;
-    features: string[];
-    specifications: {
-        material: string;
-        lining: string;
-        hardware: string;
-        dimensions: string;
-        weight: string;
-    };
+    moq: string;
     images: {
         thumbnail: string;
         hover: string;
@@ -130,60 +121,14 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
 
                         {/* Product Info */}
                         <div className="space-y-8">
-                            {/* Description */}
+                            {/* MOQ */}
                             <div>
                                 <h2 className="text-2xl font-bold mb-4 tracking-wide">
-                                    About This Product
+                                    MOQ
                                 </h2>
-                                <p className="text-gray-300 leading-relaxed mb-4">
-                                    {product.description}
-                                </p>
-                                <p className="text-gray-400 leading-relaxed text-sm">
-                                    {product.fullDescription}
-                                </p>
                             </div>
 
-                            {/* Features */}
-                            <div>
-                                <h3 className="text-xl font-bold mb-4 tracking-wide">
-                                    Features
-                                </h3>
-                                <ul className="space-y-2">
-                                    {product.features.map((feature, index) => (
-                                        <li
-                                            key={index}
-                                            className="flex items-start text-gray-300"
-                                        >
-                                            <span className="text-white mr-3">•</span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* Specifications */}
-                            <div>
-                                <h3 className="text-xl font-bold mb-4 tracking-wide">
-                                    Specifications
-                                </h3>
-                                <div className="space-y-3">
-                                    {Object.entries(product.specifications).map(
-                                        ([key, value]) => (
-                                            <div
-                                                key={key}
-                                                className="flex justify-between border-b border-gray-800 pb-2"
-                                            >
-                                                <span className="text-gray-400 capitalize">
-                                                    {key}
-                                                </span>
-                                                <span className="text-white">{value}</span>
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* CTA Button - use same simple style as Lets Connect submit button, full width of text column, no hover animations */}
+                            {/* CTA Button */}
                             <div className="pt-6 w-full">
                                 <Link
                                     href={`/lets-connect?product=${encodeURIComponent(product.title)}`}
