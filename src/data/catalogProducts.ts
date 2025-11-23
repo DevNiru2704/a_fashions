@@ -502,7 +502,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
         categoryName: "WOMEN'S BAG",
         image: "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp",
         hoverImage: "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp",
-        galleryImages: ["/assets/images/catalog_images/womens_bag/af-04/af-04_h.webp", "/assets/images/catalog_images/womens_bag/af-04/af-04_s.webp", "/assets/images/catalog_images/womens_bag/af-04/af-04.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy_2.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp"]
+        galleryImages: [ "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy_2.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1_copy.webp", "/assets/images/catalog_images/womens_bag/af-04/artboard_1.webp"]
     }
     ,
     {
