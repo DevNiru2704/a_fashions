@@ -52,6 +52,7 @@ export default function EthicalPractices(props: Props = {}) {
                                 src={image}
                                 alt={title}
                                 fill
+                                loading="lazy"
                                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             />
                         </div>

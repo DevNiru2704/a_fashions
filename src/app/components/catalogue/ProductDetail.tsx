@@ -97,6 +97,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                     src={product.images.gallery[selectedImage]}
                                     alt={product.title}
                                     fill
+                                    priority
                                     className="object-cover"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
@@ -211,6 +212,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={previousProduct.image}
                                                 alt={previousProduct.title}
                                                 fill
+                                                loading="lazy"
                                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                                                 sizes="200px"
                                             />
@@ -231,6 +233,7 @@ export default function ProductDetail({ product, categorySlug, previousProduct, 
                                                 src={nextProduct.image}
                                                 alt={nextProduct.title}
                                                 fill
+                                                loading="lazy"
                                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                                                 sizes="200px"
                                             />

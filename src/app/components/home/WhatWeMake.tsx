@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import BlurFadeText from "../animations/BlurFadeText";
 import SlideIn from "../animations/SlideIn";
 import ExploreButton from "../common/ExploreButton";
@@ -180,11 +181,12 @@ export default function WhatWeMake() {
                                                     className="w-full md:w-1/2"
                                                 >
                                                     <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
-                                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                        <img
+                                                        <Image
                                                             src={product.image}
                                                             alt={product.title}
-                                                            className="w-full h-full object-cover"
+                                                            fill
+                                                            priority={currentGlobalIndex === 0}
+                                                            className="object-cover"
                                                         />
                                                     </div>
                                                 </SlideIn>
@@ -226,11 +228,12 @@ export default function WhatWeMake() {
                                                         className={`w-full md:w-1/2 lg:w-2/5 lg:order-2`}
                                                     >
                                                         <div className="relative aspect-square rounded-3xl overflow-hidden bg-white">
-                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                            <img
+                                                            <Image
                                                                 src={product.image}
                                                                 alt={product.title}
-                                                                className="w-full h-full object-cover"
+                                                                fill
+                                                                loading="lazy"
+                                                                className="object-cover"
                                                             />
                                                         </div>
                                                     </SlideIn>

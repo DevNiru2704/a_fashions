@@ -169,6 +169,7 @@ export default function WhoWeAre() {
                             src={images[0]}
                             alt="Who we are 1"
                             fill
+                            loading="lazy"
                             className="object-cover"
                         />
                     </motion.div>
@@ -188,6 +189,7 @@ export default function WhoWeAre() {
                             src={images[1]}
                             alt="Who we are 2"
                             fill
+                            loading="lazy"
                             className="object-cover"
                         />
                     </motion.div>
@@ -207,6 +209,7 @@ export default function WhoWeAre() {
                             src={images[2]}
                             alt="Who we are 1"
                             fill
+                            loading="lazy"
                             className="object-cover"
                         />
                     </motion.div>

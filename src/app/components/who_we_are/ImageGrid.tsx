@@ -45,6 +45,7 @@ export default function ImageGrid(props: Props = {}) {
                                 src={topLeft}
                                 alt="Fashion portrait - top left"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
                             />
@@ -62,6 +63,7 @@ export default function ImageGrid(props: Props = {}) {
                                 src={bottomLeft}
                                 alt="Fashion portrait - bottom left"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
                             />
@@ -81,6 +83,7 @@ export default function ImageGrid(props: Props = {}) {
                                 src={topRight}
                                 alt="Fashion portrait - top right"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
                             />
@@ -97,6 +100,7 @@ export default function ImageGrid(props: Props = {}) {
                                 src={bottomRight}
                                 alt="Fashion portrait - bottom right"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                                 sizes="(max-width: 768px) 50vw, 40vw"
                             />
