@@ -226,7 +226,7 @@ export default function WhatWeMake() {
                                                         className={`w-full md:w-1/2 lg:w-3/5 lg:order-1`}
                                                     >
                                                         <div className="space-y-4">
-                                                            <h2 className="text-black text-3xl md:text-4xl lg:text-3xl font-bold tracking-normal">
+                                                            <h2 className="text-black text-5xl md:text-6xl lg:text-6xl font-bold tracking-normal">
                                                                 {product.title}
                                                             </h2>
 
