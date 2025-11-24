@@ -49,10 +49,7 @@ export default function CatalogueHero() {
                         : "opacity-0 translate-y-16"
                         }`}
                 >
-                    A showcase of our finest creations—where creativity meets impact. From bold
-                    branding to immersive digital experiences, each project reflects our passion
-                    for design and innovation. Explore how we bring ideas to life through
-                    thoughtful execution and striking visuals.
+                    Our product range is spread across a wide range from Women's bag, Men's bag, Wallets to Belts, SLGs and Hardgoods
                 </p>
             </div>
         </section>

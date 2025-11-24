@@ -8,8 +8,6 @@ import ExploreButton from "../common/ExploreButton";
 interface ProductItem {
     id: number;
     title: string;
-    badge: string;
-    description: string;
     image: string;
     imagePosition?: "left" | "right";
     category: string; // catalog route slug
@@ -30,8 +28,6 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 1,
                 title: "WOMEN'S BAG",
-                badge: "Immerse yourself in sound",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/women_s_bag_web.webp",
                 imagePosition: "left",
                 category: "womens-bag"
@@ -45,16 +41,12 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 2,
                 title: "MEN'S WALLET",
-                badge: "Immerse yourself in sound",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/men_s_wallet.webp",
                 category: "mens-wallet"
             },
             {
                 id: 3,
                 title: "WOMEN'S WALLET",
-                badge: "Hear every detail",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/women_s_wallet_web.webp",
                 category: "womens-wallet"
             }
@@ -66,8 +58,6 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 4,
                 title: "MEN'S BAG",
-                badge: "Hear every detail",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/men_s_bag_web.webp",
                 imagePosition: "right",
                 category: "mens-bag"
@@ -81,16 +71,12 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 5,
                 title: "BELTS",
-                badge: "Hear every detail",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/belt_web.webp",
                 category: "belt"
             },
             {
                 id: 6,
                 title: "HARD GOODS",
-                badge: "Immerse yourself in sound",
-                description: "This is a mock product description intended for layout and styling purposes only. The real product description will be displayed here once finalized. It will include key features, material details, usage context, and brand tone crafted to evoke narrative impact and editorial clarity.",
                 image: "/assets/images/home_page_category/hardgoods_web.webp",
                 category: "other-hard-goods"
             }
@@ -201,10 +187,6 @@ export default function WhatWeMake() {
                                                             {product.title}
                                                         </h2>
 
-                                                        <p className="font-archivo-regular text-black text-base md:text-xl leading-relaxed">
-                                                            {product.description}
-                                                        </p>
-
                                                         <ExploreButton category={product.category} />
                                                     </div>
                                                 </SlideIn>
@@ -247,10 +229,6 @@ export default function WhatWeMake() {
                                                             <h2 className="text-black text-3xl md:text-4xl lg:text-3xl font-bold tracking-normal">
                                                                 {product.title}
                                                             </h2>
-
-                                                            <p className="font-archivo-regular text-black text-sm md:text-xl leading-relaxed">
-                                                                {product.description}
-                                                            </p>
 
                                                             <ExploreButton category={product.category} />
                                                         </div>
