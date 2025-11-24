@@ -45,21 +45,6 @@ export const OUR_STORY_CONTENT = {
             }
         ]
     },
-    ethical: {
-        title: "OUR SOCIAL & ETHICAL COMPLIANCES",
-        description: "Our Social & Ethical Compliances",
-        points: [
-            "Legal & Ethical Employment : Compliance with local labour laws (wages, working hours, overtime). No child labour or forced labour.",
-            "Health & Safety Standards",
-            "Fair Wages & Benefits",
-            "Anti-Discrimination & Equal Opportunity",
-            "Ethical Sourcing & Traceability : Procurement of leather and materials from LWG-rated tanneries or compliant suppliers.",
-            "Environmental Responsibility : Waste disposal, chemical handling, and effluent treatment practices. Use of restricted chemicals in line with buyer RSL/REACH."
-        ],
-        image: "/assets/images/our_story_ethical_section/ethics.webp",
-        author: "A FASHION",
-        authorImage: "/assets/images/afashions_favicon.svg"
-    },
     ourStory: {
         title: "OUR STORY",
         paragraphs: [

@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Archivo Narrow Regular';
+  src: url('/assets/fonts/ArchivoNarrow-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo Narrow Italic';
+  src: url('/assets/fonts/ArchivoNarrow-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo Narrow Bold';
+  src: url('/assets/fonts/ArchivoNarrow-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo Narrow Bold Italic';
+  src: url('/assets/fonts/ArchivoNarrow-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+.font-archivo-regular {
+  font-family: 'Archivo Narrow Regular', sans-serif;
+}
+
+.font-archivo-italic {
+  font-family: 'Archivo Narrow Italic', sans-serif;
+}
+
+.font-archivo-bold {
+  font-family: 'Archivo Narrow Bold', sans-serif;
+}
+
+.font-archivo-bold-italic {
+  font-family: 'Archivo Narrow Bold Italic', sans-serif;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -63,6 +111,8 @@ select {
   font-style: normal;
   font-display: swap;
 }
+
+
 
 .font-simhei {
   font-family: 'SimHei', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;

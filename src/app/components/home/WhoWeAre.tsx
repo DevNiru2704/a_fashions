@@ -16,7 +16,7 @@ interface WhoWeAreData {
 // This can be easily replaced with API data from your CMS
 const WHO_WE_ARE_DATA: WhoWeAreData = {
     title: "WHO WE ARE",
-    description: "At A Fashion, we are a team of\npassionate creatives dedicated to\ncrafting striking visual narratives.\nSpecializing in photography,\nvideography, and creative direction,\nwe bring brands, stories, and concepts\nto life with a refined artistic touch.",
+    description: "A quality-driven leather goods export house known for its craftsmanship, reliability, and attention to detail. With a strong focus on premium materials, skilled workmanship, and streamlined production processes, we create bags, wallets, belts, and small leather goods that meet global standards.",
     buttonText: "KNOW MORE",
     buttonLink: "/our-story",
     images: [
@@ -243,7 +243,7 @@ export default function WhoWeAre() {
                         </h2>
 
                         <div className="flex flex-col gap-6 md:max-w-md lg:max-w-lg pointer-events-auto">
-                            <p className="text-white text-base md:text-xl leading-relaxed whitespace-pre-line">
+                            <p className="font-archivo-regular text-white text-base md:text-2xl leading-relaxed whitespace-pre-line">
                                 {description}
                             </p>
 

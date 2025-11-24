@@ -201,7 +201,7 @@ export default function WhatWeMake() {
                                                             {product.title}
                                                         </h2>
 
-                                                        <p className="text-black text-base md:text-lg leading-relaxed">
+                                                        <p className="font-archivo-regular text-black text-base md:text-xl leading-relaxed">
                                                             {product.description}
                                                         </p>
 
@@ -248,7 +248,7 @@ export default function WhatWeMake() {
                                                                 {product.title}
                                                             </h2>
 
-                                                            <p className="text-black text-sm md:text-base leading-relaxed">
+                                                            <p className="font-archivo-regular text-black text-sm md:text-xl leading-relaxed">
                                                                 {product.description}
                                                             </p>
 
