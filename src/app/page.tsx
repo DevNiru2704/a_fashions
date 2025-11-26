@@ -10,6 +10,8 @@ import WhoWeAre from "./components/home/WhoWeAre";
 import LetsTalk from "./components/common/LetsTalk";
 import Footer from "./components/common/Footer";
 
+// Metadata is exported from layout.tsx with home-specific overrides
+
 export default function Home() {
   const navRef = useRef<HTMLElement>(null);
   return (
