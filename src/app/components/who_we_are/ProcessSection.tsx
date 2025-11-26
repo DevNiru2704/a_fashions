@@ -127,7 +127,7 @@ export default function ProcessSectionStandalone(props: Props = {}) {
                                 <div className={`w-full pl-20 md:pl-0 md:w-[45%] ${isRight ? "md:ml-auto md:pl-16" : "md:mr-auto md:pr-16"}`}>
                                     <div className={`bg-black rounded-2xl p-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: `${index * 100}ms` }}>
                                         <img src={step.icon} alt={step.title} className="w-32 h-32 md:w-36 md:h-36" />
-                                        <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">{step.title}</h3>
+                                        <h3 className="font-archivo-regular text-white text-xl md:text-2xl font-semibold mb-4">{step.title}</h3>
                                         <p className="font-archivo-regular text-white/80 text-sm md:text-xl leading-relaxed">{step.description}</p>
                                     </div>
                                 </div>
