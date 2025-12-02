@@ -67,7 +67,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                                     href="/"
                                     className="inline-block transition-transform duration-300 ease-out hover:-translate-y-1 tracking-widest text-xl cursor-pointer text-white"
                                 >
-                                    A FASHION
+                                    A FASHIONS
                                 </Link>
                             </div>
 
@@ -174,7 +174,7 @@ export default function Navbar({ navRef: externalNavRef }: NavbarProps) {
                         href="/"
                         className="inline-block transition-transform duration-300 ease-out hover:-translate-y-1 tracking-widest text-xl cursor-pointer text-white"
                     >
-                        A FASHION
+                        A FASHIONS
                     </Link>
                 </div>
 
