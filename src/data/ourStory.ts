@@ -14,10 +14,10 @@ export const OUR_STORY_CONTENT = {
     },
     imageGrid: {
         images: [
-            "/assets/images/our_story_image_grid/top_left.webp",
-            "/assets/images/our_story_image_grid/top_right.webp",
-            "/assets/images/our_story_image_grid/bottom_left.webp",
-            "/assets/images/our_story_image_grid/bottom_right.webp"
+            "https://ik.imagekit.io/zqjkk9ui6/images/our_story_image_grid/top_left.webp",
+            "https://ik.imagekit.io/zqjkk9ui6/images/our_story_image_grid/top_right.webp",
+            "https://ik.imagekit.io/zqjkk9ui6/images/our_story_image_grid/bottom_left.webp",
+            "https://ik.imagekit.io/zqjkk9ui6/images/our_story_image_grid/bottom_right.webp"
         ]
     },
     process: {
@@ -25,22 +25,22 @@ export const OUR_STORY_CONTENT = {
         steps: [
             {
                 title: "Design & Development",
-                icon: "/assets/images/design_and_development.svg",
+                icon: "https://ik.imagekit.io/zqjkk9ui6/images/design_and_development.svg",
                 description: "Our in-house Design & Development team, which blends creativity, craftsmanship, and technical expertise. The team constantly studies global fashion trends and materials to create seasonal design collections that are both functional and refined."
             },
             {
                 title: "Merchandising Team",
-                icon: "/assets/images/merchandising_team.svg",
+                icon: "https://ik.imagekit.io/zqjkk9ui6/images/merchandising_team.svg",
                 description: "Our Merchandising team serves as the vital link between our clients and every department within the company. They ensure that each order — from sampling to final shipment — runs smoothly, efficiently, and as per the client's expectations."
             },
             {
                 title: "Production Team",
-                icon: "/assets/images/production_team.svg",
+                icon: "https://ik.imagekit.io/zqjkk9ui6/images/production_team.svg",
                 description: "The Production team oversees the manufacturing process, ensuring high-quality construction and adherence to design specifications. From pattern-making and stitching to finishing and packing, they maintain strict quality standards while optimizing workflow to meet delivery schedules."
             },
             {
                 title: "Quality Assurance",
-                icon: "/assets/images/quality_assurance.svg",
+                icon: "https://ik.imagekit.io/zqjkk9ui6/images/quality_assurance.svg",
                 description: "Our Quality Assurance team ensures that every product meets both buyer expectations and international quality standards. They conduct inspections at every stage — from incoming materials to final shipment — monitoring craftsmanship, functionality, and compliance to deliver perfect products."
             }
         ]

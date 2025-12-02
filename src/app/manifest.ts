@@ -12,13 +12,13 @@ export default function manifest(): MetadataRoute.Manifest {
         orientation: 'portrait-primary',
         icons: [
             {
-                src: '/assets/images/afashions_favicon.svg',
+                src: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
                 sizes: 'any',
                 type: 'image/svg+xml',
                 purpose: 'any',
             },
             {
-                src: '/assets/images/afashions_favicon.svg',
+                src: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
                 sizes: 'any',
                 type: 'image/svg+xml',
                 purpose: 'maskable',

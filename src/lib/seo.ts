@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 const siteConfig = {
     name: 'A Fashions',
     url: 'https://afashions.net',
-    ogImage: '/assets/images/og-image.jpg',
+    ogImage: "https://ik.imagekit.io/zqjkk9ui6/images/og-image.jpg",
     description: 'Premium leather goods manufacturer in Kolkata, India. Specialized in handcrafted leather bags, wallets, belts and accessories. BSCI & SEDEX certified facility with in-house tannery.',
     keywords: [
         // Core Business
@@ -122,9 +122,9 @@ export const defaultMetadata: Metadata = {
         },
     },
     icons: {
-        icon: '/assets/images/afashions_favicon.svg',
-        shortcut: '/assets/images/afashions_favicon.svg',
-        apple: '/assets/images/afashions_favicon.svg',
+        icon: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
+        shortcut: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
+        apple: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
     },
     manifest: '/manifest.json',
     verification: {

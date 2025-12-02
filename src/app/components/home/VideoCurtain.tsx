@@ -40,9 +40,9 @@ export default function VideoCurtain() {
                         muted
                         playsInline
                         preload="metadata"
-                        poster="/assets/images/left_video_poster.jpg"
+                        poster="https://ik.imagekit.io/zqjkk9ui6/images/left_video_poster.jpg"
                     >
-                        <source src="/assets/videos/left_video.mp4" type="video/mp4" />
+                        <source src="https://ik.imagekit.io/zqjkk9ui6/videos/left_video.mp4" type="video/mp4" />
                     </video>
 
                     <video
@@ -53,9 +53,9 @@ export default function VideoCurtain() {
                         muted
                         playsInline
                         preload="metadata"
-                        poster="/assets/images/right_video_poster.jpg"
+                        poster="https://ik.imagekit.io/zqjkk9ui6/images/right_video_poster.jpg"
                     >
-                        <source src="/assets/videos/right_video.mp4" type="video/mp4" />
+                        <source src="https://ik.imagekit.io/zqjkk9ui6/videos/right_video.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>

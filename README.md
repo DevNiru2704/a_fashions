@@ -63,6 +63,7 @@ This is a modern, performance-optimized Next.js application built with enterpris
 - **Smooth Animations**: Framer Motion for page transitions and micro-interactions
 - **Custom Cursor**: Interactive cursor that follows mouse movement
 - **Video Curtain**: Immersive hero section with video background
+- **ImageKit CDN**: Fast global image delivery with automatic optimization
 - **Lazy Loading**: Optimized image loading for 30+ images across all pages
 - **Custom Typography**: Archivo Narrow font family with 4 variants
 - **Responsive Design**: Mobile-first approach with seamless desktop scaling
@@ -101,6 +102,7 @@ Protected against:
 **SEO Score: Production-Ready** ✅
 
 #### ⚡ Performance
+- **ImageKit CDN**: Global CDN for images and videos with automatic optimization
 - **Image Optimization**: Next.js Image component with lazy loading
 - **Font Optimization**: Preloaded custom fonts with font-display: swap
 - **Code Splitting**: Automatic route-based code splitting
@@ -108,7 +110,7 @@ Protected against:
 - **Static Generation**: Pre-rendered pages for optimal performance
 
 **Expected Lighthouse Scores:**
-- Performance: 90+
+- Performance: 95+
 - Accessibility: 95+
 - Best Practices: 95+
 - SEO: 100

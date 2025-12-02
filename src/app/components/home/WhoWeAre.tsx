@@ -20,9 +20,9 @@ const WHO_WE_ARE_DATA: WhoWeAreData = {
     buttonText: "KNOW MORE",
     buttonLink: "/our-story",
     images: [
-        "/assets/images/home_page_who_we_are/who_we_are_1.webp",
-        "/assets/images/home_page_who_we_are/who_we_are_2.webp",
-        "/assets/images/home_page_who_we_are/who_we_are_3.webp",
+        "https://ik.imagekit.io/zqjkk9ui6/images/home_page_who_we_are/who_we_are_1.webp",
+        "https://ik.imagekit.io/zqjkk9ui6/images/home_page_who_we_are/who_we_are_2.webp",
+        "https://ik.imagekit.io/zqjkk9ui6/images/home_page_who_we_are/who_we_are_3.webp",
     ]
 };
 

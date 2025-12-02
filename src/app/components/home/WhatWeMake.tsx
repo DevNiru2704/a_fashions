@@ -28,7 +28,7 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 1,
                 title: "WOMEN'S BAG",
-                image: "/assets/images/home_page_category/women_s_bag_web.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/women_s_bag_web.webp",
                 imagePosition: "left",
                 category: "womens-bag"
             }
@@ -41,13 +41,13 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 2,
                 title: "MEN'S WALLET",
-                image: "/assets/images/home_page_category/men_s_wallet.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/men_s_wallet.webp",
                 category: "mens-wallet"
             },
             {
                 id: 3,
                 title: "WOMEN'S WALLET",
-                image: "/assets/images/home_page_category/women_s_wallet_web.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/women_s_wallet_web.webp",
                 category: "womens-wallet"
             }
         ]
@@ -58,7 +58,7 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 4,
                 title: "MEN'S BAG",
-                image: "/assets/images/home_page_category/men_s_bag_web.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/men_s_bag_web.webp",
                 imagePosition: "right",
                 category: "mens-bag"
             }
@@ -71,13 +71,13 @@ const PRODUCT_ROWS: ProductRow[] = [
             {
                 id: 5,
                 title: "BELTS",
-                image: "/assets/images/home_page_category/belt_web.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/belt_web.webp",
                 category: "belt"
             },
             {
                 id: 6,
                 title: "HARD GOODS",
-                image: "/assets/images/home_page_category/hardgoods_web.webp",
+                image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_category/hardgoods_web.webp",
                 category: "other-hard-goods"
             }
         ]

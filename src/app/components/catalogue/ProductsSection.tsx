@@ -16,43 +16,43 @@ const products: Product[] = [
         id: "womens-bag",
         title: "WOMEN'S BAG",
         subtitle: "LEATHER",
-        image: "/assets/images/catalog_face_cards/women_s_bag_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/women_s_bag_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/women_s_bag_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/women_s_bag_secondary_catalog.webp"
     },
     {
         id: "mens-bag",
         title: "MEN'S BAG",
         subtitle: "PRODUCT",
-        image: "/assets/images/catalog_face_cards/men_s_bag_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/men_s_bag_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/men_s_bag_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/men_s_bag_secondary_catalog.webp"
     },
     {
         id: "mens-wallet",
         title: "MEN'S WALLET",
         subtitle: "LEATHER",
-        image: "/assets/images/catalog_face_cards/men_s_wallet_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/men_s_wallter_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/men_s_wallet_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/men_s_wallter_secondary_catalog.webp"
     },
     {
         id: "womens-wallet",
         title: "WOMEN'S WALLET",
         subtitle: "LEATHER",
-        image: "/assets/images/catalog_face_cards/women_s_wallet_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/women_s_wallet_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/women_s_wallet_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/women_s_wallet_secondary_catalog.webp"
     },
     {
         id: "belt",
         title: "BELT",
         subtitle: "VISUAL STORYTELLING",
-        image: "/assets/images/catalog_face_cards/belt_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/belt_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/belt_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/belt_secondary_catalog.webp"
     },
     {
         id: "other-hard-goods",
         title: "OTHER HARD GOODS",
         subtitle: "COLLECTION",
-        image: "/assets/images/catalog_face_cards/other_hard_goods_catalog.webp",
-        hoverImage: "/assets/images/catalog_face_cards/other_hard_goods_secondary_catalog.webp"
+        image: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/other_hard_goods_catalog.webp",
+        hoverImage: "https://ik.imagekit.io/zqjkk9ui6/images/catalog_face_cards/other_hard_goods_secondary_catalog.webp"
     }
 ];
 

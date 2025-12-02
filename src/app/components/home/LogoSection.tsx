@@ -6,7 +6,7 @@ export default function LogoSection() {
             <div className="flex flex-col items-center justify-center gap-12">
                 {/* Logo */}
                 <Image
-                    src="/assets/images/afashions_logo.svg"
+                    src="https://ik.imagekit.io/zqjkk9ui6/images/afashions_logo.svg"
                     alt="A Fashions Logo"
                     width={1200}
                     height={400}
