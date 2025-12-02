@@ -231,7 +231,7 @@ export default function GlobalCursor() {
             >
                 {hoveringCard ? (
                     <Image
-                        src="/assets/images/eye.svg"
+                        src="https://ik.imagekit.io/zqjkk9ui6/images/eye.svg"
                         alt="Eye"
                         width={40}
                         height={32}
