@@ -40,8 +40,8 @@ export default function Footer() {
                 {/* Location Section - Top Right */}
                 <div className="flex-shrink-0">
                     <h3 className="text-xs md:text-sm font-light mb-6 text-gray-500 tracking-widest">LOCATION</h3>
-                    <address className="text-base md:text-sm text-gray-300 not-italic leading-relaxed tracking-wide">
-                        62, Mathewartala Road, Tangra
+                    <address className="font-archivo-regular text-base md:text-base text-gray-300 not-italic leading-relaxed tracking-wide">
+                        62, Matheswartala Road, Tangra
                         <br />
                         Kolkata, West Bengal 700046
                         <br />

@@ -44,7 +44,7 @@ export default function CatalogueHero() {
                     OUR CATALOG
                 </h1>
                 <p
-                    className={`text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide transition-all duration-1000 ease-out delay-300 ${isVisible
+                    className={`font-archivo-regular text-base md:text-lg lg:text-xl font-light leading-relaxed tracking-wide transition-all duration-1000 ease-out delay-300 ${isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-16"
                         }`}

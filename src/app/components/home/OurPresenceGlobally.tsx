@@ -45,7 +45,7 @@ export default function OurPresenceGlobally() {
                             <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
                                 {title}
                             </h2>
-                            <p className="text-sm md:text-base text-gray-600 mb-8 md:mb-12 whitespace-pre-line">
+                            <p className="font-archivo-regular text-xl md:text-xl text-gray-600 mb-8 md:mb-12 whitespace-pre-line">
                                 {subtitle}
                             </p>
 
