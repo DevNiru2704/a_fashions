@@ -6,6 +6,7 @@ import LogoSection from "./components/home/LogoSection";
 import ManifestoSection from "./components/home/ManifestoSection";
 import WhatWeMake from "./components/home/WhatWeMake";
 import KeyFigures from "./components/home/KeyFigures";
+import OurPresenceGlobally from "./components/home/OurPresenceGlobally";
 import WhoWeAre from "./components/home/WhoWeAre";
 import LetsTalk from "./components/common/LetsTalk";
 import Footer from "./components/common/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
         <ManifestoSection />
         <WhatWeMake />
         <KeyFigures />
+        <OurPresenceGlobally />
         <WhoWeAre />
         <LetsTalk />
       </main>

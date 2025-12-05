@@ -26,14 +26,14 @@ const KEY_FIGURES_DATA: KeyFiguresData = {
             description: "Equipped with the latest machinery and a team of skilled workers and craftsmen, we operate a fully in-house manufacturing facility for bags, wallets, belts, and SLGs.",
             image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_key_figures/infrastructure.webp",
             authorImage: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
-            authorName: "A FASHION"
+            authorName: "A FASHIONS"
         },
         {
             title: "TANNERY",
             description: "Having our own tannery gives us complete control over the quality, consistency, and sustainability of the leather we use. From raw material selection to finishing, every stage is closely monitored, allowing us to deliver uniform colours, textures, and performance across all products. With faster development, improved customisation, and transparent processes, our tannery strengthens our supply chain and ensures that every piece we create meets the highest standards of craftsmanship and responsibility.",
             image: "https://ik.imagekit.io/zqjkk9ui6/images/home_page_key_figures/tannery.webp",
             authorImage: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
-            authorName: "A FASHION"
+            authorName: "A FASHIONS"
         },
         {
             title: "OUR SOCIAL & ETHICAL COMPLIANCES",
@@ -47,7 +47,7 @@ const KEY_FIGURES_DATA: KeyFiguresData = {
             ],
             image: "https://ik.imagekit.io/zqjkk9ui6/images/our_story_ethical_section/ethics.webp",
             authorImage: "https://ik.imagekit.io/zqjkk9ui6/images/afashions_favicon.svg",
-            authorName: "A FASHION"
+            authorName: "A FASHIONS"
         }
     ]
 };
