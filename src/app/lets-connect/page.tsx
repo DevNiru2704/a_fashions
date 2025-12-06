@@ -3,8 +3,8 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { motion, useInView } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
+import Navbar from "../../components/common/Navbar";
+import Footer from "../../components/common/Footer";
 
 function ContactForm() {
     const [formData, setFormData] = useState({

@@ -3,9 +3,9 @@ import { useRef, use, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "../../components/common/Navbar";
-import Footer from "../../components/common/Footer";
-import BlurFadeText from "../../components/animations/BlurFadeText";
+import Navbar from "../../../components/common/Navbar";
+import Footer from "../../../components/common/Footer";
+import BlurFadeText from "../../../components/animations/BlurFadeText";
 import { PRODUCT_MODELS, CATEGORY_NAMES, type ProductModel } from "../../../data/catalogProducts";
 
 interface PageProps {

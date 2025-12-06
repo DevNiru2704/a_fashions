@@ -1,12 +1,12 @@
 "use client";
 import { useRef } from "react";
-import Navbar from "../components/common/Navbar";
-import AboutAFashion from "../components/who_we_are/AboutAFashion";
-import ImageGrid from "../components/who_we_are/ImageGrid";
-import ProcessSection from "../components/who_we_are/ProcessSection";
-import OurStorySection from "../components/who_we_are/OurStorySection";
-import LetsTalk from "../components/common/LetsTalk";
-import Footer from "../components/common/Footer";
+import Navbar from "../../components/common/Navbar";
+import AboutAFashion from "../../components/who_we_are/AboutAFashion";
+import ImageGrid from "../../components/who_we_are/ImageGrid";
+import ProcessSection from "../../components/who_we_are/ProcessSection";
+import OurStorySection from "../../components/who_we_are/OurStorySection";
+import LetsTalk from "../../components/common/LetsTalk";
+import Footer from "../../components/common/Footer";
 import OUR_STORY_CONTENT from "../../data/ourStory";
 
 export default function OurStory() {

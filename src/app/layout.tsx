@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GlobalCursor from "./components/common/GlobalCursor";
-import ScrollToTop from "./components/common/ScrollToTop";
-import SmoothScroll from "./components/common/SmoothScroll";
-import ContentProtection from "./components/common/ContentProtection";
+import GlobalCursor from "../components/common/GlobalCursor";
+import ScrollToTop from "../components/common/ScrollToTop";
+import SmoothScroll from "../components/common/SmoothScroll";
+import ContentProtection from "../components/common/ContentProtection";
 import { generatePageMetadata, organizationSchema, manufacturingBusinessSchema } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata("home");

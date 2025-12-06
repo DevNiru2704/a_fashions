@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import BlurFadeText from "./components/animations/BlurFadeText";
-import MorphButton from "./components/animations/MorphButton";
-import Footer from "./components/common/Footer";
+import BlurFadeText from "../components/animations/BlurFadeText";
+import MorphButton from "../components/animations/MorphButton";
+import Footer from "../components/common/Footer";
 
 export default function NotFound() {
     return (

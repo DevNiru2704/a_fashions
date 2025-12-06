@@ -1,15 +1,15 @@
 "use client";
 import { useRef } from "react";
-import Navbar from "./components/common/Navbar";
-import VideoCurtain from "./components/home/VideoCurtain";
-import LogoSection from "./components/home/LogoSection";
-import ManifestoSection from "./components/home/ManifestoSection";
-import WhatWeMake from "./components/home/WhatWeMake";
-import KeyFigures from "./components/home/KeyFigures";
-import OurPresenceGlobally from "./components/home/OurPresenceGlobally";
-import WhoWeAre from "./components/home/WhoWeAre";
-import LetsTalk from "./components/common/LetsTalk";
-import Footer from "./components/common/Footer";
+import Navbar from "../components/common/Navbar";
+import VideoCurtain from "../components/home/VideoCurtain";
+import LogoSection from "../components/home/LogoSection";
+import ManifestoSection from "../components/home/ManifestoSection";
+import WhatWeMake from "../components/home/WhatWeMake";
+import KeyFigures from "../components/home/KeyFigures";
+import OurPresenceGlobally from "../components/home/OurPresenceGlobally";
+import WhoWeAre from "../components/home/WhoWeAre";
+import LetsTalk from "../components/common/LetsTalk";
+import Footer from "../components/common/Footer";
 
 // Metadata is exported from layout.tsx with home-specific overrides
 

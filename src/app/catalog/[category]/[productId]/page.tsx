@@ -1,9 +1,9 @@
 "use client";
 import { useRef, use } from "react";
 import { notFound } from "next/navigation";
-import Navbar from "../../../components/common/Navbar";
-import Footer from "../../../components/common/Footer";
-import ProductDetail from "../../../components/catalogue/ProductDetail";
+import Navbar from "../../../../components/common/Navbar";
+import Footer from "../../../../components/common/Footer";
+import ProductDetail from "../../../../components/catalogue/ProductDetail";
 import { getProductBySlug, PRODUCT_MODELS } from "../../../../data/catalogProducts";
 
 interface PageProps {
