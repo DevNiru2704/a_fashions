@@ -29,8 +29,6 @@ export default function RootLayout({
             __html: JSON.stringify(manufacturingBusinessSchema),
           }}
         />
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "471b42d852f74aae96d740374febf0b7"}'></script>
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7b8ede646bd143c49ae3673c4323e754"}'></script>
       </head>
       <body className="font-simhei bg-[#E8E8E8]">
         {/* <ContentProtection> */}
