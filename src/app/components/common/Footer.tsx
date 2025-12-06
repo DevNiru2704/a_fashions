@@ -88,7 +88,7 @@ export default function Footer() {
 
                 {/* Copyright - Bottom Right on mobile, far right on desktop */}
                 <div className="flex-shrink-0 flex items-end md:ml-auto md:self-end">
-                    <p className="text-xs md:text-sm text-gray-600 tracking-wider">2025 © AFASHION</p>
+                    <p className="text-xs md:text-xl text-gray-600 tracking-wider">2025 © A FASHIONS</p>
                 </div>
             </div>
         </footer>

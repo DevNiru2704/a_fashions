@@ -15,8 +15,8 @@ interface OurPresenceGloballyData {
 
 // CMS-ready data structure
 const PRESENCE_DATA: OurPresenceGloballyData = {
-    title: "OUR PRESENCE GLOBALLY",
-    subtitle: "Includes our participation in international trade\nfairs and our design selected & displayed by Mipel, Milan",
+    title: "OUR GLOBAL PRESENCE",
+    subtitle: "With a growing global footprint, our designs have been proudly selected & displayed at Milel Trend Area, Milan",
     images: [
         {
             src: "https://ik.imagekit.io/zqjkk9ui6/images/global_presence/global1.webp",
